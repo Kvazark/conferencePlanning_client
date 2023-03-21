@@ -1,0 +1,11 @@
+.active-link {
+    color: rgba(50, 252, 218, 0.811);
+    text-decoration: none;
+}
+.non-active-link{
+    color:rgb(255, 255, 255);
+}
+.non-active-navlink{
+    color:rgb(34, 72, 226);
+    text-decoration: none;
+}
