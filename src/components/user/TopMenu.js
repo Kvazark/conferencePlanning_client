@@ -41,9 +41,13 @@ export default function TopMenu() {
                         <PersonCircle size={30}/>
                     </li>
                 </NavLink>
-                <li>
-                    <DoorOpen color="#7E1919" size={30}/>
-                </li>
+                <NavLink style={({isActive}) =>
+                    isActive ? activeStyle : noActiveStyle}
+                         to="/login">
+                    <li>
+                        <DoorOpen size={30}/>
+                    </li>
+                </NavLink>
             </ul>
             {/*<figure>*/}
             {/*    <img src={process.env.PUBLIC_URL+"Elipse2.svg"} />*/}

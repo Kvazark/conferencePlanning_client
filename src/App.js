@@ -9,7 +9,7 @@ import HomePageModerator from "./components/moderator/views/HomePageModerator";
 import OrganizationProfile from "./components/moderator/views/OrganizationProfile";
 import EventsList from "./components/moderator/views/EventsList";
 import Registration from "./components/authorization/registration/Registration";
-import Login from "./components/authorization/login/login";
+import Login from "./components/authorization/login/Login";
 import ListNotifications from "./components/user/views/ListNotifications";
 
 
@@ -39,31 +39,32 @@ export default function User  () {
         //     <Registration></Registration>
         // </main>
         // ........................у пользователя
-        <main>
-            <div>
-                <TopMenu />
-            </div>
-            <div>
-                <Routes>
-                    <Route path="/listNotifications" element={<ListNotifications />} />
-                    <Route path="/mainPageUser" element={<Homepage />} />
-                    <Route path="/profilePageUser" element={<Profile />} />
-                </Routes>
-            </div>
-        </main>
-        //..................................у модератора
         // <main>
         //     <div>
-        //         <LeftMenu />
+        //         <TopMenu />
         //     </div>
         //     <div>
         //         <Routes>
-        //             <Route path="/mainPageModerator" element={<HomePageModerator />} />
-        //             <Route path="/organizationProfilePageModerator" element={<OrganizationProfile />} />
-        //             <Route path="/eventsListModerator" element={<EventsList/>}/>
+        //             <Route path="/listNotifications" element={<ListNotifications />} />
+        //             <Route path="/mainPageUser" element={<Homepage />} />
+        //             <Route path="/profilePageUser" element={<Profile />} />
+        //             <Route path="/login" element={<Login />} />
         //         </Routes>
         //     </div>
-        //  </main>
+        // </main>
+        //..................................у модератора
+        <main>
+            <div>
+                <LeftMenu />
+            </div>
+            <div>
+                <Routes>
+                    <Route path="/mainPageModerator" element={<HomePageModerator />} />
+                    <Route path="/organizationProfilePageModerator" element={<OrganizationProfile />} />
+                    <Route path="/eventsListModerator" element={<EventsList/>}/>
+                </Routes>
+            </div>
+         </main>
         )
 }
 

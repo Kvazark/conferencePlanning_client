@@ -6,9 +6,8 @@ body{
 }
 fieldset{
     /*background-color: #61dafb;*/
-
     width: 40rem;
-    height: 50%;
+    height: 60%;
     position: absolute;
     left: 30%;
     top:20%;
@@ -31,18 +30,28 @@ fieldset{
     font-weight: 500;
     font-size: 36px;
     line-height: 43px;
-
-
     color: #206F6D;
 }
 .group-input{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    height: 55%;
 
     position: absolute;
     width: 30rem;
     top: 75px;
+
+}
+.group-input2{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 60%;
+
+    position: absolute;
+    width: 30rem;
+    top:65%;
 
 }
 .registration_btn{
@@ -62,6 +71,10 @@ fieldset{
 
     color: #f2f2f2;
 
+}
+.registration_btn:focus, input:focus {outline: none;}
+.registration_btn:hover{
+    transform: translateY(0) scale(1.05);
 }
 .toLogin{
     display: flex;
