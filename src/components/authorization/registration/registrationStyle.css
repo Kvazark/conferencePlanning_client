@@ -1,0 +1,97 @@
+* {
+    border: none;
+}
+body{
+    background-color: #f2f2f2;
+}
+fieldset{
+    /*background-color: #61dafb;*/
+
+    width: 40rem;
+    height: 50%;
+    position: absolute;
+    left: 30%;
+    top:20%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 5rem;
+
+
+}
+.headerReg{
+    height: 43px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%);
+
+    font-family: 'Fira Mono', serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+
+
+    color: #206F6D;
+}
+.group-input{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    position: absolute;
+    width: 30rem;
+    top: 75px;
+
+}
+.registration_btn{
+    position: relative;
+    top:90%;
+    width: 30rem;
+    height: 45px;
+
+    bottom: 0;
+    background: rgba(32, 111, 109, 0.7);
+    border-radius: 15px;
+
+    font-family: 'Hind Vadodara';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+
+    color: #f2f2f2;
+
+}
+.toLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 485px;
+    height: 30px;
+    left: calc(50% - 485px/2 + 7.5px);
+    bottom: 0;
+
+    font-family: 'Hind Vadodara';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: rgba(48, 48, 48, 0.5);
+}
+.toLogin span{
+
+    font-family: 'Hind Vadodara';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: -10px;
+    color: #206F6D;
+}

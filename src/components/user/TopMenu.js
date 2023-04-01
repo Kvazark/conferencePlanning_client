@@ -1,38 +1,48 @@
-import { Link, NavLink } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import styles from './topMenu.style.css';
 import {FormControl, Nav, Navbar, Form, Container} from "react-bootstrap";
-import Profile from "./Profile";
+import Profile from "./views/Profile";
 import * as Icon from 'react-bootstrap-icons';
 import {ArrowRight, Bell, DoorOpen, HouseDoor, PersonCircle} from "react-bootstrap-icons";
 
 
-
-
-
 export default function TopMenu() {
-    const setNavStyle = ({isActive}) => {
-        return isActive
-            ? styles['active-link']
-            : styles['non-active-link'];
-    }
+    let activeStyle = {
+        background: "#7E1919",
+        color: "#F2F2F2",
+        // marginTop:"-7px",
+        // paddingTop: "7px",
+        borderRadius: "0px 0px 100px 100px"
+    };
+    let noActiveStyle = {
+        color: "#7E1919",
+    };
 
     return (
         <Navbar className="blockNav">
-            <ul className = "menu">
+            <ul className="menu">
+                <NavLink style={({isActive}) =>
+                    isActive ? activeStyle : noActiveStyle}
+                         to="/listNotifications">
+                    <li><Bell size={30}/></li>
+                </NavLink>
+
+                <NavLink style={({isActive}) =>
+                    isActive ? activeStyle : noActiveStyle}
+                         to="/mainPageUser">
+                    <li>
+                        <HouseDoor size={30}/>
+                    </li>
+                </NavLink>
+                <NavLink style={({isActive}) =>
+                    isActive ? activeStyle : noActiveStyle}
+                         to="/profilePageUser">
+                    <li>
+                        <PersonCircle size={30}/>
+                    </li>
+                </NavLink>
                 <li>
-                    <NavLink to="/mainPageUser"><Bell color="#7E1919" size={30} /></NavLink>
-                </li>
-                <li>
-                    <NavLink style={({isActive})=>({
-                        borderBottom: isActive ? "#7E1919 solid 2px": '',
-                        opacity: isActive ? 1 : ""
-                    })}  to="/mainPageUser"><HouseDoor color="#7E1919" size={30} /></NavLink>
-                </li>
-                <li>
-                    <NavLink className={setNavStyle} to="/profilePageUser"><PersonCircle color="#7E1919" size={30} /></NavLink>
-                </li>
-                <li>
-                    <DoorOpen color="#7E1919" size={30} />
+                    <DoorOpen color="#7E1919" size={30}/>
                 </li>
             </ul>
             {/*<figure>*/}
@@ -40,7 +50,6 @@ export default function TopMenu() {
             {/*</figure>*/}
 
         </Navbar>
-
 
 
     );

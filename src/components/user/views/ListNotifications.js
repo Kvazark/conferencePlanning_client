@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 
-class ListNotifications extends Component {
-    render() {
+const ListNotifications =()=> {
         return (
             <div>
-                
+                <h2 className="listNotifications">Welcome to the list notifications!</h2>
             </div>
         );
-    }
+
 }
 
 export default ListNotifications;
