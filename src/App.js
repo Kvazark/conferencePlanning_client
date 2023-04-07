@@ -1,16 +1,17 @@
 import {Routes, Route, NavLink} from 'react-router-dom';
 
 import './App.css';
-import Homepage from './components/user/views/Homepage';
-import Profile from './components/user/views/Profile';
+import Homepage from './components/views/userViews/Homepage';
+import Profile from './components/views/userViews/Profile';
 import TopMenu from './components/user/TopMenu'
 import LeftMenu from "./components/moderator/LeftMenu";
-import HomePageModerator from "./components/moderator/views/HomePageModerator";
-import OrganizationProfile from "./components/moderator/views/OrganizationProfile";
-import EventsList from "./components/moderator/views/EventsList";
+import HomePageModerator from "./components/views/moderatorViews/HomePageModerator";
+import OrganizationProfile from "./components/views/moderatorViews/OrganizationProfile";
+import EventsList from "./components/views/moderatorViews/EventsList";
 import Registration from "./components/authorization/registration/Registration";
 import Login from "./components/authorization/login/Login";
-import ListNotifications from "./components/user/views/ListNotifications";
+import ListNotifications from "./components/views/userViews/ListNotifications";
+import CreateAnEvent from "./components/views/moderatorViews/CreateAnEvent";
 
 
 // function App() {
@@ -29,20 +30,16 @@ import ListNotifications from "./components/user/views/ListNotifications";
 // }
 export default function User  () {
     return(
-        // <main>
-        //     <div>
-        //         <Routes>
-        //             <Route path="/registration" element={<Registration/>}/>
-        //             <Route path="/login" element={<Login/>}/>
-        //         </Routes>
-        //     </div>
-        //     <Registration></Registration>
-        // </main>
+        <main>
+            <div>
+                <Routes>
+                    <Route path="/registration" element={<Registration/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                </Routes>
+            </div>
+        </main>
         // ........................у пользователя
         // <main>
-        //     <div>
-        //         <TopMenu />
-        //     </div>
         //     <div>
         //         <Routes>
         //             <Route path="/listNotifications" element={<ListNotifications />} />
@@ -53,18 +50,16 @@ export default function User  () {
         //     </div>
         // </main>
         //..................................у модератора
-        <main>
-            <div>
-                <LeftMenu />
-            </div>
-            <div>
-                <Routes>
-                    <Route path="/mainPageModerator" element={<HomePageModerator />} />
-                    <Route path="/organizationProfilePageModerator" element={<OrganizationProfile />} />
-                    <Route path="/eventsListModerator" element={<EventsList/>}/>
-                </Routes>
-            </div>
-         </main>
+        // <main>
+        //     <div>
+        //         <Routes>
+        //             <Route path="/mainPageModerator" element={<HomePageModerator />} />
+        //             <Route path="/organizationProfilePageModerator" element={<OrganizationProfile />} />
+        //             <Route path="/eventsListModerator" element={<EventsList/>}/>
+        //             <Route path="/createAnEvent" element={<CreateAnEvent/>}/>
+        //         </Routes>
+        //     </div>
+        //  </main>
         )
 }
 

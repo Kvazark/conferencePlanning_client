@@ -1,7 +1,7 @@
 import {Link, NavLink} from 'react-router-dom';
 import styles from './topMenu.style.css';
 import {FormControl, Nav, Navbar, Form, Container} from "react-bootstrap";
-import Profile from "./views/Profile";
+import Profile from "../views/userViews/Profile";
 import * as Icon from 'react-bootstrap-icons';
 import {ArrowRight, Bell, DoorOpen, HouseDoor, PersonCircle} from "react-bootstrap-icons";
 

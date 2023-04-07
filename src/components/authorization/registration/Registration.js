@@ -13,19 +13,23 @@ const Registration = () => {
     const [userSurname, setUserSurname] = useState("");
     const [organizName, setOrganizName] = useState("");
     const [isChecked, setIsChecked] = useState(false);
+
     const handleChange = () => {
         setIsChecked(!isChecked);
     };
     let message;
+    var role;
     if (isChecked) {
         message = <div className="group-input2">
             <Input value={organizName} setValue={setOrganizName} type="text" placeholder="Введите название организации..."></Input>
         </div>
+        role = "moderator";
     } else {
         message = <div className="group-input2">
             <Input value={userName} setValue={setUserName} type="text" placeholder="Введите ваше имя..."></Input>
             <Input value={userSurname} setValue={setUserSurname} type="text" placeholder="Введите вашу фамилию..."></Input>
         </div>
+        role = "user";
     }
 
     return (
