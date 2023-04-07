@@ -46,7 +46,7 @@ const Registration = () => {
             </div>
 
             <button className="registration_btn"
-                    onClick={() => registration(email, password, userName)}>Зарегистрироваться
+                    onClick={() => registration(userSurname, email, password, userName)}>Зарегистрироваться
             </button>
             <NavLink className="toLogin" to="/login">Уже есть аккаунт?<span>Войти</span></NavLink>
         </fieldset>

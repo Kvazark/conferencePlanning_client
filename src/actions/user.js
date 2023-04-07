@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const registration = async (email,password, userName, userSurname)=>{
+export const registration = async (userSurname,email,password, userName )=>{
     try{
-        const response = await axios.post('http://localhost:8080/api/registration',{
+        const response = await axios.post('http://localhost:7215/api/account/registration',{
+            userSurname,
             email,
             password,
-            userName,
-            userSurname
+            userName
         })
         alert("succesful")
     }catch (error){
