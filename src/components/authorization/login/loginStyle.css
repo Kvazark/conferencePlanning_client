@@ -1,0 +1,83 @@
+.headerLogin{
+    height: 43px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    transform: translate(-50%);
+
+    font-family: 'Fira Mono', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 43px;
+    color: #206F6D;
+}
+.form-authorization2{
+    width: 40rem;
+    height: 38%;
+    position: absolute;
+    left: 30%;
+    top:30%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 5rem;
+}
+.login_btn{
+    position: relative;
+    top:80%;
+
+    height: 45px;
+
+    bottom: 0;
+    background: rgba(32, 111, 109, 0.7);
+    border-radius: 15px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+
+    color: #f2f2f2;
+
+}
+.login_btn:focus, input:focus {outline: none;}
+.login_btn:hover{
+    transform: translateY(0) scale(1.05);
+}
+.toRegistration{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+
+    position: absolute;
+    width: 485px;
+    height: 30px;
+    left: calc(50% - 485px/2 + 7.5px);
+    bottom: 0;
+
+    font-family: 'Hind Vadodara',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+
+    color: rgba(48, 48, 48, 0.5);
+}
+.toRegistration span{
+
+    font-family: 'Hind Vadodara',sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: -10px;
+    color: #206F6D;
+}
+.navbar__login{
+    position: absolute;
+    bottom: -100px;
+}

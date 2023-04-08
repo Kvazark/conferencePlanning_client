@@ -4,8 +4,7 @@
 body{
     background-color: #f2f2f2;
 }
-fieldset{
-    /*background-color: #61dafb;*/
+.form-authorization1{
     width: 40rem;
     height: 60%;
     position: absolute;
@@ -25,7 +24,7 @@ fieldset{
 
     transform: translate(-50%);
 
-    font-family: 'Fira Mono', serif;
+    font-family: 'Fira Mono', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 36px;
@@ -64,7 +63,7 @@ fieldset{
     background: rgba(32, 111, 109, 0.7);
     border-radius: 15px;
 
-    font-family: 'Hind Vadodara';
+    font-family: 'Hind Vadodara',sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -90,7 +89,7 @@ fieldset{
     left: calc(50% - 485px/2 + 7.5px);
     bottom: 0;
 
-    font-family: 'Hind Vadodara';
+    font-family: 'Hind Vadodara',sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -100,7 +99,7 @@ fieldset{
 }
 .toLogin span{
 
-    font-family: 'Hind Vadodara';
+    font-family: 'Hind Vadodara', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;

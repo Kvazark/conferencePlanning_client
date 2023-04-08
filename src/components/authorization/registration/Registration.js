@@ -33,7 +33,7 @@ const Registration = () => {
     }
 
     return (
-        <fieldset>
+        <fieldset className="form-authorization1">
             <div className="headerReg">Регистация</div>
             <div className="group-input">
                 <Input value={email} setValue={setEmail} type="text" placeholder="Введите ваш Email..."></Input>
