@@ -7,3 +7,35 @@
     top: 30%;
 
 }
+.shortDescription-textarea{
+    width: 100%;
+    height: 55px;
+    border-bottom: #303030;
+    background-color: #f2f2f2;
+    border-bottom:1px solid black;
+    resize: none;
+
+}
+.shortDescription-textarea:focus {
+    outline: none !important;
+    border: 1px solid rgba(30, 30, 30, 0.05);
+    border-bottom:1px solid rgba(30, 30, 30);
+    border-radius: 5px 5px 0 0;
+
+
+}
+.longDescription-textarea{
+    width: 100%;
+    height: 105px;
+    border-bottom: #303030;
+    background-color: #f2f2f2;
+    border-bottom:1px solid black;
+    resize: none;
+
+}
+.longDescription-textarea:focus {
+    outline: none !important;
+    border: 1px solid rgba(30, 30, 30, 0.05);
+    border-bottom:1px solid rgba(30, 30, 30);
+    border-radius: 5px 5px 0 0;
+}

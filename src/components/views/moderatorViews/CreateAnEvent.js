@@ -10,7 +10,7 @@ const CreateAnEvent = () => {
 
     return (
         <main>
-            <NavLink to="/eventsListModerator">
+            <NavLink to="/moderator/eventsListModerator">
                 <button className="back-to-eventsList">отменить</button>
             </NavLink>
             <div className="stepper">

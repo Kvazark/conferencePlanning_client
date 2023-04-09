@@ -24,19 +24,19 @@ class LeftMenu extends Component {
             <Navbar className="blockNavLeft">
                 <ul className="leftMenu">
                     <NavLink style={({isActive}) =>
-                        isActive ? activeStyle : noactiveStyle} to="/mainPageModerator">
+                        isActive ? activeStyle : noactiveStyle} to="/moderator/mainPageModerator">
                         <li>
                             <div className="blockLi"><HouseDoor size={30}/>Главная</div>
                         </li>
                     </NavLink>
                     <NavLink style={({isActive}) =>
-                        isActive ? activeStyle : noactiveStyle} to="/eventsListModerator">
+                        isActive ? activeStyle : noactiveStyle} to="/moderator/eventsListModerator">
                         <li>
                             <div className="blockLi"><CardList size={30}/>События</div>
                         </li>
                     </NavLink>
                     <NavLink style={({isActive}) =>
-                        isActive ? activeStyle : noactiveStyle} to="/organizationProfilePageModerator">
+                        isActive ? activeStyle : noactiveStyle} to="/moderator/organizationProfilePageModerator">
                         <li>
                             <div className="blockLi"><BuildingGear size={30}/>Организация</div>
                         </li>

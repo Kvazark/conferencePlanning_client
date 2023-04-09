@@ -3,7 +3,7 @@ import Input from "../../inputs/input/Input";
 import {NavLink} from "react-router-dom";
 import style from "./registrationStyle.css"
 import Checkbox from "../../inputs/input/Checkbox";
-import {registration} from "../../../actions/user";
+import {registration} from "../../../redax/actions/user";
 import RadioBtn from "../../inputs/input/RadioBtn";
 
 const Registration = () => {

@@ -5,7 +5,7 @@ import Profile from "../views/userViews/Profile";
 import * as Icon from 'react-bootstrap-icons';
 import {ArrowRight, Bell, DoorOpen, HouseDoor, PersonCircle} from "react-bootstrap-icons";
 import {useDispatch, useSelector} from "react-redux";
-import {logout} from "../../reducers/userReducer";
+import {logout} from "../../redax/reducers/userReducer";
 
 
 export default function TopMenu() {

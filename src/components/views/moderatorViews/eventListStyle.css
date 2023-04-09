@@ -1,0 +1,32 @@
+.topPanel{
+    position: absolute;
+    width:87vw;
+    height: 100px;
+    left: 13vw;
+    top: 0;
+    background-color: #61dafb;
+}
+.create-new-event-Btn{
+    position: absolute;
+    width: 180px;
+    height: 35px;
+    right: 40px;
+    top: 30px;
+
+    background: rgba(32, 111, 109, 0.7);
+    border-radius: 10px;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+}
+.create-new-event-Btn:focus, input:focus {outline: none;}
+.create-new-event-Btn:hover{
+    transform: translateY(0) scale(1.05);
+}

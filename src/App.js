@@ -14,7 +14,7 @@ import ListNotifications from "./components/views/userViews/ListNotifications";
 import CreateAnEvent from "./components/views/moderatorViews/CreateAnEvent";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {auth} from "./actions/user";
+import {auth} from "./redax/actions/user";
 
 
 function App() {
@@ -34,31 +34,31 @@ function App() {
     // </div>
 
 ////////////////////////////////////авторизация/////////////////////////////////////////////////
-    const isAuth = useSelector(state => state.user.isAuth)
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(auth())
-    }, [])
-
-    return (
-        <main>
-            <div>
-                {!isAuth &&
-                    <Routes>
-                        <Route path="/registration" element={<Registration/>}/>
-                        <Route path="/login" element={<Login/>}/>
-                    </Routes>
-                }
-                <Routes>
-                    <Route path="/listNotifications" element={<ListNotifications/>}/>
-                    <Route path="/mainPageUser" element={<Homepage/>}/>
-                    <Route path="/profilePageUser" element={<Profile/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                </Routes>
-            </div>
-        </main>
-    )
+//     const isAuth = useSelector(state => state.user.isAuth)
+//     const dispatch = useDispatch()
+//
+//     useEffect(() => {
+//         dispatch(auth())
+//     }, [])
+//
+//     return (
+//         <main>
+//             <div>
+//                 {!isAuth &&
+//                     <Routes>
+//                         <Route path="/registration" element={<Registration/>}/>
+//                         <Route path="/login" element={<Login/>}/>
+//                     </Routes>
+//                 }
+//                 <Routes>
+//                     <Route path="/listNotifications" element={<ListNotifications/>}/>
+//                     <Route path="/mainPageUser" element={<Homepage/>}/>
+//                     <Route path="/profilePageUser" element={<Profile/>}/>
+//                     <Route path="/login" element={<Login/>}/>
+//                 </Routes>
+//             </div>
+//         </main>
+//     )
 ////////////////////////////////////авторизация/////////////////////////////////////////////////
 /////////////////////////////////////пользователь//////////////////////////////////////////
     // return(
@@ -74,16 +74,20 @@ function App() {
     //     </main>
     // )
 /////////////////////////////////////модератор//////////////////////////////////////////
-    // <main>
-    //     <div>
-    //         <Routes>
-    //             <Route path="/mainPageModerator" element={<HomePageModerator />} />
-    //             <Route path="/organizationProfilePageModerator" element={<OrganizationProfile />} />
-    //             <Route path="/eventsListModerator" element={<EventsList/>}/>
-    //             <Route path="/createAnEvent" element={<CreateAnEvent/>}/>
-    //         </Routes>
-    //     </div>
-    //  </main>
+    return (
+        <main>
+            <div>
+                <Routes>
+                    <Route path="/moderator">
+                        <Route path="mainPageModerator" element={<HomePageModerator/>}/>
+                        <Route path="organizationProfilePageModerator" element={<OrganizationProfile/>}/>
+                        <Route path="eventsListModerator" element={<EventsList/>}></Route>
+                        <Route path="eventsListModerator/createAnEvent" element={<CreateAnEvent/>}></Route>
+                    </Route>
+                </Routes>
+            </div>
+        </main>
+    )
 ///////////////////////////////////////////////////////////////////////////////
 }
 
