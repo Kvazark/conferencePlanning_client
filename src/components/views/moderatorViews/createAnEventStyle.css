@@ -20,11 +20,10 @@
     transform: translateY(0) scale(1.05);
 }
 .stepper{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    padding: 0px 31px 0px 30px;
-
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*align-items: flex-start;*/
+    /*padding: 0px 31px 0px 30px;*/
     position: absolute;
     width: 1596px;
     height: 80px;

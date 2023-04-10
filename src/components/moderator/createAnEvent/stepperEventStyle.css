@@ -1,0 +1,85 @@
+.buttons-stepper{
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    display: flex;
+    gap: 55vw;
+    margin-bottom: 30px;
+}
+.btn-back-step{
+    width: 117px;
+    height: 37px;
+
+    border-radius: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+
+    align-items: center;
+
+    color: #206F6D;
+}
+.btn-forth-step{
+    width: 117px;
+    height: 37px;
+
+    background: #6A888C;
+    border-radius: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    align-items: center;
+}
+.btn-forth-step:hover{
+    background-color: #206F6D;
+}
+.mantine-Stepper-separator{
+    padding: 2.5px 0;
+    margin-right: -5px;
+    margin-left: 30px;
+}
+.mantine-Stepper-stepIcon{
+    border: 6px solid rgba(32, 111, 109, 0.2);
+    border-radius: 50px;
+}
+.mantine-Stepper-stepCompletedIcon{
+    background-color: rgba(32, 111, 109, 0.85);
+}
+.mantine-Stepper-step{
+    width: 0;
+
+}
+.mantine-Stepper-root{
+    position: absolute;
+    width: 70vw;
+    height: 80px;
+    left: 15%;
+    top: 10%;
+
+}
+
+.mantine-Stepper-stepBody{
+    position: relative;
+    top: -30px;
+    left: -60px;
+
+}
+.mantine-Stepper-stepLabel {
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    /* identical to box height */
+
+    color: rgba(32, 111, 109, 0.85);
+
+    mix-blend-mode: normal;
+    padding-left: -10px;
+}
