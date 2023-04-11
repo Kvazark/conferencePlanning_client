@@ -1,0 +1,83 @@
+.section-field{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.field-add-remove-input{
+    width: 90%;
+    position: relative;
+    left:5%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+.btn-box{
+    background-color: #61dafb;
+    width: 20px;
+    height: 30px;
+}
+.btn-remove-input{
+    position: relative;
+    width: 20px;
+    height: 30px;
+    padding: 0 30px 0 0;
+    margin-left: -10px;
+}
+
+.btn-add-input{
+    position: relative;
+    width: 180px;
+    height: 42px;
+    left: 0;
+    top: 20px;
+    background-color: #F2F2F2;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    color: rgba(76, 91, 102, 0.5);
+}
+.icon-plusCircleFill{
+    position: relative;
+    left: 0;
+    top: 0;
+    color: #206F6D;
+    margin-right: 10px;
+}
+.inputSchedule{
+    background-color: #F2F2F2;
+    width: 100%;
+    height: 36px;
+    margin-top: 5px;
+    border-bottom: 1px solid;
+    border-color: #206F6D;
+    padding-left: 40px;
+
+}
+.icon-recordFill{
+    position: absolute;
+    margin: 7px 0 0 5px;
+}
+.input-section-time[type="time"]::-webkit-calendar-picker-indicator { background: none; display:none; }
+.input-section-time{
+    height: 41px;
+    width: 70px;
+    padding: 10px;
+    background-color: rgba(242, 242, 242, 0.95);
+    border-bottom: #206F6D solid 1px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 33px;
+
+    color: #303030;
+}

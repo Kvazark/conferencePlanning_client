@@ -1,44 +1,44 @@
-.buttons-stepper{
+.buttons-stepper1{
     position: absolute;
-    bottom: 0;
-    left: 15%;
-    display: flex;
-    gap: 55vw;
+    bottom: -110vh;
+    right: 8%;
+    /*display: flex;*/
+    /*gap: 54vw;*/
     margin-bottom: 30px;
+    padding-bottom: 30px;
 }
-.btn-back-step{
-    width: 117px;
-    height: 37px;
 
-    border-radius: 10px;
+.buttons-stepper2{
+    position: absolute;
+    bottom: -90vh;
+    left: 16%;
+    display: flex;
+    gap: 74vh;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
 
-    font-family: 'Hind Vadodara', sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 27px;
-
-    align-items: center;
-
-    color: #206F6D;
 }
-.btn-forth-step{
-    width: 117px;
-    height: 37px;
+.buttons-stepper3{
+    position: relative;
+    bottom: -20vh;
+    left: 16%;
+    display: flex;
+    gap: 74vh;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
 
-    background: #6A888C;
-    border-radius: 10px;
+}
+.buttons-stepper4{
+    position: absolute;
+    bottom: -90vh;
+    left: 16%;
+    display: flex;
+    gap: 74vh;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
 
-    font-family: 'Hind Vadodara', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 27px;
-    align-items: center;
 }
-.btn-forth-step:hover{
-    background-color: #206F6D;
-}
+
 .mantine-Stepper-separator{
     padding: 2.5px 0;
     margin-right: -5px;

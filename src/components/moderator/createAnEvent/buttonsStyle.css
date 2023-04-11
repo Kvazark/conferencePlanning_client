@@ -1,0 +1,50 @@
+.btn-back-step{
+    width: 117px;
+    height: 37px;
+
+    border-radius: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+
+    align-items: center;
+
+    color: #206F6D;
+}
+.btn-forth-step{
+    width: 117px;
+    height: 37px;
+
+    background: #6A888C;
+    border-radius: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    align-items: center;
+}
+.btn-save-event{
+    width: 150px;
+    height: 37px;
+
+    background: #6A888C;
+    border-radius: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    align-items: center;
+}
+.btn-forth-step:hover{
+    background-color: #206F6D;
+}
+.btn-save-event:hover{
+    background-color: #206F6D;
+}

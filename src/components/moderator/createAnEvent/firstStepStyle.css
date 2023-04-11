@@ -1,9 +1,11 @@
-.creation-field1{
+.creation-field-form1{
     position: absolute;
+    height: auto;
     width: 70%;
     left: 15%;
     right: 15%;
     top: 90%;
+    padding-bottom: 50px;
 
 }
 .shortDescription-textarea{
@@ -11,7 +13,8 @@
     height: 55px;
     border-bottom: #303030;
     background-color: #f2f2f2;
-    border-bottom:1px solid black;
+    border-bottom:1px solid;
+    border-color: #206F6D;
     resize: none;
 
 }
@@ -28,7 +31,8 @@
     height: 105px;
     border-bottom: #303030;
     background-color: #f2f2f2;
-    border-bottom:1px solid black;
+    border-bottom:1px solid;
+    border-color: #206F6D;
     resize: none;
 
 }
@@ -37,4 +41,56 @@
     border: 1px solid rgba(30, 30, 30, 0.05);
     border-bottom:1px solid rgba(30, 30, 30);
     border-radius: 5px 5px 0 0;
+}
+.data-time-field{
+    height: 70px;
+    width: 20%;
+    border-bottom: #206F6D solid 2px;
+}
+.icons-data-time{
+    color: rgba(32, 111, 109, 0.85);
+    position: relative;
+    left: 5px;
+    top: 0;
+}
+.react-datepicker__input-container input {
+    background-color: #F2F2F2;
+    width: 100px;
+    height: 28px;
+}
+.date-picker{
+    position: relative;
+    top: -33px;
+    right: -40px;
+
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 33px;
+
+    display: flex;
+    align-items: center;
+
+    color: #303030;
+}
+.date-and-time-event{
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    padding: 12px 0px;
+}
+.date-and-time-event label{
+    position: relative;
+    width: 250px;
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 33px;
+
+    padding-left: 5px;
+
+    color: rgba(39, 35, 37, 0.5);
 }

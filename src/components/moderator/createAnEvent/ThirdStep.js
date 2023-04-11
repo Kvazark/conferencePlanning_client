@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import AddRemoveInput from "../../inputs/input_forCreateEvent/AddRemoveInput";
+import "./thirdStepStyle.css"
 
 const ThirdStep = () => {
     return (
-        <section>
-
-        </section>
+        <main className="creation-field3">
+            <h2>Расписание события без учёта участников</h2>
+            <AddRemoveInput/>
+        </main>
     );
 }
 
