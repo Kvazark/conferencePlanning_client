@@ -60,6 +60,18 @@
     border-color: #206F6D;
     padding-left: 40px;
 
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: rgba(76, 91, 102, 0.5);
+
 }
 .icon-recordFill{
     position: absolute;
@@ -77,7 +89,11 @@
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 33px;
+    line-height: 30px;
+    /* identical to box height */
 
-    color: #303030;
+    display: flex;
+    align-items: center;
+
+    color: rgba(76, 91, 102, 0.5);
 }

@@ -88,3 +88,58 @@
 .save-changeBtn:hover{
     transform: translateY(0) scale(1.05);
 }
+.update-avatarUser-input{
+    position: absolute;
+
+    left:25%;
+    bottom: 15%;
+
+
+    opacity: 0;
+    width: 100px;
+    height: 20px;
+
+    border-radius: 5px;
+
+    /*display: none;*/
+}
+.photo-container img:hover ~ div{
+    display: block;
+}
+/*.update-avatarUser-input:hover ~ .photo-container div{*/
+/*    display: block;*/
+/*}*/
+/*.photo-container div:hover ~ .photo-container div{*/
+/*    display: block;*/
+/*}*/
+.input-file-text{
+    position: relative;
+    bottom: 15%;
+    /*left: 26px;*/
+    /*top: 3px;*/
+    gap: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+
+    color: #FFFFFF;
+}
+.photo-container div{
+
+    display: none;
+    position: absolute;
+    left:20%;
+    bottom: 12%;
+
+    width: 120px;
+    height: 25px;
+    background: rgba(155, 155, 155, 0.2);
+
+    backdrop-filter: blur(10px);
+    border-radius: 5px;
+}

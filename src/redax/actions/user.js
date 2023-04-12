@@ -44,3 +44,18 @@ export const auth = ()=>{
     }
 
 }
+export const updateAvatar = (file)=>{
+    return async dispatch =>{
+        try{
+            const formData = new FormData()
+            formData.append('file', file)
+            ///поменять адрес
+            const response = await axios.post('https://localhost:7215/api/account/login', formData,
+                {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
+            dispatch(setUser(response.data))
+
+        }catch (error){
+            alert(error)
+        }
+    }
+}

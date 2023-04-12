@@ -61,33 +61,33 @@ function App() {
 //     )
 ////////////////////////////////////авторизация/////////////////////////////////////////////////
 /////////////////////////////////////пользователь//////////////////////////////////////////
-    // return(
-    //     <main>
-    //         <div>
-    //             <Routes>
-    //                 <Route path="/listNotifications" element={<ListNotifications />} />
-    //                 <Route path="/mainPageUser" element={<Homepage />} />
-    //                 <Route path="/profilePageUser" element={<Profile />} />
-    //                 <Route path="/login" element={<Login />} />
-    //             </Routes>
-    //         </div>
-    //     </main>
-    // )
-/////////////////////////////////////модератор//////////////////////////////////////////
-    return (
+    return(
         <main>
             <div>
                 <Routes>
-                    <Route path="/moderator">
-                        <Route path="mainPageModerator" element={<HomePageModerator/>}/>
-                        <Route path="organizationProfilePageModerator" element={<OrganizationProfile/>}/>
-                        <Route path="eventsListModerator" element={<EventsList/>}></Route>
-                        <Route path="eventsListModerator/createAnEvent" element={<CreateAnEvent/>}></Route>
-                    </Route>
+                    <Route path="/listNotifications" element={<ListNotifications />} />
+                    <Route path="/mainPageUser" element={<Homepage />} />
+                    <Route path="/profilePageUser" element={<Profile />} />
+                    <Route path="/login" element={<Login />} />
                 </Routes>
             </div>
         </main>
     )
+/////////////////////////////////////модератор//////////////////////////////////////////
+//     return (
+//         <main>
+//             <div>
+//                 <Routes>
+//                     <Route path="/moderator">
+//                         <Route path="mainPageModerator" element={<HomePageModerator/>}/>
+//                         <Route path="organizationProfilePageModerator" element={<OrganizationProfile/>}/>
+//                         <Route path="eventsListModerator" element={<EventsList/>}></Route>
+//                         <Route path="eventsListModerator/createAnEvent" element={<CreateAnEvent/>}></Route>
+//                     </Route>
+//                 </Routes>
+//             </div>
+//         </main>
+//     )
 ///////////////////////////////////////////////////////////////////////////////
 }
 
