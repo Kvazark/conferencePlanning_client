@@ -7,26 +7,30 @@ import {useDispatch, useSelector} from "react-redux";
 import {API_URL} from "../../user/config";
 import avatarLogo from "../../../img/avatarLogo.svg"
 import {updateAvatar} from "../../../redax/actions/user";
+
 const Profile = () => {
     const currentUser = useSelector(state => state.user.currentUser)
     const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
     const dispatch = useDispatch()
-    function changeHandler(e){
+
+    function changeHandler(e) {
         const file = e.target.files[0]
         dispatch(updateAvatar(file))
     }
 
     return (
         <main>
-            <TopMenu />
+            <TopMenu/>
             <section className="profile">
                 <div className="photo-container">
                     {/*<img className="photo" src="https://img.championat.com/s/1350x900/news/big/u/w/mona-liza-s-nogami-nejroset-dopolnila-klassicheskie-kartiny_16544453091715239255.jpg"/>*/}
                     <img className="photo" src={avatar}/>
 
-                    <input className="update-avatarUser-input" accept="image/*" onChange={e => changeHandler(e)} type="file"/>
+                    <input className="update-avatarUser-input" accept="image/*" onChange={e => changeHandler(e)}
+                           type="file"/>
                     <div>
-                        <label className="input-file-text"><Camera size="20px" color="#f2f2f2"></Camera> изменить фото</label>
+                        <label className="input-file-text"><Camera size="20px" color="#f2f2f2"></Camera> изменить
+                            фото</label>
                     </div>
 
                 </div>
