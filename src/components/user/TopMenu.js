@@ -5,7 +5,7 @@ import Profile from "../views/userViews/Profile";
 import * as Icon from 'react-bootstrap-icons';
 import {ArrowRight, Bell, DoorOpen, HouseDoor, PersonCircle} from "react-bootstrap-icons";
 import {useDispatch, useSelector} from "react-redux";
-import {logout} from "../../redax/reducers/userReducer";
+import {logout} from "../../redux/reducers/userReducer";
 
 
 export default function TopMenu() {
@@ -27,20 +27,20 @@ export default function TopMenu() {
             <ul className="menu">
                 <NavLink style={({isActive}) =>
                     isActive ? activeStyle : noActiveStyle}
-                         to="/listNotifications">
+                         to="/user/listNotifications">
                     <li><Bell size={30}/></li>
                 </NavLink>
 
                 <NavLink style={({isActive}) =>
                     isActive ? activeStyle : noActiveStyle}
-                         to="/mainPageUser">
+                         to="/user/mainPageUser">
                     <li>
                         <HouseDoor size={30}/>
                     </li>
                 </NavLink>
                 <NavLink style={({isActive}) =>
                     isActive ? activeStyle : noActiveStyle}
-                         to="/profilePageUser">
+                         to="/user/profilePageUser">
                     <li>
                         <PersonCircle size={30}/>
                     </li>

@@ -3,7 +3,7 @@ import Input from "../../inputs/input/Input";
 import {NavLink} from "react-router-dom";
 import style from "./registrationStyle.css"
 import Checkbox from "../../inputs/input/Checkbox";
-import {registration} from "../../../redax/actions/user";
+import {registration, registrationModerator, registrationUser} from "../../../redux/actions/user";
 import RadioBtn from "../../inputs/input/RadioBtn";
 
 const Registration = () => {
@@ -17,8 +17,16 @@ const Registration = () => {
     const handleChange = () => {
         setIsChecked(!isChecked);
     };
+    var role = 'user';
+    const handleClick=()=>{
+        if(role=="user"){
+            registrationUser(userSurname, email, password, userName)
+        }else if (role =="moderator"){
+            registrationModerator(userSurname, email, password, userName)
+        }
+
+    }
     let message;
-    var role;
     if (isChecked) {
         message = <div className="group-input2">
             <Input value={organizName} setValue={setOrganizName} type="text" placeholder="Введите название организации..."></Input>
@@ -46,7 +54,7 @@ const Registration = () => {
             </div>
 
             <button className="registration_btn"
-                    onClick={() => registration(userSurname, email, password, userName)}>Зарегистрироваться
+                    onClick={handleClick}>Зарегистрироваться
             </button>
             <NavLink className="toLogin" to="/login">Уже есть аккаунт?<span>Войти</span></NavLink>
         </fieldset>

@@ -6,11 +6,12 @@ import TopMenu from "../../user/TopMenu";
 import {useDispatch, useSelector} from "react-redux";
 import {API_URL} from "../../user/config";
 import avatarLogo from "../../../img/avatarLogo.svg"
-import {updateAvatar} from "../../../redax/actions/user";
+import {updateAvatar} from "../../../redux/actions/user";
 
 const Profile = () => {
     const currentUser = useSelector(state => state.user.currentUser)
-    const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
+    // const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
+    const avatar = avatarLogo
     const dispatch = useDispatch()
 
     function changeHandler(e) {

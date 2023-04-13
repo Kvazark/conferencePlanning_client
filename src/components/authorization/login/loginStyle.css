@@ -79,6 +79,5 @@
     color: #206F6D;
 }
 .navbar__login{
-    position: absolute;
-    bottom: -100px;
+    position: relative;
 }
