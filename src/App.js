@@ -72,10 +72,10 @@ function App() {
 
                 <Routes>
                     <Route path="/moderator">
-                        <Route path="mainPageModerator" element={<HomePageModerator/>}/>
-                        <Route path="organizationProfilePageModerator" element={<OrganizationProfile/>}/>
-                        <Route path="eventsListModerator" element={<EventsList/>}></Route>
-                        <Route path="eventsListModerator/createAnEvent" element={<CreateAnEvent/>}></Route>
+                        <Route path="mainPageModerator" element={<RequireAuth><HomePageModerator/></RequireAuth>}/>
+                        <Route path="organizationProfilePageModerator" element={<RequireAuth><OrganizationProfile/></RequireAuth>}/>
+                        <Route path="eventsListModerator" element={<RequireAuth><EventsList/></RequireAuth>}></Route>
+                        <Route path="eventsListModerator/createAnEvent" element={<RequireAuth><CreateAnEvent/></RequireAuth>}></Route>
                     </Route>
                 </Routes>
 

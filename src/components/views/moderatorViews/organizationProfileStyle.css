@@ -71,3 +71,24 @@
 .save-changeButton:hover{
     transform: translateY(0) scale(1.05);
 }
+.exit{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 95px;
+    height: 41px;
+    right: 27px;
+    top: 14px;
+    color: #206F6D;
+
+    border-bottom: 1px solid #303030;
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}

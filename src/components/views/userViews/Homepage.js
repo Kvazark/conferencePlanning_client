@@ -19,6 +19,10 @@ const Homepage = () => {
     //         navigate('/login')
     //     }
     // },[])
+    // const currentUser = useSelector(state => state.user.currentUser)
+    const isAuth = useSelector(state => state.user.isAuth)
+    // const { role } = useSelector(state => state.user.currentUser)
+    console.log(isAuth)
     return (
         <main>
             <TopMenu />

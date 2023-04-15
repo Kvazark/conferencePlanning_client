@@ -3,8 +3,13 @@ import InputProfile from "../../inputs/input_forProfile/InputProfile";
 import ButtonChangePassword from "../../inputs/input_forProfile/ButtonChangePassword";
 import style from "./organizationProfileStyle.css"
 import LeftMenu from "../../moderator/LeftMenu";
+import {logout} from "../../../redux/reducers/userReducer";
+import {DoorOpen} from "react-bootstrap-icons";
+import {useDispatch, useSelector} from "react-redux";
 
 const OrganizationProfile = () => {
+    const dispatch = useDispatch()
+    const isAuth = useSelector(state => state.user.isAuth)
     return (
         <main>
             <LeftMenu />
@@ -30,6 +35,7 @@ const OrganizationProfile = () => {
                     <button className="save-changeButton">сохранить изменения</button>
                 </form>
             </section>
+            {isAuth && <div className="exit" onClick={() => dispatch(logout()) }>выход<DoorOpen size={30}/></div> }
         </main>
 
     );

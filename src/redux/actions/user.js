@@ -1,5 +1,5 @@
 import axios from "axios";
-import {setUser} from "../reducers/userReducer";
+import {setRole, setUser} from "../reducers/userReducer";
 import {redirect, useNavigate} from "react-router-dom";
 
 
@@ -40,7 +40,9 @@ export const login =  (email, password) => {
                 password,
             })
             dispatch(setUser(response.data.user))
+            dispatch(setRole(response.data.role))
             localStorage.setItem('token', response.data.token)
+            // localStorage.setItem('role', response.data.role)
 
         } catch (e) {
             alert(e.response.data.message)
@@ -61,11 +63,11 @@ export const auth = ()=>{
     }
 
 }
-export const setDataUser = ()=>{
+export const setRoleUser = ()=>{
     return async dispatch =>{
         try{
             const response = await axios.get('https://localhost:7215/api/Account/login',
-                {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
+                {headers:{Authorization:`Bearer ${localStorage.getItem('role')}`}})
             dispatch(setUser(response.data.user))
             localStorage.setItem('role',response.data.role)
         }catch (error){
