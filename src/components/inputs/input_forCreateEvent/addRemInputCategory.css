@@ -1,0 +1,62 @@
+.field-add-remove-input-category{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.field-add-remove-input-category div{
+
+}
+.category-field{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 2vh;
+}
+.inputCategory{
+
+    background-color: rgba(242, 242, 242, 0.95);
+    border-bottom: 1px solid;
+    border-color: #206F6D;
+    padding-left: 5px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+
+    width: 17vw;
+    color: rgba(30,30,30);
+
+    height: 30px;
+    gap: 30px;
+}
+.btn-remove-input-category{
+    position: relative;
+
+    top:-17px;
+    width: 15px;
+    height: 20px;
+    padding: 0 30px 0 0;
+    margin-left: -23px;
+}
+.btn-add-input-category{
+    margin-top: 15px;
+    /*page-break-after: always;*/
+    position: absolute;
+    left: 0;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: center;
+
+    color: rgba(76, 91, 102, 0.5);
+}

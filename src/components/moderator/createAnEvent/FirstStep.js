@@ -7,6 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import {Calendar2Week, Clock} from "react-bootstrap-icons";
 import Input from "../../inputs/input/Input";
 import InputTime from "../../inputs/input_forCreateEvent/InputTime";
+import AddRemoveInputSchedule from "../../inputs/input_forCreateEvent/AddRemoveInputSchedule";
+import AddRemoveInputCategory from "../../inputs/input_forCreateEvent/AddRemoveInputCategory";
 
 
 const FirstStep = () => {
@@ -72,13 +74,9 @@ const FirstStep = () => {
             </section>
             <section className="full-inputEvent">
                 <label>Категории</label>
-                {/*<InputCreateEvent value={organizersName} setValue={setOrganizersName} type="text"*/}
-                {/*                  placeholder=""></InputCreateEvent>*/}
+                <AddRemoveInputCategory></AddRemoveInputCategory>
             </section>
-
         </form>
-
-
     );
 }
 

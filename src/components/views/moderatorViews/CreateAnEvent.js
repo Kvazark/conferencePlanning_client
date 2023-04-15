@@ -12,53 +12,6 @@ import ThirdStep from "../../moderator/createAnEvent/ThirdStep";
 
 const CreateAnEvent = () => {
 
-    // let mes = 1;
-    // if(mes == 1){
-    //     return (
-    //         <main>
-    //             <NavLink to="/moderator/eventsListModerator">
-    //                 <button className="back-to-eventsList">отменить</button>
-    //             </NavLink>
-    //             <div className="stepper">
-    //                 <StepperEvent></StepperEvent>
-    //             </div>
-    //             <FirstStep/>
-    //         </main>
-    //     )
-    // }
-    // else if (mes == 2){
-    //     return <main>
-    //         <NavLink to="/moderator/eventsListModerator">
-    //             <button className="back-to-eventsList">отменить</button>
-    //         </NavLink>
-    //         <div className="stepper">
-    //             <StepperEvent></StepperEvent>
-    //         </div>
-    //         <SecondStep/>
-    //     </main>
-    // }
-    // else if (mes == 3){
-    //     return <main>
-    //         <NavLink to="/moderator/eventsListModerator">
-    //             <button className="back-to-eventsList">отменить</button>
-    //         </NavLink>
-    //         <div className="stepper">
-    //             <StepperEvent></StepperEvent>
-    //         </div>
-    //         <ThirdStep/>
-    //     </main>
-    // }
-    // else if (mes == 4){
-    //     return <main>
-    //         <NavLink to="/moderator/eventsListModerator">
-    //             <button className="back-to-eventsList">отменить</button>
-    //         </NavLink>
-    //         <div className="stepper">
-    //             <StepperEvent></StepperEvent>
-    //         </div>
-    //         <FourthStep/>
-    //     </main>
-    // }
     return (
         <main>
             <StepperEvent></StepperEvent>

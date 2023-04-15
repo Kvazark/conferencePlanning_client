@@ -2,7 +2,7 @@ import {useState} from "react"
 import "./addRemoveInputStyle.css"
 import {Clock, Dot, PlusCircleFill, RecordFill, X} from "react-bootstrap-icons";
 
-function AddRemoveInput() {
+function AddRemoveInputSchedule() {
     const [inputList, setInputList] = useState([{sectionTitle: "", startTime: "", endTime: ""}]);
 
     // handle input change
@@ -26,7 +26,7 @@ function AddRemoveInput() {
     };
 
     return (
-        <div className="field-add-remove-input">
+        <div className="field-add-remove-input" key={'uniqueValue'}>
 
             {inputList.map((x, i) => {
                 return (
@@ -63,11 +63,16 @@ function AddRemoveInput() {
                                 <PlusCircleFill className="icon-plusCircleFill" size="28px"></PlusCircleFill>
                                 добавить поле
                             </button>}
+
                     </div>
+
                 );
             })}
+            {/*<div>*/}
+            {/*    {JSON.stringify(inputList)}*/}
+            {/*</div>*/}
         </div>
     );
 }
 
-export default AddRemoveInput
+export default AddRemoveInputSchedule

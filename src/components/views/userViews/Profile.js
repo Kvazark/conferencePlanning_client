@@ -7,12 +7,16 @@ import {useDispatch, useSelector} from "react-redux";
 import {API_URL} from "../../user/config";
 import avatarLogo from "../../../img/avatarLogo.svg"
 import {updateAvatar} from "../../../redux/actions/user";
+import {Navigate} from "react-router-dom";
+import React from "react";
 
 const Profile = () => {
-    const currentUser = useSelector(state => state.user.currentUser)
     // const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
     const avatar = avatarLogo
     const dispatch = useDispatch()
+    const currentUser = useSelector(state => state.user)
+    console.log(currentUser)
+
 
     function changeHandler(e) {
         const file = e.target.files[0]
