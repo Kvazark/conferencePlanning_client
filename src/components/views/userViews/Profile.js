@@ -5,7 +5,8 @@ import ButtonChangePassword from "../../inputs/input_forProfile/ButtonChangePass
 import TopMenu from "../../user/TopMenu";
 import {useDispatch, useSelector} from "react-redux";
 import {API_URL} from "../../user/config";
-import avatarLogo from "../../../img/avatarLogo.svg"
+// import avatarLogo from "../../../img/avatarLogo.svg"
+import avatarLogo from "../../../img/cat.jpg"
 import {updateAvatar} from "../../../redux/actions/user";
 import {Navigate} from "react-router-dom";
 import React from "react";

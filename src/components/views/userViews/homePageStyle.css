@@ -1,0 +1,94 @@
+.list-events-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 55px;
+    gap: 37px;
+    margin-top: 40px;
+    margin-bottom: 8vh;
+
+}
+.card{
+    overflow-y: hidden;
+    width: 65vw;
+    height: 55vh;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(4px 4px 20px rgba(0, 0, 0, 0.25));
+    border-radius: 10px;
+
+}
+.event-info-card{
+    border-top: 1px solid rgba(48, 48, 48, 0.1);
+    height: 167px;
+    margin-left: 18px;
+}
+.event-info-card h3{
+    position: relative;
+    top: 10px;
+    margin-bottom: 15px;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #303030;
+}
+
+.avatarEvent{
+    width: 100%;
+    height: auto;
+
+}
+.avatarEvent img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.event-info-card p{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: rgba(48, 48, 48, 0.8);
+    margin: 0 0 5px 0;
+}
+
+.categories-card{
+    display: flex;
+    gap: 10px;
+    position: relative;
+    bottom: 10px;
+    margin-top: 15px;
+
+}
+.separately-category{
+    display: inline-block;
+    position: relative;
+    height: 25px;
+    margin-top: 5px;
+    padding: 0 10px 0 10px;
+
+    background: rgba(106, 136, 140, 0.15);
+    border-radius: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+    color: rgba(48, 48, 48, 0.65);
+}
+
+/*.card:hover .nameCharacter{*/
+/*    filter: blur(1px);*/
+/*}*/

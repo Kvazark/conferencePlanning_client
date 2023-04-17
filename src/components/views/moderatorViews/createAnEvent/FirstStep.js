@@ -1,14 +1,14 @@
 import React, {Component, useContext, useState} from 'react';
 import styles from "./firstStepStyle.css"
-import InputCreateEvent from "../../inputs/input_forCreateEvent/InputCreateEvent";
-import InputProfile from "../../inputs/input_forProfile/InputProfile";
+import InputCreateEvent from "../../../inputs/input_forCreateEvent/InputCreateEvent";
+import InputProfile from "../../../inputs/input_forProfile/InputProfile";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {Calendar2Week, Clock} from "react-bootstrap-icons";
-import Input from "../../inputs/input/Input";
-import InputTime from "../../inputs/input_forCreateEvent/InputTime";
-import AddRemoveInputSchedule from "../../inputs/input_forCreateEvent/AddRemoveInputSchedule";
-import AddRemoveInputCategory from "../../inputs/input_forCreateEvent/AddRemoveInputCategory";
+import Input from "../../../inputs/input/Input";
+import InputTime from "../../../inputs/input_forCreateEvent/InputTime";
+import AddRemoveInputSchedule from "../../../inputs/input_forCreateEvent/AddRemoveInputSchedule";
+import AddRemoveInputCategory from "../../../inputs/input_forCreateEvent/AddRemoveInputCategory";
 
 
 const FirstStep = () => {

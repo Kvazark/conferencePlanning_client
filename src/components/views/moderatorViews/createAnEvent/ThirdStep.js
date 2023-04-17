@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AddRemoveInputSchedule from "../../inputs/input_forCreateEvent/AddRemoveInputSchedule";
+import AddRemoveInputSchedule from "../../../inputs/input_forCreateEvent/AddRemoveInputSchedule";
 import "./thirdStepStyle.css"
 
 const ThirdStep = () => {

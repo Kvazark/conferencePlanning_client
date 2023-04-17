@@ -17,6 +17,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {auth} from "./redux/actions/user";
 import PrivateRoute from "./routes/PrivateRoute";
 import RequireAuth from "./routes/RequireAuth";
+import ViewingAnEvent from "./components/views/userViews/ViewingAnEvent";
 
 
 function App() {
@@ -66,6 +67,11 @@ function App() {
                     <Route path="/user">
                         <Route path="listNotifications" element={<RequireAuth><ListNotifications/></RequireAuth>}/>
                         <Route path="mainPageUser" element={<RequireAuth><Homepage/></RequireAuth>}/>
+                        <Route path="viewingAnEvent" element={<RequireAuth><ViewingAnEvent/></RequireAuth>}/>
+                        {/*<Route path="mainPageUser">*/}
+                        {/*    <Route index={true} path=":" element={<RequireAuth><Homepage/></RequireAuth>}/>*/}
+                        {/*    <Route index={false} path="viewingAnEvent" element={<RequireAuth><ViewingAnEvent/></RequireAuth>}/>*/}
+                        {/*</Route>*/}
                         <Route path="profilePageUser" element={<RequireAuth><Profile/></RequireAuth>}/>
                     </Route>
                 </Routes>
@@ -73,9 +79,11 @@ function App() {
                 <Routes>
                     <Route path="/moderator">
                         <Route path="mainPageModerator" element={<RequireAuth><HomePageModerator/></RequireAuth>}/>
-                        <Route path="organizationProfilePageModerator" element={<RequireAuth><OrganizationProfile/></RequireAuth>}/>
+                        <Route path="organizationProfilePageModerator"
+                               element={<RequireAuth><OrganizationProfile/></RequireAuth>}/>
                         <Route path="eventsListModerator" element={<RequireAuth><EventsList/></RequireAuth>}></Route>
-                        <Route path="eventsListModerator/createAnEvent" element={<RequireAuth><CreateAnEvent/></RequireAuth>}></Route>
+                        <Route path="eventsListModerator/createAnEvent"
+                               element={<RequireAuth><CreateAnEvent/></RequireAuth>}></Route>
                     </Route>
                 </Routes>
 
