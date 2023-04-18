@@ -18,6 +18,7 @@ import {auth} from "./redux/actions/user";
 import PrivateRoute from "./routes/PrivateRoute";
 import RequireAuth from "./routes/RequireAuth";
 import ViewingAnEvent from "./components/views/userViews/ViewingAnEvent";
+import ViewingAnEventModerator from "./components/views/moderatorViews/ViewingAnEventModerator";
 
 
 function App() {
@@ -84,6 +85,8 @@ function App() {
                         <Route path="eventsListModerator" element={<RequireAuth><EventsList/></RequireAuth>}></Route>
                         <Route path="eventsListModerator/createAnEvent"
                                element={<RequireAuth><CreateAnEvent/></RequireAuth>}></Route>
+                        <Route path="mainPageModerator/viewingAnEvent"
+                               element={<RequireAuth><ViewingAnEventModerator/></RequireAuth>}></Route>
                     </Route>
                 </Routes>
 

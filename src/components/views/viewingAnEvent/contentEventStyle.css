@@ -1,0 +1,130 @@
+.content-event{
+    position: absolute;
+    top: 618px;
+    width: 100%;
+    height: auto;
+}
+.content-event article{
+    position: relative;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+.short-description-event{
+    position: relative;
+    padding: 15px;
+    width: auto;
+    height: auto;
+    top: 5vh;
+    line-height: 50px;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    display: flex;
+    text-align: justify;
+
+    color: #303030;
+}
+.btn-group-event{
+    background-color: #7E1919;
+    height: 242px;
+}
+.long-description-event-block{
+    padding: 15px;
+    height: auto;
+    display: flex;
+    text-align: justify;
+    flex-direction: row;
+}
+.long-description-event-block p{
+    position: relative;
+    width: 50%;
+    left: 20%;
+    right: 0;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 50px;
+
+
+    color: #303030;
+
+}
+.long-description-event-block h3{
+    position: relative;
+    left: 2%;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 60px;
+
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: rgba(126, 25, 25, 0.9);
+}
+.schedule-event{
+    background-color: #7E1919;
+    height: 684px;
+}
+.footer-event{
+    box-sizing: border-box;
+    position: relative;
+
+    margin-top: 8vh;
+    padding-top: 3vh;
+
+    width: 100%;
+    height: 25vh;
+    border-top: 1px solid rgba(126, 25, 25, 0.9);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30%;
+
+}
+.name-org-event{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.footer-event h4{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: rgba(48, 48, 48, 0.5);
+}
+.footer-event p{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: rgba(48, 48, 48, 0.5);
+
+
+}

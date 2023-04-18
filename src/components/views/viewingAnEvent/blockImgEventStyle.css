@@ -1,0 +1,131 @@
+.block-img-event{
+    position: absolute;
+    width: 100%;
+    height: 570px;
+    background-size: cover;
+    background-position: center;
+}
+.btn-back-to-list{
+    position: absolute;
+    width: 60px;
+    height: 70px;
+    left: 36px;
+    top: 250px;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12.5px);
+
+    border-radius: 50px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.block-main-info-event-Noactive{
+    position: absolute;
+    width: 503px;
+    height: 343px;
+    right: 114px;
+    top: 114px;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12.5px);
+    mix-blend-mode: luminosity;
+    opacity: 0.8;
+
+    border-radius: 20px;
+}
+.block-main-info-event-active{
+    position: absolute;
+    width: 503px;
+    height: 343px;
+    right: 114px;
+    top: 114px;
+
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(12.5px);
+
+
+    border-radius: 20px;
+}
+.title-event{
+
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin-top: 15px;
+
+    font-family: 'Fira Mono', monospace;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+
+    color: #303030;
+}
+.data-event{
+    width: auto;
+    height: 48px;
+    text-align: center;
+    margin-top: 50px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+
+    color: #303030;
+}
+.address-event{
+    width: auto;
+    height: 36px;
+    text-align: center;
+    margin-top: -5px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+
+    color: #303030;
+}
+.btn-submit-an-application{
+    position: absolute;
+    width: 218px;
+    height: 40px;
+    left: calc(50% - 218px/2 + 5.5px);
+    bottom: 65px;
+
+
+    border-radius: 15px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #F2F2F2;
+}
+.termination-date{
+    position: absolute;
+    width: auto;
+    height: 30px;
+
+    left: 5%;
+    bottom: 2px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+
+}
+.termination-date-end{
+    width: auto;
+    height: 30px;
+    text-align: center;
+    margin-top: 100px;
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+
+}
