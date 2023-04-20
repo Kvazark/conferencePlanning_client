@@ -15,7 +15,6 @@ import CreateAnEvent from "./components/views/moderatorViews/CreateAnEvent";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "./redux/actions/user";
-import PrivateRoute from "./routes/PrivateRoute";
 import RequireAuth from "./routes/RequireAuth";
 import ViewingAnEvent from "./components/views/userViews/ViewingAnEvent";
 import ViewingAnEventModerator from "./components/views/moderatorViews/ViewingAnEventModerator";
@@ -31,48 +30,18 @@ function App() {
         dispatch(auth())
     }, [])
 
-    // let navigate = useNavigate();
-    // const routeChange = (role) =>{
-    //     if (role =='User'){
-    //         let path = `/user/mainPageUser`;
-    //         navigate(path);
-    //     }
-    //
-    // }
-    // let navigate = useNavigate()
-    // useEffect(() => {
-    //     if (isAuth) {
-    //         // navigate('/user/mainPageUser')
-    //         <userRoute></userRoute>
-    //     }
-    //     if (!isAuth) {
-    //         navigate('/login')
-    //     }
-    // },)
-
     return (
         <main>
             <div>
-                {/*{!isAuth &&*/}
-                {/*    <Routes>*/}
-                {/*        <Route path="/registration" element={<Registration/>}/>*/}
-                {/*        <Route path="/login" element={<Login/>}/>*/}
-                {/*    </Routes>*/}
-                {/*}*/}
                 <Routes>
                     <Route path="/registration" element={<Registration/>}/>
                     <Route path="/login" element={<Login/>}/>
                 </Routes>
                 <Routes>
-                    {/*<Route element={<PrivateRoute/>}></Route>*/}
                     <Route path="/user">
                         <Route path="listNotifications" element={<RequireAuth><ListNotifications/></RequireAuth>}/>
                         <Route path="mainPageUser" element={<RequireAuth><Homepage/></RequireAuth>}/>
                         <Route path="viewingAnEvent" element={<RequireAuth><ViewingAnEvent/></RequireAuth>}/>
-                        {/*<Route path="mainPageUser">*/}
-                        {/*    <Route index={true} path=":" element={<RequireAuth><Homepage/></RequireAuth>}/>*/}
-                        {/*    <Route index={false} path="viewingAnEvent" element={<RequireAuth><ViewingAnEvent/></RequireAuth>}/>*/}
-                        {/*</Route>*/}
                         <Route path="profilePageUser" element={<RequireAuth><Profile/></RequireAuth>}/>
                     </Route>
                 </Routes>
@@ -93,36 +62,6 @@ function App() {
             </div>
         </main>
     )
-////////////////////////////////////авторизация/////////////////////////////////////////////////
-/////////////////////////////////////пользователь//////////////////////////////////////////
-//     return(
-//         <main>
-//             <div>
-//                 <Routes>
-//                     <Route path="/listNotifications" element={<ListNotifications />} />
-//                     <Route path="/mainPageUser" element={<Homepage />} />
-//                     <Route path="/profilePageUser" element={<Profile />} />
-//                     <Route path="/login" element={<Login />} />
-//                 </Routes>
-//             </div>
-//         </main>
-//     )
-/////////////////////////////////////модератор//////////////////////////////////////////
-//     return (
-//         <main>
-//             <div>
-//                 <Routes>
-//                     <Route path="/moderator">
-//                         <Route path="mainPageModerator" element={<HomePageModerator/>}/>
-//                         <Route path="organizationProfilePageModerator" element={<OrganizationProfile/>}/>
-//                         <Route path="eventsListModerator" element={<EventsList/>}></Route>
-//                         <Route path="eventsListModerator/createAnEvent" element={<CreateAnEvent/>}></Route>
-//                     </Route>
-//                 </Routes>
-//             </div>
-//         </main>
-//     )
-///////////////////////////////////////////////////////////////////////////////
 }
 
 export default App;

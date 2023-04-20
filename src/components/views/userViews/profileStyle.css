@@ -11,6 +11,7 @@
     width:30%;
     height:200px;
 }
+
 .photo-container img{
     position: absolute;
     top:50%;
@@ -91,33 +92,32 @@
 .update-avatarUser-input{
     position: absolute;
 
-    left:25%;
-    bottom: 15%;
-
-
+    left:5%;
+    top: 5px;
+    z-index: 1;
     opacity: 0;
-    width: 100px;
+    width: 120px;
     height: 20px;
 
-    border-radius: 5px;
+}
+/*.photo-container:hover .drawer-block{*/
+/*    display: block;*/
+/*}*/
 
-    /*display: none;*/
-}
-.photo-container img:hover ~ div{
-    display: block;
-}
 /*.update-avatarUser-input:hover ~ .photo-container div{*/
 /*    display: block;*/
 /*}*/
 /*.photo-container div:hover ~ .photo-container div{*/
 /*    display: block;*/
 /*}*/
+
 .input-file-text{
     position: relative;
-    bottom: 15%;
+    bottom: 10%;
     /*left: 26px;*/
     /*top: 3px;*/
-    gap: 10px;
+    gap: 5px;
+    padding-left: 5px;
 
     font-family: 'Hind Vadodara', sans-serif;
     font-style: normal;
@@ -127,19 +127,92 @@
     display: flex;
     align-items: center;
 
-    color: #FFFFFF;
+    color:#f2f2f2;
 }
-.photo-container div{
-
-    display: none;
+.drawer-block{
+    /*display: none;*/
     position: absolute;
     left:20%;
     bottom: 12%;
-
     width: 120px;
     height: 25px;
-    background: rgba(155, 155, 155, 0.2);
+    background: rgba(155, 155, 155, 0.8);
 
     backdrop-filter: blur(10px);
     border-radius: 5px;
 }
+
+.edit-text{
+    position: relative;
+    bottom: 10%;
+    /*left: 26px;*/
+    /*top: 3px;*/
+    gap: 5px;
+    padding-left: 5px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+
+    color:#f2f2f2;
+}
+/*.edit-text:hover ~.sliding-block{*/
+/*    display: block;*/
+
+/*}*/
+.sliding-block{
+    position: absolute;
+    top: 32%;
+    left: 3%;
+
+    height: 65px;
+    width: 140px;
+    padding: 5px 0 10px 0;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(48, 48, 48, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+
+    /*display: none;*/
+}
+.sliding-block label{
+    position: relative;
+    bottom: 10%;
+    margin: 0;
+    gap: 10px;
+    padding-left: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+
+    width: auto;
+    color: #303030;
+
+}
+.update-avatarUser-input:hover ~.add-file-text{
+    padding-left: 5px;
+    box-sizing: border-box;
+    border: 5px solid #FFFFFF;
+    border-radius: 10px;
+    background-color: rgb(236, 236, 236);
+}
+.remove-file-text:hover{
+
+    padding-left: 5px;
+    box-sizing: border-box;
+    border: 5px solid #FFFFFF;
+    border-radius: 10px;
+    background-color: rgb(236, 236, 236);
+
+}
+
+
+

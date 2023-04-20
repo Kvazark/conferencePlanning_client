@@ -1,15 +1,16 @@
 import styles from './profileStyle.css';
 import InputProfile from "../../inputs/input_forProfile/InputProfile";
-import {Camera, Key} from "react-bootstrap-icons";
+import {Camera, Key, Pencil, X, XLg} from "react-bootstrap-icons";
 import ButtonChangePassword from "../../inputs/input_forProfile/ButtonChangePassword";
 import TopMenu from "../../user/TopMenu";
 import {useDispatch, useSelector} from "react-redux";
 import {API_URL} from "../../user/config";
 // import avatarLogo from "../../../img/avatarLogo.svg"
 import avatarLogo from "../../../img/cat.jpg"
-import {updateAvatar} from "../../../redux/actions/user";
+import {deleteAvatar, updateAvatar} from "../../../redux/actions/user";
 import {Navigate} from "react-router-dom";
-import React from "react";
+import React, {useState} from "react";
+
 
 const Profile = () => {
     // const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
@@ -24,22 +25,54 @@ const Profile = () => {
         dispatch(updateAvatar(file))
     }
 
+    const [isHovering1, setIsHovering1] = useState(false);
+    const [isHovering2, setIsHovering2] = useState(false);
+
+    const handleMouseOver1 = () => {
+        setIsHovering1(true);
+    };
+    const handleMouseOut1 = () => {
+        setTimeout(()=>{
+            setIsHovering1(false);
+        }, 2000);
+    };
+    const handleMouseOver2= () => {
+        setIsHovering2(true);
+
+    };
+    const handleMouseOut2 = () => {
+        setIsHovering2(false);
+    };
+
+
     return (
         <main>
             <TopMenu/>
             <section className="profile">
-                <div className="photo-container">
-                    {/*<img className="photo" src="https://img.championat.com/s/1350x900/news/big/u/w/mona-liza-s-nogami-nejroset-dopolnila-klassicheskie-kartiny_16544453091715239255.jpg"/>*/}
+                <div className="photo-container" onMouseOver={handleMouseOver1}
+                     onMouseOut= {handleMouseOut1}>
                     <img className="photo" src={avatar}/>
-
-                    <input className="update-avatarUser-input" accept="image/*" onChange={e => changeHandler(e)}
-                           type="file"/>
-                    <div>
-                        <label className="input-file-text"><Camera size="20px" color="#f2f2f2"></Camera> изменить
+                    {isHovering1 && ( <div className="drawer-block" onMouseOver={handleMouseOver2}
+                         onMouseOut= {handleMouseOut2}>
+                        <label className="edit-text"><Pencil size="18px"></Pencil>изменить
                             фото</label>
-                    </div>
+                    </div>)}
 
                 </div>
+                {isHovering2 && (
+                    <div className="sliding-block" onMouseOver={handleMouseOver2} onMouseOut= {handleMouseOut2}>
+                        <input className="update-avatarUser-input" accept="image/*" onChange={e => changeHandler(e)}
+                               type="file"/>
+                        <label className="add-file-text"><Camera size="20px"
+                                                                 color="rgba(126, 25, 25, 0.9)"></Camera> изменить
+                            фото</label>
+                        <label className="remove-file-text" onClick={()=>dispatch(deleteAvatar())}><XLg size="16px" color="rgba(126, 25, 25, 0.9)"
+                                                                 style={{
+                                                                     marginRight: `5px`,
+                                                                     paddingLeft: `2px`
+                                                                 }}></XLg> удалить фото</label>
+                    </div>
+                )}
                 <form className="info">
                     <div className="fieldset">
                         <section className="full-input">

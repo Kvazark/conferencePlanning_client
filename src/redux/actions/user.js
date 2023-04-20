@@ -92,3 +92,16 @@ export const updateAvatar = (file)=>{
         }
     }
 }
+export const deleteAvatar = ()=>{
+    return async dispatch =>{
+        try{
+            ///поменять адрес
+            const response = await axios.delete('https://localhost:7215/api/Account/login',
+                {headers:{Authorization:`Bearer ${localStorage.getItem('token')}`}})
+            dispatch(setUser(response.data))
+
+        }catch (error){
+            alert(error)
+        }
+    }
+}
