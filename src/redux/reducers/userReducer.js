@@ -1,10 +1,12 @@
 const SET_USER ="SET_USER"
 const LOGOUT = "LOGOUT"
 const SET_ROLE = "SET_ROLE"
+const SET_ID = "SET_ID"
 const defaultState={
     currentUser:{},
     isAuth: false,
     role:'',
+    id:'',
 }
 export default function userReducer(state=defaultState,action){
     switch (action.type){
@@ -21,6 +23,12 @@ export default function userReducer(state=defaultState,action){
                 role: action.payload,
                 isAuth: true,
             }
+        case SET_ID:
+            return {
+                ...state,
+                id: action.payload,
+                isAuth: true,
+            }
         case LOGOUT:
             localStorage.removeItem('token')
             return {
@@ -34,4 +42,5 @@ export default function userReducer(state=defaultState,action){
 }
 export const setUser = user =>({type: SET_USER,payload: user})
 export const setRole = role =>({type: SET_ROLE,payload: role})
+export const setId = id =>({type: SET_ID,payload: id})
 export const logout = () => ({type: LOGOUT})

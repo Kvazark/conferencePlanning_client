@@ -38,9 +38,12 @@ body{
     height: 55%;
 
     position: absolute;
-    width: 30rem;
+    width: 40rem;
     top: 75px;
 
+}
+.block-reg{
+    width: 250px;
 }
 .group-input2{
     display: flex;

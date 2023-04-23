@@ -20,9 +20,9 @@ const Registration = () => {
     var role = 'user';
     const handleClick=()=>{
         if(role=="user"){
-            registrationUser(userSurname, email, password, userName)
+            registrationUser(userSurname, userName, email, password )
         }else if (role =="moderator"){
-            registrationModerator(userSurname, email, password, userName)
+            registrationModerator(organizName, email, password)
         }
 
     }
@@ -46,9 +46,9 @@ const Registration = () => {
             <div className="group-input">
                 <Input value={email} setValue={setEmail} type="text" placeholder="Введите ваш Email..."></Input>
                 <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль..."></Input>
-                <label>
+                <label className="block-reg">
                     <input type="checkbox" checked={isChecked} onChange={handleChange}/>
-                    <span>как модератор</span>
+                    <span>я буду организатором</span>
                 </label>
                 {message}
             </div>

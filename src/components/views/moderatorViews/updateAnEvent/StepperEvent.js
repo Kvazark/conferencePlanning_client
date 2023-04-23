@@ -2,7 +2,6 @@ import React, {Component, useContext, useState} from 'react';
 import style from "./stepperEventStyle.css"
 import "./buttonsStyle.css"
 
-// import {Stepper} from "react-form-stepper";
 import {Stepper, Button, Group } from '@mantine/core';
 import FirstStep from "./FirstStep";
 import SecondStep from "./SecondStep";
@@ -26,7 +25,7 @@ const StepperEvent = () => {
                       <Button className="btn-forth-step" onClick={nextStep}>Далее</Button>
                   </Group>
               </Stepper.Step>
-              <Stepper.Step icon={<Circle size="35px" color="#f2f2f2"></Circle> } label="анкета" >
+              <Stepper.Step icon={<Circle size="35px" color="#f2f2f2"></Circle> } label="дополнительно" style={{textAlign:`center`}} >
                   <SecondStep></SecondStep>
                   <Group className="buttons-stepper2">
                       <Button className="btn-back-step" variant="default" onClick={prevStep}>Назад</Button>

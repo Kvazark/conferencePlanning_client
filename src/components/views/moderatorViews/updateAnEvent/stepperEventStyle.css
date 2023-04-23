@@ -1,3 +1,4 @@
+
 .buttons-stepper1{
     position: absolute;
     bottom: -125vh;
@@ -38,11 +39,16 @@
     padding-bottom: 30px;
 
 }
+.mantine-Stepper-stepBody{
+    padding-left: 5px;
+
+}
 
 .mantine-Stepper-separator{
     padding: 2.5px 0;
     margin-right: -5px;
     margin-left: 30px;
+
 }
 .mantine-Stepper-stepIcon{
     border: 6px solid rgba(32, 111, 109, 0.2);
@@ -54,6 +60,7 @@
 .mantine-Stepper-step{
     width: 0;
 
+
 }
 .mantine-Stepper-root{
     position: absolute;
@@ -61,13 +68,13 @@
     height: 80px;
     left: 15%;
     top: 10%;
-
 }
 
 .mantine-Stepper-stepBody{
     position: relative;
     top: -30px;
     left: -60px;
+    margin-left: 0;
 
 }
 .mantine-Stepper-stepLabel {
@@ -81,5 +88,6 @@
     color: rgba(32, 111, 109, 0.85);
 
     mix-blend-mode: normal;
-    padding-left: -10px;
+
+    /*margin-left: -10px;*/
 }

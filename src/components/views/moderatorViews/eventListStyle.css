@@ -30,3 +30,11 @@
 .create-new-event-Btn:hover{
     transform: translateY(0) scale(1.05);
 }
+.field-events{
+    position: absolute;
+    width: auto;
+    top: 120px;
+    left:25%;
+    background-color: #3dcc4a;
+}
+
