@@ -42,11 +42,7 @@
     border-bottom:1px solid rgba(30, 30, 30);
     border-radius: 5px 5px 0 0;
 }
-.data-time-field{
-    height: 70px;
-    width: 20%;
-    border-bottom: #206F6D solid 2px;
-}
+
 .icons-data-time{
     color: rgba(32, 111, 109, 0.85);
     position: relative;
@@ -58,23 +54,7 @@
     width: 100px;
     height: 28px;
 }
-.date-picker{
-    position: relative;
-    top: -33px;
-    right: -40px;
 
-
-    font-family: 'Hind Vadodara', sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 33px;
-
-    display: flex;
-    align-items: center;
-
-    color: #303030;
-}
 .date-and-time-event{
     display: flex;
     flex-direction: row;

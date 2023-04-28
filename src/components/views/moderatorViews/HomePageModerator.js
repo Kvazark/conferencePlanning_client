@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {ClockHistory, PinMap} from "react-bootstrap-icons";
 import dayjs from "dayjs";
 import headCardEvent from "../../../img/head-card-event.svg";
-import ListEvent from "../ListEvent";
+import ListEvent from "../../helpers/ListEvent";
 
 const HomePageModerator = () => {
     return (

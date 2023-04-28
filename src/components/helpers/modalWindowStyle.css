@@ -1,0 +1,29 @@
+.modal-block{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(0,0,0,0.2);
+    position: absolute;
+    top: 0;
+    right:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+
+}
+.modal-block.active{
+    transform: scale(1);
+}
+.block-content-mw{
+    z-index: 1;
+    background: rgb(242, 242, 242);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25), -2px 0px 8px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    padding: 10px 30px 60px 15px;
+
+    border-radius: 10px;
+
+
+    width: 40%;
+    height: auto;
+}

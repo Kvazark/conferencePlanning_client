@@ -29,10 +29,19 @@ const OrganizationProfile = () => {
                 setInfo(result);
             });
     }, []);
+
     const [email, setEmail] = useState("");
     const [orgName, setOrgName] = useState("");
-    console.log(id)
     // const [numberPhone, setNumberPhone] = useState("");
+    console.log(id)
+
+    let newOrgName;
+    if (orgName==""){newOrgName = info.organizationName}
+    else{newOrgName = orgName}
+
+    let newEmail;
+    if (email==""){newEmail = info.email}
+    else{newEmail = email}
 
 
     return (
@@ -58,7 +67,7 @@ const OrganizationProfile = () => {
                     <div className="changePasswordOrg">
                         <ButtonChangePassword></ButtonChangePassword>
                     </div>
-                    <button className="save-changeButton" type="button" onClick={() => dispatch(updateInfoModerator(id,orgName,email))}
+                    <button className="save-changeButton" type="button" onClick={() => dispatch(updateInfoModerator(id,newOrgName,newEmail))}
                     >сохранить изменения</button>
                 </form>
             </section>

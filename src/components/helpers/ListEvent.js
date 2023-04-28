@@ -7,18 +7,29 @@ import {useSelector} from "react-redux";
 import "./listEventStyle.css"
 
 const ListEvent = () => {
-    const [events, setEvents] = useState([]);
+
+    const [photo, setPhoto] = useState([]);
     const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
     const role = useSelector(state => state.user.role)
 
+    const [events, setEvents] = useState([]);
     useEffect(() => {
         fetch(apiURL)
-            .then(res => res.json())
+            .then(response => response.json())
             .then(result => {
                 setEvents(result);
             });
     }, []);
-    const avatarCardEvent = headCardEvent
+    // useEffect(()=>{
+    //     fetch('http://localhost:5215/api/photos/getConferencePhotoById1631986a-7be6-4f8c-b6b6-55a69749fc10')
+    //         .then(response=>response.json())
+    //         .then(result=>{
+    //             setPhoto(result)
+    //         })
+    // })
+    // console.log(setEvent())
+     const avatarCardEvent = headCardEvent
+     const avatar = 'http://localhost:5215/api/photos/getConferencePhotoByIdc778c499-a546-4cb0-b507-9479894ea566'
     let path
     if (role == 'Moderator') {
         path = '/moderator/mainPageModerator/viewingAnEvent'
@@ -32,6 +43,8 @@ const ListEvent = () => {
                     to={path} state={{eventId: x.id}} style={{textDecoration: 'none'}}>
                     <div className="avatarEvent">
                         <img src={avatarCardEvent}/>
+                        {/*<img src={photo}/>*/}
+                        {/*<img src = {avatar} style={{width:'400px', height:'200px'}}/>*/}
                     </div>
                     <div className="event-info-card">
                         <h3>{x.name}</h3>

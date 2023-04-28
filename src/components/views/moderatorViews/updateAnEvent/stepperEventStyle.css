@@ -1,8 +1,17 @@
 
+/*.buttons-stepper1{*/
+/*    position: absolute;*/
+/*    bottom: -125vh;*/
+/*    right: 8%;*/
+/*    !*display: flex;*!*/
+/*    !*gap: 54vw;*!*/
+/*    margin-bottom: 30px;*/
+/*    padding-bottom: 30px;*/
+/*}*/
 .buttons-stepper1{
     position: absolute;
-    bottom: -125vh;
-    right: 8%;
+    bottom: -17vh;
+    right: 0;
     /*display: flex;*/
     /*gap: 54vw;*/
     margin-bottom: 30px;
