@@ -3,8 +3,10 @@ import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import  userReducer from "./userReducer";
 import fileReducer from "./fileReducer";
+import eventReducer from "./eventReducer";
 
 const rootReducer = combineReducers({
+    event: eventReducer,
     user: userReducer,
     files: fileReducer
 

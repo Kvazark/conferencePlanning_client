@@ -1,0 +1,18 @@
+.radio-btn-block{
+    height: 25px;
+    margin-left: -25px;
+}
+/*.radio-btn-block input{*/
+/*    margin-top: 30px;*/
+
+/*}*/
+.radio-btn-block span{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(30, 30, 30);
+}
+/*.Mui-checked{*/
+/*    color: #3dcc4a;*/
+/*}*/

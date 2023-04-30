@@ -6,6 +6,9 @@
     right: 15%;
     top: 90%;
     padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
 }
 .shortDescription-textarea{
@@ -34,6 +37,7 @@
     border-bottom:1px solid;
     border-color: #206F6D;
     resize: none;
+
 
 }
 .longDescription-textarea:focus {

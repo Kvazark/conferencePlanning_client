@@ -12,78 +12,71 @@ import AddRemoveInputCategory from "../../../inputs/input_forCreateEvent/AddRemo
 import {useDispatch, useSelector} from "react-redux";
 import {Button, Group} from "@mantine/core";
 import dayjs from "dayjs";
+import RadioButtons from "../../../inputs/input_forCreateEvent/RadioButtons";
 
 
 //({onChangeName, onChangeAddress})
-const FirstStep = ({ step}) => {
+const FirstStep = ({step}) => {
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
-    const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent') || '')
-    //const [nameEvent, setNameEvent] = useState("");
-    const [shortDescription, setShortDescription] = useState("");
-    const [longDescription, setLongDescription] = useState("");
-    const [addressEvent, setAddressEvent] = useState("");
-    const [organizersName, setOrganizersName] = useState("");
+    const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')
 
-    // const [startDate, setStartDate] = useState(new Date());
     const [startDate, setStartDate] = useState(localStorage.getItem('startDateEvent') ? new Date(localStorage.getItem("startDateEvent")) : '')
+    const [startTime, setStartTime] = useState(localStorage.getItem('startTimeEvent') || '')
+    const [endTime, setEndTime] = useState(localStorage.getItem('endTimeEvent') || '')
+
+    const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent') || '')
+
+    const handleChange = (typeEvent) => {
+        setTypeEvent(typeEvent)
+    }
     const getDateValue = (date) => {
         setStartDate(date);
     }
-    const [startTime, setStartTime] = useState("");
-    const [endTime, setEndTime] = useState("");
-
-    // onChangeName(nameEvent)
-    // onChangeAddress(addressEvent)
-
-    const handleClick=()=>{
+    const handleClick = () => {
         setNameEvent()
         setStartDate()
+        setShortDescription()
+        setStartTime()
+        setEndTime()
+        setTypeEvent()
     }
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.setItem('nameEvent', nameEvent)
-    },[nameEvent])
-    console.log({typeEvent})
-    let date = dayjs(startDate).format("DD.MM.YYYY")
-    console.log({date})
-    useEffect(()=>{
+        localStorage.setItem('shortDescriptionEvent', shortDescription.value)
         localStorage.setItem('startDateEvent', startDate)
-        // localStorage.setItem('startDateEvent', startDate)
-    },[startDate])
+        localStorage.setItem('startTimeEvent', startTime)
+        localStorage.setItem('endTimeEvent', endTime)
+        localStorage.setItem('typeEvent', typeEvent)
+    }, [nameEvent, shortDescription,startDate, startTime, endTime,typeEvent])
+    // console.log({typeEvent})
+    // let date = dayjs(startDate).format("DD.MM.YYYY")
+    // console.log({date})
+
+    let shortDescriptionDefault;
+    if(shortDescription!= `undefined`){
+        shortDescriptionDefault = shortDescription
+    }else{
+        shortDescriptionDefault=""
+    }
 
     return (
         <form className="creation-field-form1">
             <section className="full-inputEvent">
                 <label>Название события</label>
-                {/*<input value={inputValue} type="text"*/}
-                {/*            onChange={handleChange}*/}
-                {/*            placeholder=""*/}
-                {/*/>*/}
                 <InputCreateEvent type="text"
                                   value={nameEvent}
-                                  setValue = {setNameEvent}
+                                  setValue={setNameEvent}
                                   placeholder=""></InputCreateEvent>
-                {/*<input type="text" defaultValue={nameEvent}/>*/}
-                {/*<input name="nameEventNew" type="text"  value={state.nameEventNew} onChange={handleChange}/>*/}
             </section>
             <section className="full-inputEvent">
                 <label>Краткое описание</label>
                 <textarea className="shortDescription-textarea"
+                          defaultValue={shortDescriptionDefault}
                           value={shortDescription.value} onChange={v => setShortDescription({value: v.target.value})}>
                 < /textarea>
             </section>
-            <section className="full-inputEvent">
-                <label>Дополнительная информация</label>
-                <textarea className="longDescription-textarea"
-                          value={longDescription.value} onChange={v => setLongDescription({value: v.target.value})}>
-                < /textarea>
-            </section>
-            <section className="full-inputEvent">
-                <label>Адрес</label>
-                {/*<input name="addressEventNew" type="text"  value={state.addressEventNew} onChange={handleChange}/>*/}
-                <InputCreateEvent value={addressEvent} setValue={setAddressEvent} type="text"
-                                  placeholder=""></InputCreateEvent>
-            </section>
+
             <section className="date-and-time-event">
                 <div className="data-time-field">
                     <label>Дата</label>
@@ -103,17 +96,12 @@ const FirstStep = ({ step}) => {
                     <InputTime value={endTime} setValue={setEndTime} type="time" placeholder=""></InputTime>
                 </div>
             </section>
-            <section className="full-inputEvent">
-                <label>Организатор</label>
-                <InputCreateEvent value={organizersName} setValue={setOrganizersName} type="text"
-                                  placeholder=""></InputCreateEvent>
-            </section>
-            <section className="full-inputEvent">
-                <label>Категории</label>
-                <AddRemoveInputCategory></AddRemoveInputCategory>
-            </section>
+            <RadioButtons></RadioButtons>
             <Group className="buttons-stepper1">
-                <Button className="btn-forth-step" onClick={()=>{step();handleClick()}}>Далее</Button>
+                <Button className="btn-forth-step" onClick={() => {
+                    step();
+                    handleClick()
+                }}>Далее</Button>
             </Group>
         </form>
     );

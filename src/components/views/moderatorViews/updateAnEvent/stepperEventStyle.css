@@ -19,11 +19,11 @@
 }
 
 .buttons-stepper2{
-    position: absolute;
-    bottom: -90vh;
-    left: 16%;
-    display: flex;
-    gap: 74vh;
+    position: relative;
+    bottom: 0;
+    /*bottom: -110vh;*/
+    left: 15%;
+    /*gap: 74vh;*/
     margin-bottom: 30px;
     padding-bottom: 30px;
 

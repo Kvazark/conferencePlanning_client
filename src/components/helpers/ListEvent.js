@@ -53,7 +53,7 @@ const ListEvent = () => {
                                          style={role == 'Moderator' ? {color: "#206F6D"} : {color: "rgba(126, 25, 25, 0.9)"}}></ClockHistory>
                             {dayjs(x.date).format("DD.MM.YYYY")} {x.startTime} {x.endTime}</p>
                         <div className="categories-card">
-                            {x.categories.map(category => (
+                            {x.categories?.map(category => (
                                 <div className="separately-category" key={category.call}>{category}</div>
                             ))}
                         </div>

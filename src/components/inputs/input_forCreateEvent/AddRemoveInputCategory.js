@@ -1,15 +1,30 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {PlusCircleFill, RecordFill, X} from "react-bootstrap-icons";
 import "./addRemInputCategory.css"
 
 function AddRemoveInputCategory() {
-    const [categoryList, setCategoryList] = useState([{nameCategory: ""}]);
+    // const [categoryList, setCategoryList] = useState([{nameCategory: ""}]);
+    let [categoryList, setCategoryList] = useState([{}]);
+    //localStorage.setItem('categoryList', JSON.stringify(categoryList));
+    //categoryList = JSON.parse(localStorage.getItem("categoryList"));
+
+    if(JSON.parse((localStorage.getItem("categoryList")) == null))
+    {
+        localStorage.setItem("categoryList", JSON.stringify(categoryList));
+    }
+
+    useEffect(()=>{
+        const stringifyed = JSON.stringify(categoryList);
+        localStorage.setItem('categoryList', stringifyed)
+    },[categoryList])
+    console.log(categoryList)
+
 
     // handle input change
     const handleInputChange = (e, index) => {
-        const {name, value} = e.target;
+        const {value} = e.target;
         const list = [...categoryList];
-        list[index][name] = value;
+        list[index] = value;
         setCategoryList(list);
     };
 
@@ -22,7 +37,7 @@ function AddRemoveInputCategory() {
 
     // handle click event of the Add button
     const handleAddClick = () => {
-        setCategoryList([...categoryList, {nameCategory: ""}]);
+        setCategoryList([...categoryList, {}]);
     };
 
     return (

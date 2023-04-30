@@ -11,7 +11,7 @@ export const registrationUser = async (userSurname, userName, email, password) =
             email,
             password
         })
-        alert("succesfull")
+        alert("successfully")
     } catch (error) {
         alert(error)
     }
@@ -25,7 +25,7 @@ export const registrationModerator = async (organizationName, email, password) =
             password,
 
         })
-        alert("succesfull")
+        alert("successfully")
     } catch (error) {
         alert(error)
     }
@@ -111,6 +111,7 @@ export const updateInfoModerator = (id, organizationName, email) => {
         const data = {
             id: `${id}`,
             organizationName: `${organizationName}`,
+            position: 'position',
             email: `${email}`
         };
         try {
@@ -120,9 +121,10 @@ export const updateInfoModerator = (id, organizationName, email) => {
                 .then((res) => {
                     console.log(res.data);
                 })
-            alert("succesfull")
+            alert("successfully")
         } catch (e) {
             alert(e.response.data.message)
         }
     }
 }
+
