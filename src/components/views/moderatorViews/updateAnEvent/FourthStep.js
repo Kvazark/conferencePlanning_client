@@ -18,7 +18,7 @@ const FourthStep = ({step}) => {
     const longDescription = localStorage.getItem('longDescription')!=`undefined`?localStorage.getItem('longDescription') : ' '
     const cityEvent = localStorage.getItem('cityEvent')
     const addressEvent = localStorage.getItem('addressEvent')
-    const categoryList = localStorage.getItem('categoryList')
+    const categoryList = JSON.parse(localStorage.getItem('categoryList'))
 
     const id = useSelector(state => state.event.id)
 
@@ -26,6 +26,10 @@ const FourthStep = ({step}) => {
     // console.log({date})
     const dispatch = useDispatch()
     //let id = 1
+
+    const startTimeEvent = startTime+':00'
+    const endTimeEvent = endTime+':00'
+    console.log(categoryList)
 
     let imgUrl = 'https://sun9-22.userapi.com/impf/JE4MhUUAwR_NNugWJJUbiQ-4ZpaB8uR2DCsTUQ/X74abVCzZg8.jpg?size=1590x530&quality=95&crop=80,0,1437,479&sign=74fa159992ac5dc1278e50d09cdacd5b&type=cover_group'
     return (
@@ -49,7 +53,7 @@ const FourthStep = ({step}) => {
                 <Button className="save-change-event-button" style={{}}
                         onClick={() => {
                             dispatch(updateInfoEvent(id,nameEvent, typeEvent, shortDescription, longDescription,
-                                addressEvent, cityEvent, startDate, startTime,endTime, organizersName, imgUrl,categoryList));
+                                addressEvent, cityEvent, startDate, startTimeEvent,endTimeEvent, organizersName, imgUrl,categoryList));
                             step();
                         }}>Опубликовать</Button>
             </div>

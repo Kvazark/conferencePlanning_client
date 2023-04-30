@@ -16,9 +16,9 @@ const MwCreateEvent2 = () => {
     // const [startDate, setStartDate] = useState(new Date())
 
     let startDate = dayjs(date).format("DD.MM.YYYY")
+    const moderatorId = useSelector(state => state.user.id)
 
-
-    console.log(nameEvent,typeEvent, startDate)
+    console.log(nameEvent,typeEvent, startDate, moderatorId)
 
 
 /////навигация
@@ -37,7 +37,7 @@ const MwCreateEvent2 = () => {
     return (
         <div className="create-event-div" >
             <p>Привет</p>
-            <button className="cont-create-new-event-Btn"  type="button"  onClick={()=>{dispatch(addNewEvent(nameEvent,typeEvent,startDate))}}>создать</button>
+            <button className="cont-create-new-event-Btn"  type="button"  onClick={()=>{dispatch(addNewEvent(nameEvent,typeEvent,startDate, moderatorId))}}>создать</button>
         </div>
     );
 

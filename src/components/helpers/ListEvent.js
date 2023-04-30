@@ -8,6 +8,14 @@ import "./listEventStyle.css"
 
 const ListEvent = () => {
 
+    ///useEffect(() => {
+    //         fetch(apiURL)
+    //             .then(response => response.json())
+    //             .then(result => {
+    //                 result.sort((a,b) => new Date(a)< new Date(b)? 1: -1);
+    //                 setEvents(result);
+    //             });
+    //     }, []); сортировка сначала новые конференции
     const [photo, setPhoto] = useState([]);
     const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
     const role = useSelector(state => state.user.role)
@@ -17,11 +25,12 @@ const ListEvent = () => {
         fetch(apiURL)
             .then(response => response.json())
             .then(result => {
+                //result.sort((a,b) => new Date(a.date).getTime()< new Date(b.date).getTime()? 1: -1);
                 setEvents(result);
             });
     }, []);
     // useEffect(()=>{
-    //     fetch('http://localhost:5215/api/photos/getConferencePhotoById1631986a-7be6-4f8c-b6b6-55a69749fc10')
+    //     fetch('http://localhost:5215/api/photos/getConferencePhotoByIdf02ac54b-1b95-4e15-9699-eb7cc787ff7f')
     //         .then(response=>response.json())
     //         .then(result=>{
     //             setPhoto(result)
@@ -51,7 +60,7 @@ const ListEvent = () => {
                         <p><PinMap size="22px" style={role == 'Moderator' ? {color: "#206F6D"} : {color: "rgba(126, 25, 25, 0.9)"}}></PinMap> {x.addres}, {x.city}</p>
                         <p><ClockHistory size="22px"
                                          style={role == 'Moderator' ? {color: "#206F6D"} : {color: "rgba(126, 25, 25, 0.9)"}}></ClockHistory>
-                            {dayjs(x.date).format("DD.MM.YYYY")} {x.startTime} {x.endTime}</p>
+                            {x.date} {x.startTime} {x.endTime}</p>
                         <div className="categories-card">
                             {x.categories?.map(category => (
                                 <div className="separately-category" key={category.call}>{category}</div>

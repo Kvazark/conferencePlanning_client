@@ -7,6 +7,7 @@ import DatePicker from "react-datepicker";
 import RadioButtons from "../inputs/input_forCreateEvent/RadioButtons";
 import dayjs from "dayjs";
 import {addNewEvent} from "../../redux/actions/event";
+import {useSelector} from "react-redux";
 
 const MwCreateEvent = ({onChange}) => {
 
@@ -20,6 +21,7 @@ const MwCreateEvent = ({onChange}) => {
     }
     //let startDate1 = dayjs(startDate).format("DD.MM.YYYY")
     let show=true
+
     const handleClick=()=>{
         setNameEvent()
         setTypeEvent()
