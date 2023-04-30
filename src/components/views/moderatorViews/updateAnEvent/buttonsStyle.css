@@ -16,9 +16,12 @@
 }
 .btn-next-step{
     z-index: 1;
-    position: absolute;
-    bottom: -13.7%;
-    left: 86%;
+    /*position: absolute;*/
+    /*bottom: -9.0%;*/
+    /*left: 86%;*/
+    position: relative;
+    left: 75%;
+
 }
 .btn-forth-step{
     width: 117px;
@@ -47,6 +50,25 @@
     font-size: 16px;
     line-height: 27px;
     align-items: center;
+}
+.save-change-event-button{
+    width: auto;
+    height: 37px;
+
+    background: #6A888C;
+    border-radius: 10px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 27px;
+    align-items: center;
+    position: relative;
+    right: -430%;
+}
+.save-change-event-button:hover{
+    background-color: #206F6D;
 }
 .btn-forth-step:hover{
     background-color: #206F6D;

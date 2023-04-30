@@ -30,10 +30,13 @@ const SecondStep = ({step}) => {
 
     let fieldAddress;
     let fieldCity;
+    let h;
     if(typeEvent=="онлайн"){
         fieldAddress = ""
         fieldCity=""
+        h = '74.2vh'
     }else{
+        h='103.6vh'
         fieldCity =  <section className="full-inputEvent"style={{width:"25vw"}}>
             <label>Город</label>
             {/*<input name="addressEventNew" type="text"  value={state.addressEventNew} onChange={handleChange}/>*/}
@@ -54,33 +57,36 @@ const SecondStep = ({step}) => {
         longDescriptionDefault=""
     }
     return (
-        <form className="creation-field-form1">
-            <section className="full-inputEvent">
-                <label>Дополнительная информация</label>
-                <textarea className="longDescription-textarea"
-                          defaultValue={longDescriptionDefault}
-                          value={longDescription.value} onChange={v => setLongDescription({value: v.target.value})}>
+        <section>
+            <form className="creation-field-form1">
+                <section className="full-inputEvent">
+                    <label>Дополнительная информация</label>
+                    <textarea className="longDescription-textarea"
+                              defaultValue={longDescriptionDefault}
+                              value={longDescription.value} onChange={v => setLongDescription({value: v.target.value})}>
                 < /textarea>
-            </section>
-            <section className="full-inputEvent">
-                <label>Организатор</label>
-                <InputCreateEvent value={organizersName} setValue={setOrganizersName} type="text"
-                                  placeholder=""></InputCreateEvent>
-            </section>
-            {fieldCity}
-            {fieldAddress}
-            <section className="full-inputEvent">
-                <label>Категории</label>
-                <AddRemoveInputCategory></AddRemoveInputCategory>
-            </section>
-            <div className="btn-next-step">
+                </section>
+                <section className="full-inputEvent">
+                    <label>Организатор</label>
+                    <InputCreateEvent value={organizersName} setValue={setOrganizersName} type="text"
+                                      placeholder=""></InputCreateEvent>
+                </section>
+                {fieldCity}
+                {fieldAddress}
+                <section className="full-inputEvent">
+                    <label>Категории</label>
+                    <AddRemoveInputCategory></AddRemoveInputCategory>
+                </section>
+
+            </form>
+            <div className="btn-next-step" style={{top: h}}>
                 <Button className="btn-forth-step"
                         onClick={() => {step();
                             handleClick()
                         }}>Далее</Button>
             </div>
+        </section>
 
-        </form>
     );
 }
 

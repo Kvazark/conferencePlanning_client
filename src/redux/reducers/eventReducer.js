@@ -13,4 +13,4 @@ export default function eventReducer(state=defaultState,action){
             return state;
     }
 }
-export const setId = id =>({type: SET_ID_EVENT,payload: id})
+export const setEventId = id =>({type: SET_ID_EVENT,payload: id})

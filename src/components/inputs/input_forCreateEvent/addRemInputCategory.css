@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 20px;
+
 }
 .field-add-remove-input-category div{
 
@@ -42,6 +43,7 @@
     height: 20px;
     padding: 0 30px 0 0;
     margin-left: -23px;
+    z-index: 1;
 }
 .btn-add-input-category{
     margin-top: 15px;
@@ -59,4 +61,5 @@
     align-items: center;
 
     color: rgba(76, 91, 102, 0.5);
+    z-index: 1;
 }

@@ -117,10 +117,6 @@ export const updateInfoModerator = (id, organizationName, email) => {
         try {
             const response = await axios.put(`https://localhost:7215/api/moderator/updateModerator`, data,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-            dispatch(setUser(response.data))
-                .then((res) => {
-                    console.log(res.data);
-                })
             alert("successfully")
         } catch (e) {
             alert(e.response.data.message)

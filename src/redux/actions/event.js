@@ -1,31 +1,26 @@
 import axios from "axios";
-import {setId, setUser} from "../reducers/userReducer";
+import {setEventId} from "../reducers/eventReducer";
 
-export const addNewEvent = async (name, type, date) => {
-    // let d = date[0]+date[1]
-    // let m = date[3]+date[4]
-    // let y = date[6]+date[7]+date[8]+date[9]
+export const addNewEvent = (name, type, date) => {
+
     return async dispatch => {
-    try {
-        const response = await axios.post('https://localhost:7215/api/conferences/addNewConference', {
-            name:`${name}`,
-            type:`${type}`,
-            date:`${date}`
-        })
-            // date: {
-            //     year: y,
-            //     month: m,
-            //     day: d,
-            //     dayOfWeek: 1
-            // }})
-        dispatch(setId(response.data.id))
-        alert("successfully")
-    } catch (error) {
-        alert(error)
-    }}
+        const data = {
+            name: `${name}`,
+            type: `${type}`,
+            date: `${date}`
+        };
+        try {
+            const response = await axios.post('https://localhost:7215/api/conferences/addNewConference', data,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            dispatch(setEventId(response.data.id))
+            alert("successfully")
+        } catch (error) {
+            alert(error)
+        }
+    }
 
 }
-export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, addres, city, date, startTime,endTime, organizer, imgUrl,categories) => {
+export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, city, date, startTime, endTime, organizer, imgUrl, categories) => {
     return async dispatch => {
         const data = {
             id: `${id}`,
@@ -33,7 +28,7 @@ export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, addres, c
             type: `${type}`,
             shortTopic: `${shortTopic}`,
             fullTopic: `${fullTopic}`,
-            addres: `${addres}`,
+            address: `${address}`,
             city: `${city}`,
             date: {
                 year: `${1}`,
@@ -62,10 +57,6 @@ export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, addres, c
         try {
             const response = await axios.put(`https://localhost:7215/api/conferences/updateConference`, data,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-            dispatch(setUser(response.data))
-                .then((res) => {
-                    console.log(res.data);
-                })
             alert("successfully")
         } catch (e) {
             alert(e.response.data.message)
