@@ -1,10 +1,10 @@
 import React, {Component, useState} from 'react';
-import Input from "../../inputs/input/Input";
+import Input from "../../commonComponents/details/inputs/input/Input";
 import {NavLink} from "react-router-dom";
 import style from "./registrationStyle.css"
-import Checkbox from "../../inputs/input/Checkbox";
+import Checkbox from "../../commonComponents/details/inputs/input/Checkbox";
 import {registration, registrationModerator, registrationUser} from "../../../redux/actions/user";
-import RadioBtn from "../../inputs/input/RadioBtn";
+import RadioBtn from "../../commonComponents/details/inputs/input/RadioBtn";
 
 const Registration = () => {
     const [email, setEmail] = useState("");

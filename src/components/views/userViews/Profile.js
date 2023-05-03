@@ -1,7 +1,7 @@
 import styles from './profileStyle.css';
-import InputProfile from "../../inputs/input_forProfile/InputProfile";
+import InputProfile from "../../commonComponents/details/inputs/input_forProfile/InputProfile";
 import {Camera, Key, Pencil, X, XLg} from "react-bootstrap-icons";
-import ButtonChangePassword from "../../inputs/input_forProfile/ButtonChangePassword";
+import ButtonChangePassword from "../../commonComponents/details/inputs/input_forProfile/ButtonChangePassword";
 import TopMenu from "../../user/TopMenu";
 
 import React, {useEffect, useState} from "react";

@@ -1,6 +1,6 @@
 import React, {Component, useContext, useEffect, useState} from 'react';
-import InputCreateEvent from "../../../inputs/input_forCreateEvent/InputCreateEvent";
-import AddRemoveInputCategory from "../../../inputs/input_forCreateEvent/AddRemoveInputCategory";
+import InputCreateEvent from "../../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
+import AddRemoveInputCategory from "../../../commonComponents/details/inputs/input_forCreateEvent/AddRemoveInputCategory";
 import {Button, Group} from "@mantine/core";
 
 const SecondStep = ({step}) => {

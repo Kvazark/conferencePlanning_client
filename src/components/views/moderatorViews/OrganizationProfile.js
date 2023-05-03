@@ -1,6 +1,6 @@
 import React, {Component, useEffect, useState} from 'react';
-import InputProfile from "../../inputs/input_forProfile/InputProfile";
-import ButtonChangePassword from "../../inputs/input_forProfile/ButtonChangePassword";
+import InputProfile from "../../commonComponents/details/inputs/input_forProfile/InputProfile";
+import ButtonChangePassword from "../../commonComponents/details/inputs/input_forProfile/ButtonChangePassword";
 import style from "./organizationProfileStyle.css"
 import LeftMenu from "../../moderator/LeftMenu";
 import {logout} from "../../../redux/reducers/userReducer";

@@ -1,5 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
-import Input from "../../inputs/input/Input";
+import Input from "../../commonComponents/details/inputs/input/Input";
 import {auth, login, setRoleUser, updateAvatar} from "../../../redux/actions/user";
 import {Navigate, NavLink, useLocation, useNavigate} from "react-router-dom";
 import style from "./loginStyle.css"

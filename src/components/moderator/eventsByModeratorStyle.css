@@ -1,0 +1,73 @@
+.card-eventMod{
+    width: 60vw;
+    height: 20vh;
+    /*left: 10px;*/
+    /*top: 66px;*/
+
+    background: #ffffff;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    overflow-y:hidden;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+.avatarEventMod{
+    width: 65%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+}
+.info-cardMod{
+    position: relative;
+    top: 0;
+    left: 0;
+
+    border-right: 1px solid rgba(48, 48, 48, 0.1);
+    height: 100%;
+    width: 35%;
+
+}
+.info-cardMod h3{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+
+    color: rgb(48, 48, 48, 0.8);
+    margin: 10px 0 0 20px;
+
+}
+.info-cardMod p{
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+
+    color: #303030;
+    margin: 10px 20px;
+    position: relative;
+    top: 20px;
+}
+.three-dots-icon{
+    position: relative;
+    left: 95%;
+    border: 0.3px solid rgba(0, 0, 0, 0.8);
+
+    color: #F2F2F2;
+}
+.open-setting-event-field{
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    width: 200px;
+    padding: 5px 0 5px 0;
+    background: rgba(242, 242, 242, 0.9);
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25), -2px 0px 8px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    overflow-y: hidden;
+    border-radius: 10px;
+}

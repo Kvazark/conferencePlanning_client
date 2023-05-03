@@ -1,0 +1,39 @@
+.setting-event-field {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    gap: 9px;
+    z-index: 1;
+    padding: 5px 0 5px 5px;
+
+}
+
+.btn-setting-event-field {
+    background: rgba(242, 242, 242, 0.01);
+    display: flex;
+    gap: 10px;
+    color: rgba(32, 111, 109, 0.85);
+    width: 100%;
+    border-radius: 7px;
+
+}
+.btn-setting-event-field:focus{
+    outline: none;
+
+}
+.btn-setting-event-field:hover{
+    /*transform: translateY(0) scale(1.01);*/
+    background: rgba(242, 242, 242, 0.7);
+    /*box-shadow: inset 0px 0px 4px 4px rgb(241, 241, 241);*/
+}
+.btn-setting-event-field span{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    color: #303030;
+}

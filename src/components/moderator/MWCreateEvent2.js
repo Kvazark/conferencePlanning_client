@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import InputCreateEvent from "../inputs/input_forCreateEvent/InputCreateEvent";
-import RadioButtons from "../inputs/input_forCreateEvent/RadioButtons";
+import InputCreateEvent from "../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
+import RadioButtons from "../commonComponents/details/inputs/input_forCreateEvent/RadioButtons";
 import {Calendar2Week} from "react-bootstrap-icons";
 import DatePicker from "react-datepicker";
 import dayjs from "dayjs";

@@ -1,22 +1,35 @@
 import React, {Component, useContext, useEffect, useState} from 'react';
 import styles from "./firstStepStyle.css"
-import InputCreateEvent from "../../../inputs/input_forCreateEvent/InputCreateEvent";
-import InputProfile from "../../../inputs/input_forProfile/InputProfile";
+import InputCreateEvent from "../../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {Calendar2Week, Clock} from "react-bootstrap-icons";
-import Input from "../../../inputs/input/Input";
-import InputTime from "../../../inputs/input_forCreateEvent/InputTime";
-import AddRemoveInputSchedule from "../../../inputs/input_forCreateEvent/AddRemoveInputSchedule";
-import AddRemoveInputCategory from "../../../inputs/input_forCreateEvent/AddRemoveInputCategory";
+import InputTime from "../../../commonComponents/details/inputs/input_forCreateEvent/InputTime";
 import {useDispatch, useSelector} from "react-redux";
 import {Button, Group} from "@mantine/core";
-import dayjs from "dayjs";
-import RadioButtons from "../../../inputs/input_forCreateEvent/RadioButtons";
+import RadioButtons from "../../../commonComponents/details/inputs/input_forCreateEvent/RadioButtons";
+import {useLocation} from "react-router-dom";
+import headCardEvent from "../../../../img/head-card-event.svg";
 
 
 //({onChangeName, onChangeAddress})
 const FirstStep = ({step}) => {
+
+
+    const [event, setEvent] = useState({});
+    const idEventEdit = localStorage.getItem('idEventEdit')
+
+    useEffect(() => {
+        fetch(`https://localhost:7215/api/conferences/getConferenceById?id=${idEventEdit}`)
+            .then(res => res.json())
+            .then(result => {
+                setEvent(result);
+            })
+            .catch(() => {
+
+            })
+    }, []);
+    console.log(event.conf?.name)
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')
@@ -27,9 +40,15 @@ const FirstStep = ({step}) => {
 
     const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent') || '')
 
-    const handleChange = (typeEvent) => {
-        setTypeEvent(typeEvent)
+    const idCurrentEvent = localStorage.getItem('idCurrentEvent')
+    const idEvent = useSelector(state => state.event.id)
+    let id
+    if(idCurrentEvent!=null){
+        id = idCurrentEvent
+    }else{
+        id = idEvent
     }
+
     const getDateValue = (date) => {
         setStartDate(date);
     }
@@ -41,17 +60,15 @@ const FirstStep = ({step}) => {
         setEndTime()
         setTypeEvent()
     }
-    useEffect(() => {
-        localStorage.setItem('nameEvent', nameEvent)
-        localStorage.setItem('shortDescriptionEvent', shortDescription.value)
-        localStorage.setItem('startDateEvent', startDate)
-        localStorage.setItem('startTimeEvent', startTime)
-        localStorage.setItem('endTimeEvent', endTime)
-        localStorage.setItem('typeEvent', typeEvent)
-    }, [nameEvent, shortDescription,startDate, startTime, endTime,typeEvent])
-    // console.log({typeEvent})
-    // let date = dayjs(startDate).format("DD.MM.YYYY")
-    // console.log({date})
+        useEffect(() => {
+            localStorage.setItem('nameEvent', nameEvent)
+            localStorage.setItem('shortDescriptionEvent', shortDescription.value)
+            localStorage.setItem('startDateEvent', startDate)
+            localStorage.setItem('startTimeEvent', startTime)
+            localStorage.setItem('endTimeEvent', endTime)
+            localStorage.setItem('typeEvent', typeEvent)
+        }, [nameEvent, shortDescription,startDate, startTime, endTime,typeEvent])
+
 
     let shortDescriptionDefault;
     if(shortDescription!= `undefined`){

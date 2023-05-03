@@ -4,9 +4,18 @@ import {NavLink} from "react-router-dom";
 import {ClockHistory, PinMap} from "react-bootstrap-icons";
 import dayjs from "dayjs";
 import headCardEvent from "../../../img/head-card-event.svg";
-import ListEvent from "../../helpers/ListEvent";
+import ListEvent from "../../commonComponents/ListEvent";
 
 const HomePageModerator = () => {
+    const [idCurrentEvent, setIdCurrentEvent] = useState(localStorage.getItem('idCurrentEvent') || '')
+
+    const handleClick = () => {
+       setIdCurrentEvent()
+    }
+    useEffect(() => {
+        localStorage.setItem('idCurrentEvent', idCurrentEvent)
+
+    }, [idCurrentEvent])
     return (
         <main>
             <LeftMenu />

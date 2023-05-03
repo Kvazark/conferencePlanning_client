@@ -3,13 +3,14 @@ import LeftMenu from "../../moderator/LeftMenu";
 import style from "./eventListStyle.css"
 import {HouseDoor, Plus} from "react-bootstrap-icons";
 import {useNavigate} from "react-router-dom";
-import InputCreateEvent from "../../inputs/input_forCreateEvent/InputCreateEvent";
-import ModalWindow from "../../helpers/ModalWindow";
+import InputCreateEvent from "../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
+import ModalWindow from "../../commonComponents/ModalWindow";
 import MWCreateEvent from "../../moderator/MWCreateEvent";
 import MWCreateEvent2 from "../../moderator/MWCreateEvent2";
+import EventsByModerator from "../../moderator/EventsByModerator";
 
 
-const EventsList = () => {
+const EventsListByModerator = () => {
 
     const[modalActive, setModalActive]=useState(false)
     const [showResults, setShowResults] = React.useState(false)
@@ -20,8 +21,7 @@ const EventsList = () => {
     console.log(showResults)
 
     return (
-
-        <main>
+        <main style={{overflowX: `hidden`}}>
             <LeftMenu/>
             <div className="topPanel">
                 {/*<button className="create-new-event-Btn" onClick={routeChange}><Plus size={30}/>создать событие*/}
@@ -30,7 +30,7 @@ const EventsList = () => {
                 </button>
             </div>
             <section className="field-events">
-                <h2 className="home">Welcome to the events by moderator!</h2>
+                <EventsByModerator></EventsByModerator>
             </section>
             <ModalWindow active={modalActive} setActive={setModalActive}>
                 {!showResults ?
@@ -42,7 +42,7 @@ const EventsList = () => {
     );
 
 }
-export default EventsList;
+export default EventsListByModerator;
 
 
 
