@@ -26,6 +26,7 @@ const SecondStep = ({step}) => {
             })
     }, []);
 
+    let data = event.conf?.categories
 
     const [longDescription, setLongDescription] =  useState(localStorage.getItem('longDescription') || '')
     const [organizersName, setOrganizersName] = useState(localStorage.getItem('organizersName') || '')
@@ -35,6 +36,8 @@ const SecondStep = ({step}) => {
     const [addressEvent, setAddressEvent] = useState(localStorage.getItem('addressEvent') || ' ')
 
     let [categoryList, setCategoryList] = useState(localStorage.getItem('categoryList') || '')
+
+
 
     const handleClick = () => {
         setLongDescription()
@@ -64,20 +67,20 @@ const SecondStep = ({step}) => {
             <label>Город</label>
             {/*<input name="addressEventNew" type="text"  value={state.addressEventNew} onChange={handleChange}/>*/}
             <InputCreateEvent value={cityEvent} setValue={setCityEvent} type="text"
-                              placeholder=""></InputCreateEvent>
+                              placeholder={event.conf?.city}></InputCreateEvent>
         </section>
         fieldAddress = <section className="full-inputEvent" >
             <label>Остальной адрес</label>
             {/*<input name="addressEventNew" type="text"  value={state.addressEventNew} onChange={handleChange}/>*/}
             <InputCreateEvent value={addressEvent} setValue={setAddressEvent} type="text"
-                              placeholder=""></InputCreateEvent>
+                              placeholder={event.conf?.addres}></InputCreateEvent>
         </section>
     }
     let longDescriptionDefault;
     if(longDescription!= `undefined`){
         longDescriptionDefault = longDescription
     }else{
-        longDescriptionDefault=""
+        longDescriptionDefault= event.conf?.fullTopic
     }
     return (
         <section>
@@ -98,7 +101,7 @@ const SecondStep = ({step}) => {
                 {fieldAddress}
                 <section className="full-inputEvent">
                     <label>Категории</label>
-                    <AddRemoveInputCategory></AddRemoveInputCategory>
+                    <AddRemoveInputCategory dataList={data}></AddRemoveInputCategory>
                 </section>
 
             </form>

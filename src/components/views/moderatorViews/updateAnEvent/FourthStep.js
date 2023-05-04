@@ -18,7 +18,7 @@ const FourthStep = ({step}) => {
     const longDescription = localStorage.getItem('longDescription')!=`undefined`?localStorage.getItem('longDescription') : ' '
     const cityEvent = localStorage.getItem('cityEvent')
     const addressEvent = localStorage.getItem('addressEvent')
-    const categoryList = JSON.parse(localStorage.getItem('categoryList'))
+    const categoryList = JSON.parse(localStorage.getItem('categoryList')? localStorage.getItem('categoryList'): null)
 
     // const currentIdEvent = localStorage.getItem('currentIdEvent')
     // console.log(currentIdEvent)

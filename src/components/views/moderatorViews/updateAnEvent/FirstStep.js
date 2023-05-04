@@ -64,6 +64,14 @@ const FirstStep = ({step}) => {
         shortDescriptionDefault = shortDescription
     } else shortDescriptionDefault = event.conf?.shortTopic
 
+    let stime, etime;
+    if (event.conf?.startTime !== null){
+        stime = event.conf?.startTime.substring(0,5)
+    }else stime = '00:00'
+    if(event.conf?.endTime !== null){
+        etime=event.conf?.endTime.substring(0,5)
+    }else etime = '00:00'
+
     useEffect(() => {
         localStorage.setItem('nameEvent', nameEvent)
         localStorage.setItem('shortDescriptionEvent', shortDescription.value)
@@ -106,11 +114,11 @@ const FirstStep = ({step}) => {
                 </div>
                 <div className="data-time-field">
                     <label>Время начала</label>
-                    <InputTime value={startTime? startTime : event.conf?.startTime.substring(0,5)} setValue={setStartTime} type="time" placeholder="11:40"></InputTime>
+                    <InputTime value={startTime? startTime : stime} setValue={setStartTime} type="time" placeholder="11:40"></InputTime>
                 </div>
                 <div className="data-time-field">
                     <label>Время окончания</label>
-                    <InputTime value={endTime? endTime: event.conf?.endTime.substring(0,5)} setValue={setEndTime} type="time" placeholder=""></InputTime>
+                    <InputTime value={endTime? endTime: etime} setValue={setEndTime} type="time" placeholder=""></InputTime>
                 </div>
             </section>
             <RadioButtons></RadioButtons>
