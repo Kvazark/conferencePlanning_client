@@ -41,6 +41,7 @@ const EventsByModerator = () => {
     const handleClick=(index, id)=> {
         setShow(!show)
         setSelectedItemIndex(index)
+        localStorage.clear()
         setIdEventEdit(id)
     }
 

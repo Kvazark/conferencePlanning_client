@@ -20,6 +20,8 @@ const FourthStep = ({step}) => {
     const addressEvent = localStorage.getItem('addressEvent')
     const categoryList = JSON.parse(localStorage.getItem('categoryList'))
 
+    // const currentIdEvent = localStorage.getItem('currentIdEvent')
+    // console.log(currentIdEvent)
     const id = useSelector(state => state.event.id)
 
     let startDate = dayjs(date).format("DD.MM.YYYY")

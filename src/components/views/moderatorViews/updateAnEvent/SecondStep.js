@@ -2,8 +2,31 @@ import React, {Component, useContext, useEffect, useState} from 'react';
 import InputCreateEvent from "../../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
 import AddRemoveInputCategory from "../../../commonComponents/details/inputs/input_forCreateEvent/AddRemoveInputCategory";
 import {Button, Group} from "@mantine/core";
+import {useSelector} from "react-redux";
 
 const SecondStep = ({step}) => {
+    const [event, setEvent] = useState({});
+    const idEventEdit = localStorage.getItem('idEventEdit')
+    const idEvent = useSelector(state => state.event.id)
+    let id
+    if(idEventEdit!=null){
+        id = idEventEdit
+    }else{
+        id = idEvent
+    }
+
+    useEffect(() => {
+        fetch(`https://localhost:7215/api/conferences/getConferenceById?id=${id}`)
+            .then(res => res.json())
+            .then(result => {
+                setEvent(result);
+            })
+            .catch(() => {
+
+            })
+    }, []);
+
+
     const [longDescription, setLongDescription] =  useState(localStorage.getItem('longDescription') || '')
     const [organizersName, setOrganizersName] = useState(localStorage.getItem('organizersName') || '')
 

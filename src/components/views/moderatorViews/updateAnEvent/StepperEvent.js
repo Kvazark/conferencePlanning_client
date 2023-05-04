@@ -28,7 +28,7 @@ const StepperEvent = () => {
     let h;
     if(typeEvent=='онлайн'){h='48.4%'}
     else{h='68.9%'}
-    console.log(typeEvent)
+
 
     return(
       <main className="field-stepper">

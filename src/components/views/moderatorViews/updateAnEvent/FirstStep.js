@@ -10,17 +10,24 @@ import {Button, Group} from "@mantine/core";
 import RadioButtons from "../../../commonComponents/details/inputs/input_forCreateEvent/RadioButtons";
 import {useLocation} from "react-router-dom";
 import headCardEvent from "../../../../img/head-card-event.svg";
+import dayjs from "dayjs";
 
 
 //({onChangeName, onChangeAddress})
 const FirstStep = ({step}) => {
-
-
     const [event, setEvent] = useState({});
+
     const idEventEdit = localStorage.getItem('idEventEdit')
+    const idEvent = useSelector(state => state.event.id)
+    let id
+    if (idEventEdit != null) {
+        id = idEventEdit
+    } else {
+        id = idEvent
+    }
 
     useEffect(() => {
-        fetch(`https://localhost:7215/api/conferences/getConferenceById?id=${idEventEdit}`)
+        fetch(`https://localhost:7215/api/conferences/getConferenceById?id=${id}`)
             .then(res => res.json())
             .then(result => {
                 setEvent(result);
@@ -29,25 +36,14 @@ const FirstStep = ({step}) => {
 
             })
     }, []);
-    console.log(event.conf?.name)
+
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')
-
     const [startDate, setStartDate] = useState(localStorage.getItem('startDateEvent') ? new Date(localStorage.getItem("startDateEvent")) : '')
     const [startTime, setStartTime] = useState(localStorage.getItem('startTimeEvent') || '')
     const [endTime, setEndTime] = useState(localStorage.getItem('endTimeEvent') || '')
-
-    const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent') || '')
-
-    const idCurrentEvent = localStorage.getItem('idCurrentEvent')
-    const idEvent = useSelector(state => state.event.id)
-    let id
-    if(idCurrentEvent!=null){
-        id = idCurrentEvent
-    }else{
-        id = idEvent
-    }
+    const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent'))
 
     const getDateValue = (date) => {
         setStartDate(date);
@@ -60,22 +56,26 @@ const FirstStep = ({step}) => {
         setEndTime()
         setTypeEvent()
     }
-        useEffect(() => {
-            localStorage.setItem('nameEvent', nameEvent)
-            localStorage.setItem('shortDescriptionEvent', shortDescription.value)
-            localStorage.setItem('startDateEvent', startDate)
-            localStorage.setItem('startTimeEvent', startTime)
-            localStorage.setItem('endTimeEvent', endTime)
-            localStorage.setItem('typeEvent', typeEvent)
-        }, [nameEvent, shortDescription,startDate, startTime, endTime,typeEvent])
-
-
-    let shortDescriptionDefault;
-    if(shortDescription!= `undefined`){
-        shortDescriptionDefault = shortDescription
-    }else{
-        shortDescriptionDefault=""
+    if(localStorage.getItem('typeEvent')==='null'){
+        localStorage.setItem('typeEvent', event.conf?.type)
     }
+    let shortDescriptionDefault;
+    if (shortDescription != `undefined`) {
+        shortDescriptionDefault = shortDescription
+    } else shortDescriptionDefault = event.conf?.shortTopic
+
+    useEffect(() => {
+        localStorage.setItem('nameEvent', nameEvent)
+        localStorage.setItem('shortDescriptionEvent', shortDescription.value)
+        localStorage.setItem('startDateEvent', startDate)
+        localStorage.setItem('startTimeEvent', startTime)
+        localStorage.setItem('endTimeEvent', endTime)
+        if (localStorage.getItem(`typeEvent`) !== `null`) {
+            localStorage.setItem('typeEvent', typeEvent)
+        }
+
+    }, [nameEvent, shortDescription, startDate, startTime, endTime, typeEvent])
+
 
     return (
         <form className="creation-field-form1">
@@ -84,7 +84,7 @@ const FirstStep = ({step}) => {
                 <InputCreateEvent type="text"
                                   value={nameEvent}
                                   setValue={setNameEvent}
-                                  placeholder=""></InputCreateEvent>
+                                  placeholder={event.conf?.name}></InputCreateEvent>
             </section>
             <section className="full-inputEvent">
                 <label>Краткое описание</label>
@@ -99,18 +99,18 @@ const FirstStep = ({step}) => {
                     <label>Дата</label>
                     <Calendar2Week className="icons-data-time" size="25px"></Calendar2Week>
                     <DatePicker wrapperClassName="date-picker"
-                                selected={startDate}
+                                selected={startDate? startDate : dayjs(event.conf?.date).toDate()}
                                 onChange={getDateValue}
                                 dateFormat="dd.MM.yyyy"
                     />
                 </div>
                 <div className="data-time-field">
                     <label>Время начала</label>
-                    <InputTime value={startTime} setValue={setStartTime} type="time" placeholder=""></InputTime>
+                    <InputTime value={startTime? startTime : event.conf?.startTime.substring(0,5)} setValue={setStartTime} type="time" placeholder="11:40"></InputTime>
                 </div>
                 <div className="data-time-field">
                     <label>Время окончания</label>
-                    <InputTime value={endTime} setValue={setEndTime} type="time" placeholder=""></InputTime>
+                    <InputTime value={endTime? endTime: event.conf?.endTime.substring(0,5)} setValue={setEndTime} type="time" placeholder=""></InputTime>
                 </div>
             </section>
             <RadioButtons></RadioButtons>
