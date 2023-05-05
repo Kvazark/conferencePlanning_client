@@ -31,7 +31,10 @@ const FourthStep = ({step}) => {
 
     const startTimeEvent = startTime+':00'
     const endTimeEvent = endTime+':00'
-    console.log(categoryList)
+    console.log(!JSON.stringify(categoryList)==='[{}]')
+    let categories
+    if(JSON.stringify(categoryList)!=='[{}]') categories = categoryList
+    else categories = "categories"
 
     let imgUrl = 'https://sun9-22.userapi.com/impf/JE4MhUUAwR_NNugWJJUbiQ-4ZpaB8uR2DCsTUQ/X74abVCzZg8.jpg?size=1590x530&quality=95&crop=80,0,1437,479&sign=74fa159992ac5dc1278e50d09cdacd5b&type=cover_group'
     return (
@@ -48,7 +51,7 @@ const FourthStep = ({step}) => {
                 <p>{organizersName}</p>
                 <p>{cityEvent}</p>
                 <p>{addressEvent}</p>
-                <p>{categoryList}</p>
+                <p>{categories}</p>
             </div>
 
             <div className="buttons-stepper4">

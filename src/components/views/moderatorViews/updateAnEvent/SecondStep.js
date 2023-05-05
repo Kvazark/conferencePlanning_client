@@ -1,6 +1,7 @@
 import React, {Component, useContext, useEffect, useState} from 'react';
 import InputCreateEvent from "../../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
-import AddRemoveInputCategory from "../../../commonComponents/details/inputs/input_forCreateEvent/AddRemoveInputCategory";
+import AddRemoveInputCategory
+    from "../../../commonComponents/details/inputs/input_forCreateEvent/AddRemoveInputCategory";
 import {Button, Group} from "@mantine/core";
 import {useSelector} from "react-redux";
 
@@ -9,9 +10,9 @@ const SecondStep = ({step}) => {
     const idEventEdit = localStorage.getItem('idEventEdit')
     const idEvent = useSelector(state => state.event.id)
     let id
-    if(idEventEdit!=null){
+    if (idEventEdit != null) {
         id = idEventEdit
-    }else{
+    } else {
         id = idEvent
     }
 
@@ -26,9 +27,8 @@ const SecondStep = ({step}) => {
             })
     }, []);
 
-    let data = event.conf?.categories
 
-    const [longDescription, setLongDescription] =  useState(localStorage.getItem('longDescription') || '')
+    const [longDescription, setLongDescription] = useState(localStorage.getItem('longDescription') || '')
     const [organizersName, setOrganizersName] = useState(localStorage.getItem('organizersName') || '')
 
     const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent') || '')
@@ -37,6 +37,17 @@ const SecondStep = ({step}) => {
 
     let [categoryList, setCategoryList] = useState(localStorage.getItem('categoryList') || '')
 
+    //if (event.conf?.categories){}
+    // let [categoryArray, setCategoryArray] = useState([{}]);
+    // if(JSON.parse((localStorage.getItem("categoryArray")) === " "))
+    // {
+    //     localStorage.setItem("categoryArray", JSON.stringify(categoryArray));
+    // }
+    //
+    // useEffect(()=>{
+    //     const stringifyed = JSON.stringify(categoryArray);
+    //     localStorage.setItem('categoryArray', stringifyed)
+    // },[categoryArray])
 
 
     const handleClick = () => {
@@ -52,24 +63,24 @@ const SecondStep = ({step}) => {
         localStorage.setItem('cityEvent', cityEvent)
         localStorage.setItem('addressEvent', addressEvent)
         localStorage.setItem('categoryList', categoryList)
-    }, [longDescription,organizersName,cityEvent,addressEvent, categoryList])
+    }, [longDescription, organizersName, cityEvent, addressEvent, categoryList])
 
     let fieldAddress;
     let fieldCity;
     let h;
-    if(typeEvent=="онлайн"){
+    if (typeEvent == "онлайн") {
         fieldAddress = ""
-        fieldCity=""
+        fieldCity = ""
         h = '74.2vh'
-    }else{
-        h='103.6vh'
-        fieldCity =  <section className="full-inputEvent"style={{width:"25vw"}}>
+    } else {
+        h = '103.6vh'
+        fieldCity = <section className="full-inputEvent" style={{width: "25vw"}}>
             <label>Город</label>
             {/*<input name="addressEventNew" type="text"  value={state.addressEventNew} onChange={handleChange}/>*/}
             <InputCreateEvent value={cityEvent} setValue={setCityEvent} type="text"
                               placeholder={event.conf?.city}></InputCreateEvent>
         </section>
-        fieldAddress = <section className="full-inputEvent" >
+        fieldAddress = <section className="full-inputEvent">
             <label>Остальной адрес</label>
             {/*<input name="addressEventNew" type="text"  value={state.addressEventNew} onChange={handleChange}/>*/}
             <InputCreateEvent value={addressEvent} setValue={setAddressEvent} type="text"
@@ -77,11 +88,14 @@ const SecondStep = ({step}) => {
         </section>
     }
     let longDescriptionDefault;
-    if(longDescription!= `undefined`){
+    if (longDescription != `undefined`) {
         longDescriptionDefault = longDescription
-    }else{
-        longDescriptionDefault= event.conf?.fullTopic
+    } else {
+        longDescriptionDefault = event.conf?.fullTopic
     }
+    console.log("TYYPE "+typeof event.conf?.categories)
+
+
     return (
         <section>
             <form className="creation-field-form1">
@@ -101,19 +115,21 @@ const SecondStep = ({step}) => {
                 {fieldAddress}
                 <section className="full-inputEvent">
                     <label>Категории</label>
-                    <AddRemoveInputCategory dataList={data}></AddRemoveInputCategory>
+                    <AddRemoveInputCategory dataList={event.conf?.categories}></AddRemoveInputCategory>
                 </section>
 
             </form>
             <div className="btn-next-step" style={{top: h}}>
                 <Button className="btn-forth-step"
-                        onClick={() => {step();
+                        onClick={() => {
+                            step();
                             handleClick()
                         }}>Далее</Button>
             </div>
         </section>
 
     );
+
 }
 
 export default SecondStep;
