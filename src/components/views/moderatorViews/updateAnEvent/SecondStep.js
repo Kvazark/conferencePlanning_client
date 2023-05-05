@@ -37,18 +37,12 @@ const SecondStep = ({step}) => {
 
     let [categoryList, setCategoryList] = useState(localStorage.getItem('categoryList') || '')
 
-    //if (event.conf?.categories){}
-    // let [categoryArray, setCategoryArray] = useState([{}]);
-    // if(JSON.parse((localStorage.getItem("categoryArray")) === " "))
-    // {
-    //     localStorage.setItem("categoryArray", JSON.stringify(categoryArray));
-    // }
-    //
-    // useEffect(()=>{
-    //     const stringifyed = JSON.stringify(categoryArray);
-    //     localStorage.setItem('categoryArray', stringifyed)
-    // },[categoryArray])
 
+    if (localStorage.getItem('longDescription') === `undefined`) localStorage.setItem('longDescription', event.conf?.fullTopic)
+    else localStorage.setItem('longDescription', longDescription)
+    // console.log(`City: `+ event.conf?.city)
+    // if (localStorage.getItem('cityEvent') === `undefined` || localStorage.getItem('cityEvent') === ``) localStorage.setItem('cityEvent', event.conf?.city)
+    // else localStorage.setItem('cityEvent', cityEvent)
 
     const handleClick = () => {
         setLongDescription()
@@ -93,7 +87,7 @@ const SecondStep = ({step}) => {
     } else {
         longDescriptionDefault = event.conf?.fullTopic
     }
-    console.log("TYYPE "+typeof event.conf?.categories)
+    //console.log("TYYPE "+typeof event.conf?.categories)
 
 
     return (

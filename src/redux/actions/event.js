@@ -1,5 +1,6 @@
 import axios from "axios";
 import {setEventId} from "../reducers/eventReducer";
+import {setUser} from "../reducers/userReducer";
 
 export const addNewEvent = (name, type, date, moderatorId) => {
 
@@ -21,7 +22,7 @@ export const addNewEvent = (name, type, date, moderatorId) => {
     }
 
 }
-export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, city, date, startTime, endTime, organizer, imgUrl, categories) => {
+export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, city, date, startTime, endTime, organizer, moderatorId, imgUrl, categories) => {
     return async dispatch => {
         const data = {
             id: `${id}`,
@@ -35,6 +36,7 @@ export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, 
             startTime:`${startTime}`,
             endTime: `${endTime}`,
             organizer: `${organizer}`,
+            moderatorId: `${moderatorId}`,
             imgUrl: `${imgUrl}`,
             categories: categories
         };
@@ -44,6 +46,19 @@ export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, 
             alert("successfully")
         } catch (e) {
             alert(e.response.data.message)
+        }
+    }
+}
+export const deleteEvent = (id) => {
+    return async dispatch => {
+        const idEvent= id;
+        try {
+            ///поменять адрес
+            const response = await axios.delete('https://localhost:7215/api/conferences/DeleteConference?confId='+`${idEvent}`,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert('событие удалено')
+        } catch (error) {
+            alert(error)
         }
     }
 }

@@ -2,11 +2,13 @@ import React, {Component, useEffect, useState} from 'react';
 import "./mwEditEventStyle.css"
 import {Journal, Pencil, People, X} from "react-bootstrap-icons";
 import {NavLink, useLocation} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {deleteEvent} from "../../redux/actions/event";
 
-const MwEditEvent = () => {
-
-    const idEventEdit = localStorage.getItem('idEventEdit')
+const MwEditEvent = ({idEventEdit}) => {
+    const dispatch = useDispatch()
+    //const idEventEdit = localStorage.getItem('idEventEdit')
+    console.log(idEventEdit)
 
     let path = `/moderator/eventsListModerator/updateAnEvent`
     return (
@@ -27,7 +29,7 @@ const MwEditEvent = () => {
                     <Journal size="18px" style={{marginTop:'3px'}}></Journal>
                     <span>порядок выступления</span>
                 </button>
-                <button className='btn-setting-event-field'>
+                <button className='btn-setting-event-field' onClick={()=>{dispatch(deleteEvent(idEventEdit))}}>
                     <X size="25px" style={{marginRight:'-3px', marginLeft:'-3px'}}></X>
                     <span>удалить</span>
                 </button>

@@ -8,12 +8,15 @@ import MWCreateEvent from "./MWCreateEvent";
 import MWCreateEvent2 from "./MWCreateEvent2";
 import ModalWindow from "../commonComponents/ModalWindow";
 import MWEditEvent from "./MWEditEvent";
+import dayjs from "dayjs";
 
 const EventsByModerator = () => {
 
     const [photo, setPhoto] = useState([]);
+    const moderatorId = useSelector(state => state.user.id)
+    //const apiURL = "https://localhost:7215/api/conferences/getModeratorConferences?moderatorId="+`${moderatorId}`;
     const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
-    const role = useSelector(state => state.user.role)
+
 
     const [events, setEvents] = useState([]);
     useEffect(() => {
@@ -45,6 +48,7 @@ const EventsByModerator = () => {
         setIdEventEdit(id)
     }
 
+
     return (
         <section className="list-events-section">
             {events.map((x, index) => <>
@@ -52,7 +56,7 @@ const EventsByModerator = () => {
                     <div className="info-cardMod">
                         <h3>{x.name}</h3>
                         <p>{x.type}</p>
-                        <p>{x.date}</p>
+                        <p>{dayjs(x.date).format("DD.MM.YYYY")}</p>
                     </div>
                     <div className="avatarEventMod" style={{backgroundImage: `url(${avatarCardEvent})`}}>
                         <div
@@ -61,7 +65,7 @@ const EventsByModerator = () => {
                         </div>
                         {show &&
                             <div className="open-setting-event-field" style={{display: selectedItemIndex != index? `none`: `block`}}>
-                                <MWEditEvent></MWEditEvent>
+                                <MWEditEvent idEventEdit={x.id}></MWEditEvent>
                             </div>
                         }
                     </div>

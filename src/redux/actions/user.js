@@ -112,12 +112,16 @@ export const updateInfoModerator = (id, organizationName, email) => {
             id: `${id}`,
             organizationName: `${organizationName}`,
             position: 'position',
-            email: `${email}`
+            email: `${email}`,
+            userSurname: "userSurname",
+            userName: "userName",
+            patronymic: "patronymic"
+
         };
         try {
             const response = await axios.put(`https://localhost:7215/api/moderator/updateModerator`, data,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-            alert("successfully")
+            alert("информация обновленна успешно")
         } catch (e) {
             alert(e.response.data.message)
         }

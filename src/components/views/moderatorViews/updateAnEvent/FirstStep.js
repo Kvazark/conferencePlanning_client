@@ -37,17 +37,26 @@ const FirstStep = ({step}) => {
             })
     }, []);
 
+    let stime, etime;
+    if (event.conf?.startTime !== 'undefined') {
+        stime = event.conf?.startTime.substring(0, 5)
+    }else stime='00:00'
+    if (event.conf?.endTime !== 'undefined') {
+        etime = event.conf?.endTime.substring(0, 5)
+    }else etime='00:00'
+    console.log(stime, etime)
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')
     const [startDate, setStartDate] = useState(localStorage.getItem('startDateEvent') ? new Date(localStorage.getItem("startDateEvent")) : '')
-    const [startTime, setStartTime] = useState(localStorage.getItem('startTimeEvent') || '')
-    const [endTime, setEndTime] = useState(localStorage.getItem('endTimeEvent') || '')
+    const [startTime, setStartTime] = useState(localStorage.getItem('startTimeEvent')|| '')
+    const [endTime, setEndTime] = useState(localStorage.getItem('endTimeEvent')|| '')
     const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent'))
 
     const getDateValue = (date) => {
         setStartDate(date);
     }
+
     const handleClick = () => {
         setNameEvent()
         setStartDate()
@@ -56,7 +65,9 @@ const FirstStep = ({step}) => {
         setEndTime()
         setTypeEvent()
     }
-    if(localStorage.getItem('typeEvent')==='null'){
+
+
+    if (localStorage.getItem('typeEvent') === 'null') {
         localStorage.setItem('typeEvent', event.conf?.type)
     }
     let shortDescriptionDefault;
@@ -64,19 +75,39 @@ const FirstStep = ({step}) => {
         shortDescriptionDefault = shortDescription
     } else shortDescriptionDefault = event.conf?.shortTopic
 
-    let stime, etime;
-    if (event.conf?.startTime !== null){
-        stime = event.conf?.startTime.substring(0,5)
-    }else stime = '00:00'
-    if(event.conf?.endTime !== null){
-        etime=event.conf?.endTime.substring(0,5)
-    }else etime = '00:00'
+
+
+    // let stime = event.conf?.startTime.substring(0, 5)
+    // let etime = event.conf?.endTime.substring(0, 5)
+    // useEffect(()=>{
+    //     stime = event.conf?.startTime.substring(0, 5)
+    //     etime = event.conf?.endTime.substring(0, 5)
+    //     if (localStorage.getItem('startTimeEvent') === `undefined`) localStorage.setItem('startTimeEvent', stime)
+    //     else localStorage.setItem('startTimeEvent', startTime)
+    // },[stime,etime])
+
+    if (localStorage.getItem('nameEvent') === ``) localStorage.setItem('nameEvent', event.conf?.name)
+    else localStorage.setItem('nameEvent', nameEvent)
+    if (localStorage.getItem('startDateEvent')==='') localStorage.setItem('startDateEvent', event.conf?.date)
+    else localStorage.setItem('startDateEvent', startDate)
+    if (localStorage.getItem('shortDescriptionEvent') === `undefined`) localStorage.setItem('shortDescriptionEvent', event.conf?.shortTopic)
+    else localStorage.setItem('shortDescriptionEvent', shortDescription)
+
+    if (localStorage.getItem('startTimeEvent') === `` || localStorage.getItem('startTimeEvent')==='undefined'){
+        localStorage.setItem('startTimeEvent', event.conf?.startTime.substring(0, 5))
+    }else localStorage.setItem('startTimeEvent', startTime);
+    console.log(localStorage.getItem('startTimeEvent'))
+
+    if (localStorage.getItem('endTimeEvent') === `` || localStorage.getItem('endTimeEvent')==='undefined'){
+        localStorage.setItem('endTimeEvent', event.conf?.endTime.substring(0, 5))
+    }else localStorage.setItem('endTimeEvent', endTime);
+    console.log(localStorage.getItem('endTimeEvent'))
 
     useEffect(() => {
         localStorage.setItem('nameEvent', nameEvent)
         localStorage.setItem('shortDescriptionEvent', shortDescription.value)
         localStorage.setItem('startDateEvent', startDate)
-        localStorage.setItem('startTimeEvent', startTime)
+        localStorage.setItem('startTimeEvent', startTime);
         localStorage.setItem('endTimeEvent', endTime)
         if (localStorage.getItem(`typeEvent`) !== `null`) {
             localStorage.setItem('typeEvent', typeEvent)
@@ -107,18 +138,27 @@ const FirstStep = ({step}) => {
                     <label>Дата</label>
                     <Calendar2Week className="icons-data-time" size="25px"></Calendar2Week>
                     <DatePicker wrapperClassName="date-picker"
-                                selected={startDate? startDate : dayjs(event.conf?.date).toDate()}
+                        // selected={startDate? startDate : dayjs(event.conf?.date).toDate()}
+                                selected={startDate}
                                 onChange={getDateValue}
                                 dateFormat="dd.MM.yyyy"
                     />
                 </div>
                 <div className="data-time-field">
                     <label>Время начала</label>
-                    <InputTime value={startTime? startTime : stime} setValue={setStartTime} type="time" placeholder="11:40"></InputTime>
+                    <InputTime
+                        value={startTime ? startTime : stime}
+                        // value = {startTime}
+                        setValue={setStartTime} type="time"
+                               placeholder="11:40"></InputTime>
                 </div>
                 <div className="data-time-field">
                     <label>Время окончания</label>
-                    <InputTime value={endTime? endTime: etime} setValue={setEndTime} type="time" placeholder=""></InputTime>
+                    <InputTime
+                        value={endTime ? endTime : etime}
+                        //value = {endTime}
+                        setValue={setEndTime} type="time"
+                               placeholder=""></InputTime>
                 </div>
             </section>
             <RadioButtons></RadioButtons>

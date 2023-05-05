@@ -12,8 +12,6 @@ const RadioButtons = () => {
     },[typeEvent])
     const handleChange = (e) => {
         setTypeEvent(e.target.value);
-
-
         // onChange(e.target.value);
     }
 

@@ -35,7 +35,7 @@
     font-family: 'Mukta Vaani', sans-serif;
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 22px;
 
     color: rgb(48, 48, 48, 0.8);
     margin: 10px 0 0 20px;
@@ -48,9 +48,9 @@
     font-size: 22px;
 
     color: #303030;
-    margin: 10px 20px;
+    margin: 0px 20px;
     position: relative;
-    top: 20px;
+    top: 10px;
 }
 .three-dots-icon{
     position: relative;
