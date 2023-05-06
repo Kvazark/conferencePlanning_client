@@ -10,7 +10,7 @@ import ModalWindow from "../commonComponents/ModalWindow";
 import MWEditEvent from "./MWEditEvent";
 import dayjs from "dayjs";
 
-const EventsByModerator = () => {
+const EventsByModerator = ({filteredEvents}) => {
 
     const [photo, setPhoto] = useState([]);
     const moderatorId = useSelector(state => state.user.id)
@@ -32,7 +32,6 @@ const EventsByModerator = () => {
     const avatar = 'http://localhost:5215/api/photos/getConferencePhotoByIdc778c499-a546-4cb0-b507-9479894ea566'
 
 
-
     const [show, setShow] = useState(false)
     const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
@@ -48,11 +47,18 @@ const EventsByModerator = () => {
         setIdEventEdit(id)
     }
 
-
+    // ///поиск по названию события
+    // const [searchInput, setSearchInput] = useState()
+    // const getFilteredEvents = () => {
+    //     if (!searchInput) return events
+    //     return events.filter(value => value.name.toLowerCase().includes(searchInput.toLowerCase()))
+    // }
+    // const filteredEvents = getFilteredEvents()
 
     return (
         <section className="list-events-section">
-            {events.map((x, index) => <>
+            {/*<input className="search-input-byName" type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."/>*/}
+            {filteredEvents.map((x, index) => <>
                 <div className="card-eventMod" key={index} >
                     <div className="info-cardMod">
                         <h3>{x.name}</h3>

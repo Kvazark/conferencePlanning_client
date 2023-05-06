@@ -44,7 +44,7 @@ const FirstStep = ({step}) => {
     if (event.conf?.endTime !== 'undefined' && event.conf?.endTime !== null) {
         etime = event.conf?.endTime.substring(0, 5)
     }else etime='00:00'
-    console.log(stime, etime)
+  //  console.log(stime, etime)
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')
@@ -64,7 +64,12 @@ const FirstStep = ({step}) => {
         setStartTime()
         setEndTime()
         setTypeEvent()
+        console.log('this handleClick')
     }
+    useEffect(()=>{
+        console.log('a')
+    },[event])
+
 
 
     if (localStorage.getItem('typeEvent') === 'null') {
@@ -76,34 +81,29 @@ const FirstStep = ({step}) => {
     } else shortDescriptionDefault = event.conf?.shortTopic
 
 
-
-    // let stime = event.conf?.startTime.substring(0, 5)
-    // let etime = event.conf?.endTime.substring(0, 5)
-    // useEffect(()=>{
-    //     stime = event.conf?.startTime.substring(0, 5)
-    //     etime = event.conf?.endTime.substring(0, 5)
-    //     if (localStorage.getItem('startTimeEvent') === `undefined`) localStorage.setItem('startTimeEvent', stime)
-    //     else localStorage.setItem('startTimeEvent', startTime)
-    // },[stime,etime])
-
+    //название и дата проведения
     if (localStorage.getItem('nameEvent') === ``) localStorage.setItem('nameEvent', event.conf?.name)
     else localStorage.setItem('nameEvent', nameEvent)
     if (localStorage.getItem('startDateEvent')==='') localStorage.setItem('startDateEvent', event.conf?.date)
     else localStorage.setItem('startDateEvent', startDate)
-    if (localStorage.getItem('shortDescriptionEvent') === `undefined`) localStorage.setItem('shortDescriptionEvent', event.conf?.shortTopic)
-    else localStorage.setItem('shortDescriptionEvent', shortDescription)
 
+    ///краткое описание
+    if (localStorage.getItem('shortDescriptionEvent') === `` || localStorage.getItem('shortDescriptionEvent')==='undefined'){
+        if (event.conf?.shortTopic)localStorage.setItem('shortDescriptionEvent', event.conf?.shortTopic)
+        else  localStorage.setItem('shortDescriptionEvent', ``)
+    }else localStorage.setItem('shortDescriptionEvent', shortDescription);
+
+    ///время начала
     if (localStorage.getItem('startTimeEvent') === `` || localStorage.getItem('startTimeEvent')==='undefined'){
         if (event.conf?.startTime)localStorage.setItem('startTimeEvent', event.conf?.startTime.substring(0, 5))
         else  localStorage.setItem('startTimeEvent', ``)
     }else localStorage.setItem('startTimeEvent', startTime);
-    console.log(localStorage.getItem('startTimeEvent'))
 
+    ///время окончания
     if (localStorage.getItem('endTimeEvent') === `` || localStorage.getItem('endTimeEvent')==='undefined'){
         if(event.conf?.endTime) localStorage.setItem('endTimeEvent', event.conf?.endTime.substring(0, 5))
         else  localStorage.setItem('endTimeEvent', ``)
     }else localStorage.setItem('endTimeEvent', endTime);
-    console.log(localStorage.getItem('endTimeEvent'))
 
     useEffect(() => {
         localStorage.setItem('nameEvent', nameEvent)
@@ -111,6 +111,7 @@ const FirstStep = ({step}) => {
         localStorage.setItem('startDateEvent', startDate)
         localStorage.setItem('startTimeEvent', startTime);
         localStorage.setItem('endTimeEvent', endTime)
+        console.log('this useEff')
         if (localStorage.getItem(`typeEvent`) !== `null`) {
             localStorage.setItem('typeEvent', typeEvent)
         }

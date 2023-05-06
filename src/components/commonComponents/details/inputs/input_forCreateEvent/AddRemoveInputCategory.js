@@ -3,7 +3,6 @@ import {PlusCircleFill, RecordFill, X} from "react-bootstrap-icons";
 import "./addRemInputCategory.css"
 
 function AddRemoveInputCategory({dataList}) {
-    console.log("datalist:  "+JSON.stringify(dataList))
 
     //let [categoryList, setCategoryList] = useState([{}]);
 
@@ -34,7 +33,7 @@ function AddRemoveInputCategory({dataList}) {
         localStorage.setItem('categoryList', stringifyed)
     }, [categoryList])
 
-    console.log("categoryList:  "+JSON.stringify(categoryList))
+    //console.log("categoryList:  "+JSON.stringify(categoryList))
 
     // handle input change
     const handleInputChange = (e, index) => {

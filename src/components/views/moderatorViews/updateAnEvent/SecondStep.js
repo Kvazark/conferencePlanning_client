@@ -38,11 +38,21 @@ const SecondStep = ({step}) => {
     let [categoryList, setCategoryList] = useState(localStorage.getItem('categoryList') || '')
 
 
-    if (localStorage.getItem('longDescription') === `undefined`) localStorage.setItem('longDescription', event.conf?.fullTopic)
-    else localStorage.setItem('longDescription', longDescription)
-    // console.log(`City: `+ event.conf?.city)
-    // if (localStorage.getItem('cityEvent') === `undefined` || localStorage.getItem('cityEvent') === ``) localStorage.setItem('cityEvent', event.conf?.city)
-    // else localStorage.setItem('cityEvent', cityEvent)
+    // if (localStorage.getItem('longDescription') === `undefined`) localStorage.setItem('longDescription', event.conf?.fullTopic)
+    // else localStorage.setItem('longDescription', longDescription)
+
+    ///доп. описание
+    let longDescriptionDefault;
+    if (longDescription != `undefined`) {
+        longDescriptionDefault = longDescription
+    } else {
+        longDescriptionDefault = event.conf?.fullTopic
+    }
+
+    if (localStorage.getItem('longDescription') === `` || localStorage.getItem('longDescription')==='undefined'){
+        if (event.conf?.shortTopic)localStorage.setItem('longDescription', event.conf?.fullTopic)
+        else  localStorage.setItem('longDescription', ``)
+    }else localStorage.setItem('longDescription', longDescription);
 
     const handleClick = () => {
         setLongDescription()
@@ -81,12 +91,7 @@ const SecondStep = ({step}) => {
                               placeholder={event.conf?.addres}></InputCreateEvent>
         </section>
     }
-    let longDescriptionDefault;
-    if (longDescription != `undefined`) {
-        longDescriptionDefault = longDescription
-    } else {
-        longDescriptionDefault = event.conf?.fullTopic
-    }
+
     //console.log("TYYPE "+typeof event.conf?.categories)
 
 

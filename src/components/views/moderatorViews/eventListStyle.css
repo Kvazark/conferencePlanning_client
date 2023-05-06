@@ -4,7 +4,25 @@
     height: 100px;
     left: 13vw;
     top: 0;
-    background-color: #61dafb;
+}
+.search-input-byName{
+    position: relative;
+    left: 15%;
+    top: 30px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #206F6D;
+
+    background: #F2F2F2;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(48, 48, 48, 0.5);
 }
 .create-new-event-Btn{
     position: absolute;
