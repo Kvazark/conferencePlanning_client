@@ -19,7 +19,7 @@ const HomePageModerator = () => {
     return (
         <main>
             <LeftMenu />
-            <div className="list-events-div">
+            <div className="list-events-div" style={{left:'22%'}}>
                 <ListEvent></ListEvent>
             </div>
         </main>

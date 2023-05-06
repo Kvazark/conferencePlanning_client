@@ -13,6 +13,8 @@ import UpdateAnEvent from "./components/views/moderatorViews/UpdateAnEvent";
 import RequireAuth from "./routes/RequireAuth";
 import ViewingAnEvent from "./components/views/userViews/ViewingAnEvent";
 import ViewingAnEventModerator from "./components/views/moderatorViews/ViewingAnEventModerator";
+import ViewingListOfSpeakers from "./components/commonComponents/ViewingListOfSpeakers";
+import MaterialsOfTheSpeakers from "./components/commonComponents/MaterialsOfTheSpeakers";
 
 
 function App() {
@@ -34,6 +36,8 @@ function App() {
                         <Route path="mainPageUser" element={<RequireAuth><Homepage/></RequireAuth>}/>
                         <Route path="viewingAnEvent" element={<RequireAuth><ViewingAnEvent/></RequireAuth>}/>
                         <Route path="profilePageUser" element={<RequireAuth><Profile/></RequireAuth>}/>
+                        <Route path="viewingAnEvent/viewingListOfSpeakers" element={<RequireAuth><ViewingListOfSpeakers/></RequireAuth>}/>
+                        <Route path="viewingAnEvent/materialsSpeakers" element={<RequireAuth><MaterialsOfTheSpeakers/></RequireAuth>}/>
                     </Route>
                 </Routes>
                 <Routes>
@@ -46,6 +50,8 @@ function App() {
                                element={<RequireAuth><UpdateAnEvent/></RequireAuth>}></Route>
                         <Route path="mainPageModerator/viewingAnEvent"
                                element={<RequireAuth><ViewingAnEventModerator/></RequireAuth>}></Route>
+                        <Route path="mainPageModerator/viewingAnEvent/viewingListOfSpeakers" element={<RequireAuth><ViewingListOfSpeakers/></RequireAuth>}/>
+                        <Route path="mainPageModerator/viewingAnEvent/materialsSpeakers" element={<RequireAuth><MaterialsOfTheSpeakers/></RequireAuth>}/>
                     </Route>
                 </Routes>
 

@@ -71,6 +71,7 @@
 .save-changeButton:hover{
     transform: translateY(0) scale(1.05);
 }
+.save-changeButton:focus { outline: none; }
 .exit{
     box-sizing: border-box;
 

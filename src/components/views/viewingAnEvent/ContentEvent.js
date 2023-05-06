@@ -1,8 +1,9 @@
 import React, {Component, useEffect, useState} from 'react';
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import headCardEvent from "../../../img/head-card-event.svg";
 import "./contentEventStyle.css"
 import {useSelector} from "react-redux";
+import {ArrowRight} from "react-bootstrap-icons";
 
 const ContentEvent = () => {
     const location = useLocation();
@@ -42,6 +43,26 @@ const ContentEvent = () => {
             })
     }, [idMod]);
 
+    let path
+    let navigate = useNavigate();
+    const routeChangeBtn1 = () => {
+        if (role == 'Moderator') {
+            path = '/moderator/mainPageModerator/viewingAnEvent/viewingListOfSpeakers'
+            navigate(path);
+        } else if (role == 'User') {
+            path = '/user/viewingAnEvent/viewingListOfSpeakers'
+            navigate(path);
+        }
+    }
+    const routeChangeBtn2 = () => {
+        if (role == 'Moderator') {
+            path = '/moderator/mainPageModerator/viewingAnEvent/materialsSpeakers'
+            navigate(path);
+        } else if (role == 'User') {
+            path = '/user/viewingAnEvent/materialsSpeakers'
+            navigate(path);
+        }
+    }
 
     console.log(infoOrg?.organizationName)
 
@@ -53,6 +74,22 @@ const ContentEvent = () => {
                 {/*    находится краткое описание конференции</p>*/}
                 <p className="short-description-event">{event.conf?.shortTopic}</p>
                 <div className="btn-group-event">
+                    <button onClick={()=>routeChangeBtn1()}
+                            style={role=='User'?{background: `rgba(126, 25, 25, 0.9)`}: {background: `#206F6D`}}>
+                        <div className="to-listOfSpeakers">
+                            <h3>Ознакомиться со списком выступающих</h3>
+                            <ArrowRight className='arrow-r-icon' size="40px" color='rgba(242, 242, 242, 0.5)'></ArrowRight>
+                            <p>итоговый список будет готов через 2 дня после завершения регистрации</p>
+                        </div>
+                    </button>
+                    <button onClick={()=>routeChangeBtn2()}
+                            style={role=='User'?{background: `rgba(126, 25, 25, 0.9)`}: {background: `#206F6D`}}>
+                        <div className="to-listOfSpeakers">
+                            <h3>Ознакомиться с материалами участников</h3>
+                            <ArrowRight className='arrow-r-icon' size="40px" color='rgba(242, 242, 242, 0.5)'></ArrowRight>
+                            <p>все материалы выступающих становятся доступны после завершения конференции</p>
+                        </div>
+                    </button>
 
                 </div>
                 <div className="long-description-event-block">

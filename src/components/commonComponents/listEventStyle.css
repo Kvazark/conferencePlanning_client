@@ -10,9 +10,7 @@
 }
 .filter-panel{
     position: relative;
-    left: -29.5%;
     top: 10%;
-
 }
 .filter-archive-btn{
     width: auto;
@@ -28,6 +26,7 @@
 
 
 }
+.filter-archive-btn:focus { outline: none; }
 .card{
     overflow-y: hidden;
     width: 65vw;

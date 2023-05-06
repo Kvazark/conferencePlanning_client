@@ -113,6 +113,9 @@
     font-size: 20px;
     color: #F2F2F2;
 }
+.btn-submit-an-application:hover{
+    transform: translateY(0) scale(1.05);}
+.btn-submit-an-application:focus { outline: none; }
 .termination-date{
     position: absolute;
     width: auto;
@@ -128,10 +131,10 @@
 
 }
 .termination-date-end{
+    position: relative;
     width: auto;
     height: 30px;
     text-align: center;
-    margin-top: 100px;
     font-family: 'Hind Vadodara', sans-serif;
     font-style: normal;
     font-weight: 500;

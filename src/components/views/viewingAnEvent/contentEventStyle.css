@@ -31,8 +31,63 @@
     color: #303030;
 }
 .btn-group-event{
-    background-color: #7E1919;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 129px;
     height: 242px;
+}
+.btn-group-event button{
+    width: 45%;
+    height: 30vh;
+
+    border-radius: 20px;
+}
+.btn-group-event button:hover{
+    transform: translateY(0) scale(1.01);}
+.btn-group-event button:focus { outline: none; }
+.to-listOfSpeakers{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 20px 15px 0 15px;
+}
+.arrow-r-icon{
+    position: relative;
+    top: -15.5px;
+    right: -45%;
+
+}
+.to-listOfSpeakers h3{
+    position: relative;
+    text-align: left;
+    left: 0;
+    /*top: -20px;*/
+    width: 87%;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+
+    color: #F2F2F2;
+}
+.to-listOfSpeakers p{
+    position: relative;
+    width: 88%;
+    text-align: left;
+
+
+    left: 0;
+    bottom: 15px;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+
+    color: rgba(242, 242, 242, 0.5);
 }
 .long-description-event-block{
     padding: 15px;
