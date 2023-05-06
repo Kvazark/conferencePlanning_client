@@ -1,16 +1,16 @@
 const SET_ID_EVENT = "SET_ID_EVENT"
 const defaultState={
-    id:'',
+    identity:'',
 }
 export default function eventReducer(state=defaultState,action){
     switch (action.type){
         case SET_ID_EVENT:
             return {
                 ...state,
-                id: action.payload,
+                identity: action.payload,
             }
         default:
             return state;
     }
 }
-export const setEventId = id =>({type: SET_ID_EVENT,payload: id})
+export const setEventId = identity =>({type: SET_ID_EVENT,payload: identity})

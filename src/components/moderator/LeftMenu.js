@@ -13,10 +13,9 @@ class LeftMenu extends Component {
         let activeStyle = {
             background: "#6A888C",
             color: "#F2F2F2",
-            borderRadius: "0px 100px 100px 0px"
+            borderRadius: "0px 5px 5px 0px"
         };
         let noactiveStyle = {
-
             color: "#6A888C",
         };
 

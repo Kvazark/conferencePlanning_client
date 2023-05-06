@@ -14,7 +14,7 @@ export const addNewEvent = (name, type, date, moderatorId) => {
         try {
             const response = await axios.post('https://localhost:7215/api/conferences/addNewConference', data,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-            dispatch(setEventId(response.data.id))
+            dispatch(setEventId(response.data.identity))
             alert("successfully")
         } catch (error) {
             alert(error)
@@ -22,7 +22,7 @@ export const addNewEvent = (name, type, date, moderatorId) => {
     }
 
 }
-export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, city, date, startTime, endTime, organizer, moderatorId, imgUrl, categories) => {
+export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, city, date, startTime, endTime, moderatorId, imgUrl, categories) => {
     return async dispatch => {
         const data = {
             id: `${id}`,
@@ -35,7 +35,6 @@ export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, 
             date: `${date}`,
             startTime:`${startTime}`,
             endTime: `${endTime}`,
-            organizer: `${organizer}`,
             moderatorId: `${moderatorId}`,
             imgUrl: `${imgUrl}`,
             categories: categories

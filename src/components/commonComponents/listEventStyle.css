@@ -8,6 +8,26 @@
     margin-bottom: 8vh;
 
 }
+.filter-panel{
+    position: relative;
+    left: -29.5%;
+    top: 10%;
+
+}
+.filter-archive-btn{
+    width: auto;
+    height: 40px;
+
+    border-radius: 15px;
+    padding: 0 15px 0 15px;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+
+
+}
 .card{
     overflow-y: hidden;
     width: 65vw;

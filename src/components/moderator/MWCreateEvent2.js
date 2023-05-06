@@ -27,7 +27,7 @@ const MwCreateEvent2 = () => {
         let path = `/moderator/eventsListModerator/updateAnEvent`;
         navigate(path);
     }
-    const idEvent = useSelector(state => state.event.id)
+    const idEvent = useSelector(state => state.event.identity)
     console.log(idEvent)
     if(idEvent.length>0){
         routeChange()

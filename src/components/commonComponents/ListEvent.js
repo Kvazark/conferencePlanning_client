@@ -1,21 +1,13 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {Component, useEffect, useMemo, useState} from 'react';
 import headCardEvent from "../../img/head-card-event.svg";
 import {NavLink} from "react-router-dom";
-import {ClockHistory, PinMap} from "react-bootstrap-icons";
+import {ClockHistory, PinMap, Wechat} from "react-bootstrap-icons";
 import dayjs from "dayjs";
 import {useSelector} from "react-redux";
 import "./listEventStyle.css"
 
 const ListEvent = () => {
 
-    ///useEffect(() => {
-    //         fetch(apiURL)
-    //             .then(response => response.json())
-    //             .then(result => {
-    //                 result.sort((a,b) => new Date(a)< new Date(b)? 1: -1);
-    //                 setEvents(result);
-    //             });
-    //     }, []); сортировка сначала новые конференции
     const [photo, setPhoto] = useState([]);
     const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
     const role = useSelector(state => state.user.role)
@@ -45,9 +37,51 @@ const ListEvent = () => {
     } else if (role == 'User') {
         path = '/user/viewingAnEvent'
     }
+    //сортировка событий по дате
+    let sortedEvents = events.sort((a, b) => new Date(...a.date.split('.').reverse()) - new Date(...b.date.split('.').reverse()));
+    sortedEvents.reverse()
+
+    const archiveEvents = []
+    const actualEvents = []
+    const [showListEvents, setShowListEvents] = useState('')
+
+    const cD = new Date()
+    let currentDate = dayjs(cD).format('DD.MM.YYYY')
+    console.log(currentDate)
+    sortedEvents.map((x) =>{
+        if(x.date > currentDate){
+            actualEvents.push(x)
+        }else{
+            archiveEvents.push(x)
+        }
+
+    })
+    const [showArchive, setShowArchive] = useState(false)
+    useEffect(()=>{
+        if(showArchive){
+            setShowListEvents(Array.from(archiveEvents))
+            console.log(showListEvents)
+        }else setShowListEvents(Array.from(actualEvents))
+        //console.log(showListEvents)
+    },[showArchive])
+    console.log(showListEvents)
+
     return (
         <section className="list-events-section">
-            {events.map((x) => <>
+            <div className="filter-panel">
+                {!showArchive &&
+                    <button className="filter-archive-btn" style = {{background:'rgba(126, 25, 25, 0.9)', color: '#F2F2F2', boxShadow: `0px 3px 3px rgba(0, 0, 0, 0.25)`}}
+                            onClick={()=>setShowArchive(true)}>
+                        показать архив</button>
+                }
+                {showArchive &&
+                    <button className="filter-archive-btn" style = {{background:'#FFFFFF',color: 'rgba(126, 25, 25, 0.9)', boxShadow: `0px 3px 3px rgba(0, 0, 0, 0.25)`}}
+                            onClick={()=>setShowArchive(false)}>
+                        показать актуальные</button>
+                }
+
+            </div>
+            {showListEvents.map((x) => <>
                 <div className="card"><NavLink
                     to={path} state={{eventId: x.id}} style={{textDecoration: 'none'}}>
                     <div className="avatarEvent">
@@ -57,10 +91,10 @@ const ListEvent = () => {
                     </div>
                     <div className="event-info-card">
                         <h3>{x.name}</h3>
-                        <p><PinMap size="22px" style={role == 'Moderator' ? {color: "#206F6D"} : {color: "rgba(126, 25, 25, 0.9)"}}></PinMap> {x.addres}, {x.city}</p>
+                        <p><Wechat size="22px" style={role == 'Moderator' ? {color: "#206F6D"} : {color: "rgba(126, 25, 25, 0.9)"}}></Wechat>формат проведения: {x.type}</p>
                         <p><ClockHistory size="22px"
                                          style={role == 'Moderator' ? {color: "#206F6D"} : {color: "rgba(126, 25, 25, 0.9)"}}></ClockHistory>
-                            {x.date} {x.startTime} {x.endTime}</p>
+                            {x.date} {x.startTime? x.startTime.substring(0, 5): ''} {x.endTime? x.endTime.substring(0, 5) : ''}</p>
                         <div className="categories-card">
                             {x.categories?.map(category => (
                                 <div className="separately-category" key={category.call}>{category}</div>

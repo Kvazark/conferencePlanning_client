@@ -14,8 +14,8 @@ const EventsByModerator = () => {
 
     const [photo, setPhoto] = useState([]);
     const moderatorId = useSelector(state => state.user.id)
-    //const apiURL = "https://localhost:7215/api/conferences/getModeratorConferences?moderatorId="+`${moderatorId}`;
-    const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
+    const apiURL = "https://localhost:7215/api/conferences/getModeratorConferences?moderatorId="+`${moderatorId}`;
+    //const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
 
 
     const [events, setEvents] = useState([]);
@@ -49,14 +49,17 @@ const EventsByModerator = () => {
     }
 
 
+
     return (
         <section className="list-events-section">
             {events.map((x, index) => <>
                 <div className="card-eventMod" key={index} >
                     <div className="info-cardMod">
                         <h3>{x.name}</h3>
-                        <p>{x.type}</p>
-                        <p>{dayjs(x.date).format("DD.MM.YYYY")}</p>
+                        <p className="info-cardMod-type-p"><span style={{color: 'rgb(48, 48, 48, 0.8)', fontWeight: '600',fontSize: '18px'}}>формат:</span> {x.type}</p>
+                        {/*{console.log(x.name,x.date)}*/}
+                        <p className="info-cardMod-date-p"><span style={{color: 'rgb(48, 48, 48, 0.8)', fontWeight: '600',  fontSize: '18px'}}>дата: </span>
+                            {dayjs(x.date).format('DD.MM.YYYY')}</p>
                     </div>
                     <div className="avatarEventMod" style={{backgroundImage: `url(${avatarCardEvent})`}}>
                         <div

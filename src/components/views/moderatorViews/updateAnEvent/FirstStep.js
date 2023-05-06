@@ -18,7 +18,7 @@ const FirstStep = ({step}) => {
     const [event, setEvent] = useState({});
 
     const idEventEdit = localStorage.getItem('idEventEdit')
-    const idEvent = useSelector(state => state.event.id)
+    const idEvent = useSelector(state => state.event.identity)
     let id
     if (idEventEdit != null) {
         id = idEventEdit
@@ -38,10 +38,10 @@ const FirstStep = ({step}) => {
     }, []);
 
     let stime, etime;
-    if (event.conf?.startTime !== 'undefined') {
+    if (event.conf?.startTime !== 'undefined' && event.conf?.startTime !== null) {
         stime = event.conf?.startTime.substring(0, 5)
     }else stime='00:00'
-    if (event.conf?.endTime !== 'undefined') {
+    if (event.conf?.endTime !== 'undefined' && event.conf?.endTime !== null) {
         etime = event.conf?.endTime.substring(0, 5)
     }else etime='00:00'
     console.log(stime, etime)
@@ -94,12 +94,14 @@ const FirstStep = ({step}) => {
     else localStorage.setItem('shortDescriptionEvent', shortDescription)
 
     if (localStorage.getItem('startTimeEvent') === `` || localStorage.getItem('startTimeEvent')==='undefined'){
-        localStorage.setItem('startTimeEvent', event.conf?.startTime.substring(0, 5))
+        if (event.conf?.startTime)localStorage.setItem('startTimeEvent', event.conf?.startTime.substring(0, 5))
+        else  localStorage.setItem('startTimeEvent', ``)
     }else localStorage.setItem('startTimeEvent', startTime);
     console.log(localStorage.getItem('startTimeEvent'))
 
     if (localStorage.getItem('endTimeEvent') === `` || localStorage.getItem('endTimeEvent')==='undefined'){
-        localStorage.setItem('endTimeEvent', event.conf?.endTime.substring(0, 5))
+        if(event.conf?.endTime) localStorage.setItem('endTimeEvent', event.conf?.endTime.substring(0, 5))
+        else  localStorage.setItem('endTimeEvent', ``)
     }else localStorage.setItem('endTimeEvent', endTime);
     console.log(localStorage.getItem('endTimeEvent'))
 

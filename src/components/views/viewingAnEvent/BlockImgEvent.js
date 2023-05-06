@@ -25,15 +25,30 @@ const BlockImgEvent = () => {
             })
     }, [state.eventId]);
 
-    const currentDate = new Date();
 
-    let date2 = dayjs(event.conf?.date).format("DD.MM.YYYY")
-    currentDate.setDate(currentDate.getDate() - 5);
-    let date1 = dayjs(currentDate).format("DD.MM.YYYY")
 
+    let dateEvent = dayjs(event.conf?.date).format("DD.MM.YYYY")
+    const dateEventR = new Date();
+    dateEventR.setDate(dateEventR.getDate() + 5);
 
     let block
     let btnBack
+    let addressAndCity;
+
+    if (event.conf?.type==='онлайн'){
+        addressAndCity =
+            <p className="address-event">формат проведения онлайн</p>
+    }if (event.conf?.type === 'очный'){
+        addressAndCity =
+            <p className="address-event">по адресу: {event.conf?.city}, {event.conf?.addres}</p>
+
+    }if (event.conf?.type==='гибридный'){
+        addressAndCity =
+            <div>
+                <p className="address-event">по адресу: {event.conf?.city}, {event.conf?.addres} </p>
+                <p className='footnote'>можно выступить онлайн</p>
+            </div>
+    }
     if (role == 'User') {
         btnBack =
             <NavLink to="/user/mainPageUser">
@@ -42,11 +57,11 @@ const BlockImgEvent = () => {
                 </div>
             </NavLink>
         // поменять условие на ">"
-        if (date1 < date2) {
+        if (dayjs(dateEventR).format("DD.MM.YYYY") < dateEvent) {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
-                <p className="address-event">{event.conf?.addres}, {event.conf?.city}</p>
+                {addressAndCity}
                 <button className="btn-submit-an-application" style={{backgroundColor: `rgb(126, 25, 25, 0.8)`}}>подать
                     заявку
                 </button>
@@ -56,7 +71,7 @@ const BlockImgEvent = () => {
             block = <div className="block-main-info-event-Noactive">
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
-                <p className="address-event">{event.conf?.addres}, {event.conf?.city}</p>
+                {addressAndCity}
                 <p className="termination-date-end">регистрация завершилась</p>
             </div>
         }
@@ -67,18 +82,18 @@ const BlockImgEvent = () => {
                     <ArrowLeftShort size="50px" color="#206F6D"></ArrowLeftShort>
                 </div>
             </NavLink>
-        if (date1 > date2) {
+        if (dayjs(dateEventR).format("DD.MM.YYYY") < dateEvent) {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
-                <p className="address-event">{event.conf?.addres}, {event.conf?.city}</p>
+                {addressAndCity}
                 <p className="termination-date" style={{color:"#206F6D"}}>регистрация закончится за 5 дней до начала события</p>
             </div>
         } else {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
-                <p className="address-event">{event.conf?.addres}, {event.conf?.city}</p>
+                {addressAndCity}
                 <p className="termination-date">регистрация закончится за 5 дней до начала события</p>
             </div>
         }

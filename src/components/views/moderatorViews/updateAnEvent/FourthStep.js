@@ -24,7 +24,7 @@ const FourthStep = ({step}) => {
     // const currentIdEvent = localStorage.getItem('currentIdEvent')
     // console.log(currentIdEvent)
     const idEventEdit = localStorage.getItem('idEventEdit')
-    const idEvent = useSelector(state => state.event.id)
+    const idEvent = useSelector(state => state.event.identity)
     let id
     if (idEventEdit != null) {
         id = idEventEdit
@@ -69,7 +69,7 @@ const FourthStep = ({step}) => {
                 <Button className="save-change-event-button" style={{}}
                         onClick={() => {
                             dispatch(updateInfoEvent(id,nameEvent, typeEvent, shortDescription, longDescription,
-                                addressEvent, cityEvent, startDate, startTimeEvent,endTimeEvent, organizersName, moderatorId, imgUrl,categoryList));
+                                addressEvent, cityEvent, startDate, startTimeEvent,endTimeEvent, moderatorId, imgUrl,categoryList));
                             step();
                         }}>Опубликовать</Button>
             </div>
