@@ -61,3 +61,57 @@ export const deleteEvent = (id) => {
         }
     }
 }
+
+// export const addNewSchedule = (name, startTime, endTime, eventId) => {
+//
+//     return async dispatch => {
+//         const data = {
+//             name: `${name}`,
+//             startTime: `${startTime}`,
+//             endTime: `${endTime}`,
+//         };
+//         try {
+//             const response = await axios.post('https://localhost:7215/api/section/addSections?ConferenceId='+`${eventId}`, data,
+//                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+//             alert("расписание обновлено")
+//         } catch (error) {
+//             alert(error)
+//         }
+//     }
+//
+// }
+export const addNewSection = (name, startTime, endTime, eventId) => {
+
+    return async dispatch => {
+        const data = {
+            name: `${name}`,
+            startTime: `${startTime}`,
+            endTime: `${endTime}`,
+        };
+        try {
+            const response = await axios.post('https://localhost:7215/api/section/addSection?ConferenceId='+`${eventId}`, data,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert("расписание обновлено")
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+}
+export const updateSection = (id, name, startTime, endTime) => {
+    return async dispatch => {
+        const data = [{
+            id: `${id}`,
+            name: `${name}`,
+            startTime: `${startTime}`,
+            endTime: `${endTime}`
+        }];
+        try {
+            const response = await axios.put(`https://localhost:7215/api/section/updateSections`, data,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+    }
+}
+//https://localhost:7215/api/section/updateSections

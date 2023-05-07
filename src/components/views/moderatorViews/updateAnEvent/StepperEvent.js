@@ -47,10 +47,10 @@ const StepperEvent = () => {
                   </Group>
               </Stepper.Step>
               <Stepper.Step icon={<Circle size="35px" color="#f2f2f2"></Circle> } label="расписание">
-                  <ThirdStep></ThirdStep>
+                  <ThirdStep step={nextStep}></ThirdStep>
                   <Group className="buttons-stepper3">
                       <Button className="btn-back-step" variant="default" onClick={prevStep}>Назад</Button>
-                      <Button className="btn-forth-step" onClick={nextStep}>Далее</Button>
+
                   </Group>
               </Stepper.Step>
               <Stepper.Step icon={<Circle size="35px" color="#f2f2f2"></Circle> } label="публикация" >
