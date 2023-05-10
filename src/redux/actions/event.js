@@ -1,6 +1,6 @@
 import axios from "axios";
-import {setEventId} from "../reducers/eventReducer";
-import {setUser} from "../reducers/userReducer";
+import {setEventId, setIdSection} from "../reducers/eventReducer";
+import {setRole, setUser} from "../reducers/userReducer";
 
 export const addNewEvent = (name, type, date, moderatorId) => {
 
@@ -14,7 +14,7 @@ export const addNewEvent = (name, type, date, moderatorId) => {
         try {
             const response = await axios.post('https://localhost:7215/api/conferences/addNewConference', data,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-            dispatch(setEventId(response.data.identity))
+            dispatch(setEventId(response.data.id))
             alert("successfully")
         } catch (error) {
             alert(error)
@@ -62,24 +62,20 @@ export const deleteEvent = (id) => {
     }
 }
 
-// export const addNewSchedule = (name, startTime, endTime, eventId) => {
-//
-//     return async dispatch => {
-//         const data = {
-//             name: `${name}`,
-//             startTime: `${startTime}`,
-//             endTime: `${endTime}`,
-//         };
-//         try {
-//             const response = await axios.post('https://localhost:7215/api/section/addSections?ConferenceId='+`${eventId}`, data,
-//                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-//             alert("расписание обновлено")
-//         } catch (error) {
-//             alert(error)
-//         }
-//     }
-//
-// }
+export const addNewSchedule = (array,eventId) => {
+
+    return async dispatch => {
+
+        try {
+            const response = await axios.post('https://localhost:7215/api/section/addSections?ConferenceId='+`${eventId}`, array,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert("расписание обновлено")
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+}
 export const addNewSection = (name, startTime, endTime, eventId) => {
 
     return async dispatch => {
@@ -91,6 +87,7 @@ export const addNewSection = (name, startTime, endTime, eventId) => {
         try {
             const response = await axios.post('https://localhost:7215/api/section/addSection?ConferenceId='+`${eventId}`, data,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            dispatch(setIdSection(response.data.id))
             alert("расписание обновлено")
         } catch (error) {
             alert(error)
@@ -114,4 +111,17 @@ export const updateSection = (id, name, startTime, endTime) => {
         }
     }
 }
-//https://localhost:7215/api/section/updateSections
+export const deleteSection = (id) => {
+    return async dispatch => {
+        const idSection= id;
+        try {
+            ///поменять адрес
+            const response = await axios.delete('https://localhost:7215/api/section/deleteSection?secId='+`${idSection}`,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert('удалено')
+        } catch (error) {
+            alert(error)
+        }
+    }
+}
+//https://localhost:7215/api/section/deleteSection?secId=47f5bb75-2768-4b2a-a2f9-72573b396060

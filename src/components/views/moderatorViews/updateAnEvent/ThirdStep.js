@@ -10,7 +10,7 @@ const ThirdStep = ({step}) => {
     const dispatch = useDispatch()
 
     const idEventEdit = localStorage.getItem('idEventEdit')
-    const idEvent = useSelector(state => state.event.identity)
+    const idEvent = useSelector(state => state.event.id)
     let id
     if (idEventEdit != null) {
         id = idEventEdit
@@ -28,6 +28,7 @@ const ThirdStep = ({step}) => {
 
             })
     }, []);
+    ///
 
     // let [sectionList, setSectionList] = useState(localStorage.getItem('sectionList') || '')
     //
@@ -46,13 +47,13 @@ const ThirdStep = ({step}) => {
     return (
         <main className="creation-field3">
             <h2>Расписание события без учёта участников</h2>
-            <AddRemoveInputSchedule dataList={section} idEvent={id}></AddRemoveInputSchedule>
-            <div className="btn-next-step" style={{top: '24.5vh'}}>
-                <Button className="btn-forth-step" onClick={() => {
-                    //dispatch(addNewSchedule());
-                    step();
-                }}>Далее</Button>
-            </div>
+            <AddRemoveInputSchedule dataList={section} idEvent={id} step={step}></AddRemoveInputSchedule>
+            {/*<div className="btn-next-step" style={{top: '24.5vh'}}>*/}
+            {/*    <Button className="btn-forth-step" onClick={() => {*/}
+            {/*        //dispatch(addNewSchedule());*/}
+            {/*        step();*/}
+            {/*    }}>Далее</Button>*/}
+            {/*</div>*/}
 
         </main>
     );
