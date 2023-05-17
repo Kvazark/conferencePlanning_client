@@ -15,6 +15,8 @@ import ViewingAnEvent from "./components/views/userViews/ViewingAnEvent";
 import ViewingAnEventModerator from "./components/views/moderatorViews/ViewingAnEventModerator";
 import ViewingListOfSpeakers from "./components/commonComponents/ViewingListOfSpeakers";
 import MaterialsOfTheSpeakers from "./components/commonComponents/MaterialsOfTheSpeakers";
+import Questionnaire from "./components/views/userViews/Questionnaire";
+import PotentialParticipants from "./components/views/moderatorViews/PotentialParticipants";
 
 
 function App() {
@@ -34,6 +36,7 @@ function App() {
                     <Route path="/user">
                         <Route path="listNotifications" element={<RequireAuth><ListNotifications/></RequireAuth>}/>
                         <Route path="mainPageUser" element={<RequireAuth><Homepage/></RequireAuth>}/>
+                        <Route path="questionnairePage" element={<RequireAuth><Questionnaire/></RequireAuth>}/>
                         <Route path="viewingAnEvent" element={<RequireAuth><ViewingAnEvent/></RequireAuth>}/>
                         <Route path="profilePageUser" element={<RequireAuth><Profile/></RequireAuth>}/>
                         <Route path="viewingAnEvent/viewingListOfSpeakers" element={<RequireAuth><ViewingListOfSpeakers/></RequireAuth>}/>
@@ -48,6 +51,8 @@ function App() {
                         <Route path="eventsListModerator" element={<RequireAuth><EventsListByModerator/></RequireAuth>}></Route>
                         <Route path="eventsListModerator/updateAnEvent"
                                element={<RequireAuth><UpdateAnEvent/></RequireAuth>}></Route>
+                        <Route path="eventsListModerator/viewPotentialParticipants"
+                               element={<RequireAuth><PotentialParticipants/></RequireAuth>}></Route>
                         <Route path="mainPageModerator/viewingAnEvent"
                                element={<RequireAuth><ViewingAnEventModerator/></RequireAuth>}></Route>
                         <Route path="mainPageModerator/viewingAnEvent/viewingListOfSpeakers" element={<RequireAuth><ViewingListOfSpeakers/></RequireAuth>}/>

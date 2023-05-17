@@ -7,9 +7,10 @@ import DatePicker from "react-datepicker";
 import RadioButtons from "../commonComponents/details/inputs/input_forCreateEvent/RadioButtons";
 import dayjs from "dayjs";
 import {addNewEvent} from "../../redux/actions/event";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 const MwCreateEvent = ({onChange}) => {
+    const dispatch = useDispatch()
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [typeEvent, setTypeEvent] =  useState(localStorage.getItem('typeEvent') || '')
@@ -21,6 +22,7 @@ const MwCreateEvent = ({onChange}) => {
     }
     //let startDate1 = dayjs(startDate).format("DD.MM.YYYY")
     let show=true
+
 
     const handleClick=()=>{
         setNameEvent()
@@ -75,7 +77,7 @@ const MwCreateEvent = ({onChange}) => {
                 />
             </section>
             {/*<button className="cont-create-new-event-Btn"  type="button" disabled={!check} onClick={()=>{routeChange();handleClick()}}>создать</button>*/}
-            <button className="cont-create-new-event-Btn"  type="button" disabled={!check} onClick={()=>{handleClick()}}>создать</button>
+            <button className="cont-create-new-event-Btn"  type="button" disabled={!check} onClick={()=>{handleClick()}}>продолжить</button>
         </div>
     );
 

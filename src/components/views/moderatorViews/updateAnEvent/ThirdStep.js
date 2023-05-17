@@ -28,32 +28,12 @@ const ThirdStep = ({step}) => {
 
             })
     }, []);
-    ///
 
-    // let [sectionList, setSectionList] = useState(localStorage.getItem('sectionList') || '')
-    //
-    // useEffect(() => {
-    //     localStorage.setItem('sectionList', sectionList)
-    // }, [sectionList])
-
-    //console.log('------'+sectionList)
-    //let startDate = dayjs(date).format("DD.MM.YYYY")
-    // console.log({date})
-    // let [sectionList, setSectionList] = useState(localStorage.getItem('sectionList') || '')
-    // useEffect(() => {
-    //     localStorage.setItem('sectionList', sectionList)
-    // }, [sectionList])
 
     return (
         <main className="creation-field3">
             <h2>Расписание события без учёта участников</h2>
             <AddRemoveInputSchedule dataList={section} idEvent={id} step={step}></AddRemoveInputSchedule>
-            {/*<div className="btn-next-step" style={{top: '24.5vh'}}>*/}
-            {/*    <Button className="btn-forth-step" onClick={() => {*/}
-            {/*        //dispatch(addNewSchedule());*/}
-            {/*        step();*/}
-            {/*    }}>Далее</Button>*/}
-            {/*</div>*/}
 
         </main>
     );

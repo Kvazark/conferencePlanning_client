@@ -11,6 +11,7 @@ const MwEditEvent = ({idEventEdit}) => {
     console.log(idEventEdit)
 
     let path = `/moderator/eventsListModerator/updateAnEvent`
+    let path2 = `/moderator/eventsListModerator/viewPotentialParticipants`
     return (
             <div className="setting-event-field">
                 <NavLink
@@ -20,11 +21,13 @@ const MwEditEvent = ({idEventEdit}) => {
                         <span>редактировать</span>
                     </button>
                 </NavLink>
+                <NavLink to={path2} state={{eventId: idEventEdit}} style={{textDecoration: 'none'}}>
+                    <button className='btn-setting-event-field'>
+                        <People size="18px" style={{marginTop:'3px'}}></People>
+                        <span>анкеты</span>
+                    </button>
+                </NavLink>
 
-                <button className='btn-setting-event-field'>
-                    <People size="18px" style={{marginTop:'3px'}}></People>
-                    <span>анкеты</span>
-                </button>
                 <button className='btn-setting-event-field' >
                     <Journal size="18px" style={{marginTop:'3px'}}></Journal>
                     <span>порядок выступления</span>

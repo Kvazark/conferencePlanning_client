@@ -42,7 +42,7 @@ module.exports = {
         rules: [
         { test: /\.(html)$/, use: ['html-loader'] }, 
         {
-            test: /\.(s[ac]|c)ss$/i, // /\.(le|c)ss$/i если вы используете less
+            test: /\.(s[ac]|c)ss$/i, // /\.(le|c)ss$/i если используется less
             use: [
               MiniCssExtractPlugin.loader,
               'css-loader',
@@ -52,9 +52,7 @@ module.exports = {
           },
           {
             test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
-            type: mode === 'production' ? 'asset' : 'asset/resource', // В продакшен режиме
-            // изображения размером до 8кб будут инлайнится в код
-            // В режиме разработки все изображения будут помещаться в dist/assets
+            type: mode === 'production' ? 'asset' : 'asset/resource',
           },
           {
             test: /\.(woff2?|eot|ttf|otf)$/i,

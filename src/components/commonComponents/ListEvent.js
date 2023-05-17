@@ -41,6 +41,7 @@ const ListEvent = () => {
     let sortedEvents = events.sort((a, b) => new Date(...a.date.split('.').reverse()) - new Date(...b.date.split('.').reverse()));
     sortedEvents.reverse()
 
+
     //разделение событий на архив и актуальные
     const cD = new Date()
     let currentDate = dayjs(cD).format('DD.MM.YYYY')
@@ -49,10 +50,11 @@ const ListEvent = () => {
     const [showListEvents, setShowListEvents] = useState(Array.from(sortedEvents))
 
     sortedEvents.map((x) => {
-        if (x.date > currentDate) {
+        if (x.date.split('.').reverse().join('') > currentDate.split('.').reverse().join('')) {
             actualEvents.push(x);
         } else archiveEvents.push(x);
     })
+
     const [showArchive, setShowArchive] = useState(false)
     useEffect(() => {
         if (showArchive) {

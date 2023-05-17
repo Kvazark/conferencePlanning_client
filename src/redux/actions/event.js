@@ -124,4 +124,25 @@ export const deleteSection = (id) => {
         }
     }
 }
+
+export const addNewQuestionnaire = (idUser, idEvent, theme, type, scientificDegree) => {
+
+    return async dispatch => {
+        const data = {
+            dockladTheme: `${theme}`,
+            scientificDegree: `${scientificDegree}`,
+            type: true,
+            userId: `${idUser}`,
+            conferenceId: `${idEvent}`
+        };
+        try {
+            const response = await axios.post('https://localhost:7215/api/questionnaire/AddNewQuestionnaire', data,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert("успешно")
+        } catch (error) {
+            alert(error)
+        }
+    }
+
+}
 //https://localhost:7215/api/section/deleteSection?secId=47f5bb75-2768-4b2a-a2f9-72573b396060

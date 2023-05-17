@@ -1,5 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
-import {NavLink, useLocation} from "react-router-dom";
+import {NavLink, useLocation, useNavigate} from "react-router-dom";
 import headCardEvent from "../../../img/head-card-event.svg";
 import {ArrowLeftShort} from "react-bootstrap-icons";
 import dayjs from "dayjs";
@@ -24,6 +24,7 @@ const BlockImgEvent = () => {
 
             })
     }, [state.eventId]);
+    const idEvent = state.eventId
 
 
 
@@ -34,6 +35,8 @@ const BlockImgEvent = () => {
     let block
     let btnBack
     let addressAndCity;
+    let path = `/user/questionnairePage`;
+
 
     if (event.conf?.type==='онлайн'){
         addressAndCity =
@@ -57,14 +60,20 @@ const BlockImgEvent = () => {
                 </div>
             </NavLink>
         // поменять условие на ">"
-        if (dayjs(dateEventR).format("DD.MM.YYYY") < dateEvent) {
+        //x.date.split('.').reverse().join('') > currentDate.split('.').reverse().join('')
+
+        if (dayjs(dateEventR).format("DD.MM.YYYY").split('.').reverse().join('') < dateEvent.split('.').reverse().join('')) {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
                 {addressAndCity}
-                <button className="btn-submit-an-application" style={{backgroundColor: `rgb(126, 25, 25, 0.8)`}}>подать
-                    заявку
-                </button>
+                <NavLink to={path} state={{idEvent: idEvent}}>
+                    <button className="btn-submit-an-application"
+                            style={{backgroundColor: `rgb(126, 25, 25, 0.8)`}}>подать
+                        заявку
+                    </button>
+                </NavLink>
+
                 <p className="termination-date" style={{color:`rgba(126, 25, 25, 0.9)`}}>регистрация закончится за 5 дней до начала события</p>
             </div>
         } else {

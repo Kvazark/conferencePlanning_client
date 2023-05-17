@@ -18,13 +18,15 @@ const FirstStep = ({step}) => {
     const [event, setEvent] = useState({});
 
     const idEventEdit = localStorage.getItem('idEventEdit')
-    const idEvent = useSelector(state => state.event.identity)
+    const idEvent = useSelector(state => state.event.id)
     let id
     if (idEventEdit != null) {
         id = idEventEdit
     } else {
         id = idEvent
     }
+    localStorage.setItem('idEventEdit', id)
+    console.log('idEvent: '+id)
 
     useEffect(() => {
         fetch(`https://localhost:7215/api/conferences/getConferenceById?id=${id}`)
@@ -66,11 +68,6 @@ const FirstStep = ({step}) => {
         setTypeEvent()
         console.log('this handleClick')
     }
-    useEffect(()=>{
-        console.log('a')
-    },[event])
-
-
 
     if (localStorage.getItem('typeEvent') === 'null') {
         localStorage.setItem('typeEvent', event.conf?.type)

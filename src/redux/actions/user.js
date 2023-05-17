@@ -106,7 +106,7 @@ export const deleteAvatar = () => {
         }
     }
 }
-export const updateInfoModerator = (id, organizationName, email) => {
+export const updateInfoModerator = (id, organizationName, email, phoneNumber) => {
     return async dispatch => {
         const data = {
             id: `${id}`,
@@ -115,7 +115,8 @@ export const updateInfoModerator = (id, organizationName, email) => {
             email: `${email}`,
             userSurname: "userSurname",
             userName: "userName",
-            patronymic: "patronymic"
+            patronymic: "patronymic",
+            phoneNumber: `${phoneNumber}`
 
         };
         try {

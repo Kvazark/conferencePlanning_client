@@ -64,6 +64,7 @@ const ContentEvent = () => {
         }
     }
 
+
     console.log(infoOrg?.organizationName)
 
     return (

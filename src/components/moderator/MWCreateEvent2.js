@@ -36,7 +36,9 @@ const MwCreateEvent2 = () => {
 
     return (
         <div className="create-event-div" >
-            <p>Привет</p>
+            <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Название: </strong>{nameEvent}</p>
+            <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Формат проведения: </strong>{typeEvent}</p>
+            <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Дата: </strong>{startDate}</p>
             <button className="cont-create-new-event-Btn"  type="button"  onClick={()=>{dispatch(addNewEvent(nameEvent,typeEvent,startDate, moderatorId))}}>создать</button>
         </div>
     );

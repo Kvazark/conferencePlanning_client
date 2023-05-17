@@ -9,27 +9,9 @@ function AddRemoveInputSchedule({dataList, idEvent, step}) {
 
     const dispatch = useDispatch()
 
-    //let [categoryList, setCategoryList] = useState(localStorage.getItem('categoryList')? JSON.parse(localStorage.getItem('categoryList')): [{}])
-
-    // const [inputList, setInputList] = useState([{sectionTitle: "", startTime: "", endTime: ""}]);
-
     let [inputList, setInputList] = useState(localStorage.getItem('sectionList') ? JSON.parse(localStorage.getItem('sectionList')) : []);
-    // {
-    // id: "",
-    // name: "",
-    // startTime: "",
-    // endTime: ""}
-    // ]);
 
-    // if (JSON.parse((localStorage.getItem("sectionList")) === " ")) {
-    //     localStorage.setItem("sectionList", JSON.stringify(inputList));
-    // }
-    const [stop, setStop] = useState('')
     useEffect(() => {
-        // if(section.length===0) setStop('false')
-        // else setStop('true')
-        //console.log(inputList)
-
         if (dataList) {
             const list = [...inputList];
             setInputList(list);
@@ -38,78 +20,26 @@ function AddRemoveInputSchedule({dataList, idEvent, step}) {
                 setInputList(list);
             }
         }
-
-        // if (Object.keys(inputList).length === 0) {
-        //     if (dataList) {
-        //         const list = [...inputList];
-        //         setInputList(list);
-        //         console.log(inputList)
-        //         if (Object.keys(inputList).length < Object.keys(dataList).length) {
-        //             for (let key in dataList) {
-        //                 list[key] = dataList[key];
-        //                 setInputList(list);
-        //             }
-        //         }
-        //     }
-        // }
     }, [dataList])
-    console.log(dataList, inputList)
-    //console.log(inputList)
+
+    //console.log(dataList, inputList)
     useEffect(() => {
         const stringifyed = JSON.stringify(inputList);
         localStorage.setItem('sectionList', stringifyed)
         console.log(stringifyed)
-        //
+
     }, [inputList])
 
-    // console.log(inputList)
+
     const handleInputChange = (e, index) => {
 
         const {name, value} = e.target;
         const list = [...inputList];
         list[index][name] = value;
-        // if(list[index].startTime!=='undefined'){
-        //     list[index]=list[index].startTime+':00'}
-        // if(list[index].endTime!=='undefined')list[index]=list[index].endTime+':00'
+
         console.log(list[index].id)
         setInputList(list);
-        // console.log(inputList)
-        // if (inputList.length === 1) {
-        //     if (section.length === 0 && stop === `false`) {
-        //         console.log('sasaasasa')
-        //         setStop(true)
-        //         dispatch(addNewSection(list[index].name = " ", list[index].startTime = '00:00:00', list[index].endTime = '00:00:00', idEvent))
-        //     }
-        //     if (stop === true) {
-        //         if (list[index].startTime.length === 5) {
-        //             if (list[index].endTime.length === 5) {
-        //                 dispatch(updateSection(list[index].id = idSection, list[index].name, list[index].startTime + ':00', list[index].endTime + ':00'))
-        //             } else {
-        //                 dispatch(updateSection(list[index].id = idSection, list[index].name, list[index].startTime + ':00', list[index].endTime))
-        //             }
-        //         } else {
-        //             if (list[index].endTime.length === 5) {
-        //                 dispatch(updateSection(list[index].id = idSection, list[index].name, list[index].startTime, list[index].endTime + ':00'))
-        //             } else {
-        //                 dispatch(updateSection(list[index].id = idSection, list[index].name, list[index].startTime, list[index].endTime))
-        //             }
-        //         }
-        //     }
-        // } else {
-        //     if (list[index].startTime.length === 5) {
-        //         if (list[index].endTime.length === 5) {
-        //             dispatch(updateSection(list[index].id, list[index].name, list[index].startTime + ':00', list[index].endTime + ':00'))
-        //         } else {
-        //             dispatch(updateSection(list[index].id, list[index].name, list[index].startTime + ':00', list[index].endTime))
-        //         }
-        //     } else {
-        //         if (list[index].endTime.length === 5) {
-        //             dispatch(updateSection(list[index].id, list[index].name, list[index].startTime, list[index].endTime + ':00'))
-        //         } else {
-        //             dispatch(updateSection(list[index].id, list[index].name, list[index].startTime, list[index].endTime))
-        //         }
-        //     }
-        // }
+
         if (list[index].id) {
 
             if (list[index].startTime.length === 5) {
@@ -147,20 +77,9 @@ function AddRemoveInputSchedule({dataList, idEvent, step}) {
     const handleAddClick = () => {
 
         console.log('idSection: ' + idSection)
-        //setInputList([...inputList, {id: idSection,name: "", startTime: "00:00:00", endTime: "00:00:00"}]);
         setInputList([...inputList, {name: "", startTime: "00:00:00", endTime: "00:00:00"}]);
 
     };
-    // const getNumber = t => +t.replace(/:/g, '')
-    // let sortedList = inputList.sort(({startTime: a}, {startTime: b}) => getNumber(a) - getNumber(b))
-    //console.log(inputList)
-    // useEffect(() => {
-    //     if (sortedList.length === 1 && inputList.startTime === 'undefined') {
-    //         setInputList([{name: " ", startTime: "00:00", endTime: "00:00"}]);
-    //         console.log('s' + inputList)
-    //         //dispatch(addNewSection(name, x.startTime, x.endTime, idEvent))
-    //     }
-    // })
     console.log(idEvent, idSection)
 
     let list =[]

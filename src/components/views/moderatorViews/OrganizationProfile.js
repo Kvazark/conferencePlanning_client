@@ -32,6 +32,7 @@ const OrganizationProfile = () => {
 
     const [email, setEmail] = useState("");
     const [orgName, setOrgName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
     // const [numberPhone, setNumberPhone] = useState("");
     console.log(id)
 
@@ -43,6 +44,9 @@ const OrganizationProfile = () => {
     if (email==""){newEmail = info.email}
     else{newEmail = email}
 
+    let newPhoneNumber;
+    if (phoneNumber==""){newPhoneNumber = info.phoneNumber}
+    else{newPhoneNumber = phoneNumber}
 
     return (
         <main>
@@ -61,7 +65,7 @@ const OrganizationProfile = () => {
                         </section>
                         <section className="full-inputOrg">
                             <label>Контактный телефон</label>
-                            <InputProfile></InputProfile>
+                            <InputProfile value={phoneNumber} setValue={setPhoneNumber} type="text" placeholder={info.phoneNumber!=='undefined'?info.phoneNumber: ''}></InputProfile>
                         </section>
                     </div>
                     <div className="changePasswordOrg">
