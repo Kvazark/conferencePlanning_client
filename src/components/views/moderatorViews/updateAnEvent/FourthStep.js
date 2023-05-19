@@ -10,16 +10,19 @@ const FourthStep = ({step}) => {
 
     const nameEvent = localStorage.getItem('nameEvent')
     //console.log(nameEvent)
-    const shortDescription = localStorage.getItem('shortDescriptionEvent')!=`undefined`? localStorage.getItem('shortDescriptionEvent'): ' '
+    let shortDescription = localStorage.getItem('shortDescriptionEvent')
+    if(!shortDescription) shortDescription = ' '
     const date = localStorage.getItem('startDateEvent')
     const startTime = localStorage.getItem('startTimeEvent')
     const endTime = localStorage.getItem('endTimeEvent')
     const typeEvent = localStorage.getItem('typeEvent')
-    const organizersName = localStorage.getItem('organizersName')
-    const longDescription = localStorage.getItem('longDescription')!=`undefined`?localStorage.getItem('longDescription') : ' '
-    const cityEvent = localStorage.getItem('cityEvent')
-    const addressEvent = localStorage.getItem('addressEvent')
-    const categoryList = JSON.parse(localStorage.getItem('categoryList')? localStorage.getItem('categoryList'): null)
+    let longDescription = localStorage.getItem('longDescription')
+    if(!longDescription) longDescription = ' '
+    let cityEvent = localStorage.getItem('cityEvent')
+    if(!cityEvent) cityEvent = ' '
+    let addressEvent = localStorage.getItem('addressEvent')
+    if(!addressEvent) addressEvent = ' '
+    let categoryList = JSON.parse(localStorage.getItem('categoryList')? localStorage.getItem('categoryList'): null)
 
     // const currentIdEvent = localStorage.getItem('currentIdEvent')
     // console.log(currentIdEvent)
@@ -36,9 +39,13 @@ const FourthStep = ({step}) => {
     // console.log({date})
     const dispatch = useDispatch()
     //let id = 1
+    let startTimeEvent;
+    let endTimeEvent;
+    if(!startTime) startTimeEvent = '00:00:00';
+    else startTimeEvent = startTime+':00';
+    if(!endTime) endTimeEvent = '00:00:00';
+    else endTimeEvent = endTime+':00';
 
-    const startTimeEvent = startTime+':00'
-    const endTimeEvent = endTime+':00'
     //console.log(!JSON.stringify(categoryList)==='[{}]')
     let categories
     if(JSON.stringify(categoryList)!=='[{}]') categories = categoryList
@@ -58,7 +65,6 @@ const FourthStep = ({step}) => {
                 <p>endTime: {endTime}</p>
                 <p>type: {typeEvent}</p>
                 <div style={{whiteSpace: "pre-wrap"}}>fullTopic: {longDescription}</div>
-                <p>organizer: {organizersName}</p>
                 <p>city: {cityEvent}</p>
                 <p>address: {addressEvent}</p>
                 <p>categories: {categories}</p>

@@ -37,7 +37,6 @@ const MwCreateEvent = ({onChange}) => {
         localStorage.setItem('startDateEvent', startDate)
     },[nameEvent, startDate])
 
-    console.log(typeEvent)
 
 /////навигация
     let navigate = useNavigate();

@@ -33,7 +33,6 @@ const MwCreateEvent2 = () => {
         routeChange()
     }
 
-
     return (
         <div className="create-event-div" >
             <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Название: </strong>{nameEvent}</p>
@@ -44,5 +43,4 @@ const MwCreateEvent2 = () => {
     );
 
 }
-
 export default MwCreateEvent2;

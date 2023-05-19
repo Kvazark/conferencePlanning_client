@@ -22,6 +22,7 @@ const Profile = () => {
                 setInfo(result);
             });
     }, []);
+    console.log(id)
 
 
 
@@ -42,7 +43,7 @@ const Profile = () => {
                         </section>
                         <section className="full-input">
                             <label>Отчество</label>
-                            <InputProfile></InputProfile>
+                            <InputProfile placeholder={info.patronymic}></InputProfile>
                         </section>
                         <section className="full-input">
                             <label>Должность</label>

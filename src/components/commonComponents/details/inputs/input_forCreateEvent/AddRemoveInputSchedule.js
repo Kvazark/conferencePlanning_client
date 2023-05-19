@@ -35,31 +35,25 @@ function AddRemoveInputSchedule({dataList, idEvent, step}) {
 
         const {name, value} = e.target;
         const list = [...inputList];
+
         list[index][name] = value;
+        if (list[index].startTime.length === 5) {
+            list[index].startTime = list[index].startTime + ':00'
 
-        console.log(list[index].id)
-        setInputList(list);
+        } else if (list[index].endTime.length === 5) {
 
-        if (list[index].id) {
-
-            if (list[index].startTime.length === 5) {
-                if (list[index].endTime.length === 5) {
-                    dispatch(updateSection(list[index].id, list[index].name, list[index].startTime + ':00', list[index].endTime + ':00'))
-                } else {
-                    dispatch(updateSection(list[index].id, list[index].name, list[index].startTime + ':00', list[index].endTime))
-                }
-            } else {
-                if (list[index].endTime.length === 5) {
-                    dispatch(updateSection(list[index].id, list[index].name, list[index].startTime, list[index].endTime + ':00'))
-                } else {
-                    dispatch(updateSection(list[index].id, list[index].name, list[index].startTime, list[index].endTime))
-                }
-            }
+            list[index].endTime = list[index].endTime + ':00'
 
         }
 
+        setInputList(list);
+
+        if (list[index].id) {
+            dispatch(updateSection(list[index].id, list[index].name, list[index].startTime, list[index].endTime))
+        }
 
     };
+
 
     // handle click event of the Remove button
 
@@ -82,13 +76,15 @@ function AddRemoveInputSchedule({dataList, idEvent, step}) {
     };
     console.log(idEvent, idSection)
 
-    let list =[]
+    let list = []
     for (let key in inputList) {
-        if(inputList[key].id === undefined){
+        if (inputList[key].id === undefined) {
             list.push(inputList[key]);
         }
     }
-    console.log(list)
+    inputList.sort(function (a, b) {
+        return a.startTime.localeCompare(b.startTime);
+    });
 
 
     return (
@@ -109,13 +105,13 @@ function AddRemoveInputSchedule({dataList, idEvent, step}) {
                             <input className="input-section-time"
                                    name="startTime"
                                    type={"time"}
-                                   value={x.startTime + ':00'}
+                                   value={x.startTime}
                                    onChange={e => handleInputChange(e, i)}
                             />
                             <input className="input-section-time"
                                    name="endTime"
                                    type={"time"}
-                                   value={x.endTime + ':00'}
+                                   value={x.endTime}
                                    onChange={e => handleInputChange(e, i)}
                             />
 

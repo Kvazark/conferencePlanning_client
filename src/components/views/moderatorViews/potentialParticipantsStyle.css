@@ -1,0 +1,56 @@
+.icon-x1{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 5px;
+}
+.icon-x2{
+    position: relative;
+    top: -5px;
+    left: 99%;
+    margin: 0;
+}
+
+.mw-list-pp{
+    position: relative;
+    margin-left: 10px;
+    width: 99%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 15px;
+}
+.no-quest-h3{
+    font-family: 'Fira Mono', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+    margin-top: 35px;
+    margin-bottom: -10px;
+    color: #206F6D;
+}
+
+.card-potenPartic{
+    box-sizing: border-box;
+    height: 35px;
+    width: 100%;
+    border-bottom: 1px solid rgba(76, 91, 102, 0.2);
+
+    display: flex;
+    flex-direction: row;
+
+}
+.navlink-p{
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    width: 90%;
+    margin-left: 5px;
+
+    color: #303030;
+}

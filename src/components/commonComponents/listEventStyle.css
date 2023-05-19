@@ -30,7 +30,7 @@
 .card{
     overflow-y: hidden;
     width: 65vw;
-    height: 55vh;
+    min-height: 55vh;
 
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(4px 4px 20px rgba(0, 0, 0, 0.25));
     border-radius: 10px;
@@ -38,7 +38,7 @@
 }
 .event-info-card{
     border-top: 1px solid rgba(48, 48, 48, 0.1);
-    height: 167px;
+    height: auto;
     margin-left: 18px;
 }
 .event-info-card h3{

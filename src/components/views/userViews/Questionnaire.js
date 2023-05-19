@@ -1,7 +1,11 @@
-import React, {Component} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import {NavLink, useLocation, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {addNewQuestionnaire} from "../../../redux/actions/event";
+import './questionnaireStyle.css'
+import InputProfile from "../../commonComponents/details/inputs/input_forProfile/InputProfile";
+import {Radio, RadioGroup} from "@mui/material";
+
 
 const Questionnaire = () => {
     const dispatch = useDispatch();
@@ -13,23 +17,79 @@ const Questionnaire = () => {
 
     let path = `/user/viewingAnEvent`;
     const idUser = useSelector(state => state.user.id)
-    const theme = 'tema'
-    const type = true
-    const scientificDegree = 'scientificDegree'
-    console.log(idUser)
 
+    let eventType = state.typeEvent
+
+
+    const [theme, setTheme] = useState('')
+    const [scientificDegree, setScientificDegree] = useState('')
+    const [typeEvent, setTypeEvent] = useState('')
+    const handleChange = (e) => {
+        setTypeEvent(e.target.value);
+    }
+    console.log(idUser, theme, scientificDegree, typeEvent)
+    if(eventType==='гибридный'){
+        var block = <div className='radio-group'>
+            <RadioGroup onChange={handleChange} value={typeEvent}>
+                <label>Выберите формат выстплуения</label>
+                <label className="radio-btn-block">
+                    <Radio
+                        name="type"
+                        id='1'
+                        value="онлайн"
+                        checked={typeEvent === 'онлайн'}
+                        sx={{"& .MuiSvgIcon-root": {
+                                color: 'rgb(128, 14, 14, 0.8)',
+                            }}}
+                    />
+                    <span>я буду выступать онлайн</span>
+                </label>
+                <label className="radio-btn-block">
+                    <Radio
+                        name="type"
+                        id='2'
+                        value="очно"
+                        checked={typeEvent === 'очно'}
+                        sx={{"& .MuiSvgIcon-root": {
+                                color: 'rgb(128, 14, 14,0.8)',
+                            }}}
+                    />
+                    <span>я буду выступать очно</span>
+                </label>
+            </RadioGroup>
+        </div>
+    }else{
+        setTypeEvent(' ');
+    }
 
 
     return (
-        <div>
+        <div className='field-ques'>
             <NavLink to={path} state={{eventId: state.idEvent}}>
-                <div>
+                <button className="back-viewEvent">
                     назад
-                </div>
+                </button>
             </NavLink>
-            <button className="send-aue-btn" onClick={()=>dispatch(addNewQuestionnaire(idUser,state.idEvent, theme, type, scientificDegree))}>ryjgrf </button>
 
-                <h2>hfuebifvcb</h2>
+            <form className='questionnaire-form'>
+                <div className="fieldset-quest">
+                    <section className="full-input">
+                        <label>Тема доклада</label>
+                        <InputProfile value={theme} setValue={setTheme}
+                                      placeholder='Введите тему докалада...'></InputProfile>
+                    </section>
+                    <section className="full-input">
+                        <label>Учёная стрепень</label>
+                        <InputProfile
+                            value={scientificDegree} setValue={setScientificDegree}
+                            placeholder='Введите свою учёную степень, в случае отсутствия напишите "у.с. отсутствует"'></InputProfile>
+                    </section>
+                    {block}
+                </div>
+                <button className="send-quest-btn" type='button'
+                        onClick={() => dispatch(addNewQuestionnaire(idUser, state.idEvent, theme, typeEvent, scientificDegree))}>отправить
+                </button>
+            </form>
         </div>
     );
 

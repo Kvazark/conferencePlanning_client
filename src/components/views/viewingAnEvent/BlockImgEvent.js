@@ -36,20 +36,22 @@ const BlockImgEvent = () => {
     let btnBack
     let addressAndCity;
     let path = `/user/questionnairePage`;
-
+    let type = event.conf?.type
 
     if (event.conf?.type==='онлайн'){
         addressAndCity =
             <p className="address-event">формат проведения онлайн</p>
     }if (event.conf?.type === 'очный'){
         addressAndCity =
-            <p className="address-event">по адресу: {event.conf?.city}, {event.conf?.addres}</p>
+            <p className="address-event">
+               <span>по адресу: </span> {event.conf?.city}, {event.conf?.addres}</p>
 
     }if (event.conf?.type==='гибридный'){
         addressAndCity =
-            <div>
-                <p className="address-event">по адресу: {event.conf?.city}, {event.conf?.addres} </p>
-                <p className='footnote'>можно выступить онлайн</p>
+            <div className="address-and-city-block">
+                <p className="address-event">
+                    <span>по адресу: </span> {event.conf?.city}, {event.conf?.addres} </p>
+                <p className='footnote' style={role=='User'? {color: 'rgba(128, 14, 14, 0.5)'}: {color:'#206F6D'}}>можно выступить онлайн</p>
             </div>
     }
     if (role == 'User') {
@@ -67,7 +69,7 @@ const BlockImgEvent = () => {
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
                 {addressAndCity}
-                <NavLink to={path} state={{idEvent: idEvent}}>
+                <NavLink to={path} state={{idEvent: idEvent, typeEvent: type}}>
                     <button className="btn-submit-an-application"
                             style={{backgroundColor: `rgb(126, 25, 25, 0.8)`}}>подать
                         заявку
@@ -75,6 +77,7 @@ const BlockImgEvent = () => {
                 </NavLink>
 
                 <p className="termination-date" style={{color:`rgba(126, 25, 25, 0.9)`}}>регистрация закончится за 5 дней до начала события</p>
+
             </div>
         } else {
             block = <div className="block-main-info-event-Noactive">
@@ -96,14 +99,13 @@ const BlockImgEvent = () => {
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
                 {addressAndCity}
-                <p className="termination-date" style={{color:"#206F6D"}}>регистрация закончится за 5 дней до начала события</p>
             </div>
         } else {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
                 {addressAndCity}
-                <p className="termination-date">регистрация закончится за 5 дней до начала события</p>
+
             </div>
         }
     }

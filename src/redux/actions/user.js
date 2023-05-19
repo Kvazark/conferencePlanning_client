@@ -8,6 +8,8 @@ export const registrationUser = async (userSurname, userName, email, password) =
         const response = await axios.post('https://localhost:7215/api/Account/registration/user', {
             userSurname,
             userName,
+            patronymic: '-',
+            position: '-',
             email,
             password
         })

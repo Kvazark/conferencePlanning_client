@@ -13,8 +13,6 @@ body{
     display: flex;
     flex-direction: column;
     padding: 50px 5rem;
-
-
 }
 .headerReg{
     height: 43px;
@@ -49,20 +47,22 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 60%;
+    height: auto;
 
     position: absolute;
     width: 30rem;
     top:65%;
 
 }
-.registration_btn{
+.group-btn-reg{
     position: relative;
     top:90%;
+    margin-top: 20px;
+    bottom: 0;
+}
+.registration_btn{
     width: 30rem;
     height: 45px;
-
-    bottom: 0;
     background: rgba(32, 111, 109, 0.7);
     border-radius: 15px;
 
@@ -86,11 +86,9 @@ body{
     padding: 0px;
     gap: 20px;
 
-    position: absolute;
+    margin-top: 10px;
     width: 485px;
     height: 30px;
-    left: calc(50% - 485px/2 + 7.5px);
-    bottom: 0;
 
     font-family: 'Hind Vadodara',sans-serif;
     font-style: normal;

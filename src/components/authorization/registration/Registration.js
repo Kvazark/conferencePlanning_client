@@ -20,7 +20,7 @@ const Registration = () => {
     var role = 'user';
     const handleClick=()=>{
         if(role=="user"){
-            registrationUser(userSurname, userName, email, password )
+            registrationUser(userSurname, userName, email, password)
         }else if (role =="moderator"){
             registrationModerator(organizName, email, password)
         }
@@ -52,11 +52,12 @@ const Registration = () => {
                 </label>
                 {message}
             </div>
-
-            <button className="registration_btn"
-                    onClick={handleClick}>Зарегистрироваться
-            </button>
-            <NavLink className="toLogin" to="/login">Уже есть аккаунт?<span>Войти</span></NavLink>
+            <div className='group-btn-reg'>
+                <button className="registration_btn"
+                        onClick={handleClick}>Зарегистрироваться
+                </button>
+                <NavLink className="toLogin" to="/login">Уже есть аккаунт?<span>Войти</span></NavLink>
+            </div>
         </fieldset>
 
 

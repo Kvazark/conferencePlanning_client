@@ -3,14 +3,14 @@ import {useSelector} from "react-redux";
 import headCardEvent from "../../img/head-card-event.svg";
 import {NavLink} from "react-router-dom";
 import {ClockHistory, PinMap, ThreeDots} from "react-bootstrap-icons";
-import "./eventsByModeratorStyle.css"
+import "./listEventsByModeratorStyle.css"
 import MWCreateEvent from "./MWCreateEvent";
 import MWCreateEvent2 from "./MWCreateEvent2";
 import ModalWindow from "../commonComponents/ModalWindow";
 import MWEditEvent from "./MWEditEvent";
 import dayjs from "dayjs";
 
-const EventsByModerator = ({filteredEvents}) => {
+const ListEventsByModerator = ({filteredEvents, onChange}) => {
 
     const [photo, setPhoto] = useState([]);
     const moderatorId = useSelector(state => state.user.id)
@@ -35,17 +35,33 @@ const EventsByModerator = ({filteredEvents}) => {
     const [show, setShow] = useState(false)
     const [selectedItemIndex, setSelectedItemIndex] = useState(-1);
 
+    //id для списка потенциальных участников
     const [idEventEdit, setIdEventEdit] = useState(localStorage.getItem('idEventEdit') || '')
     useEffect(() => {
         localStorage.setItem('idEventEdit', idEventEdit)
+        handleChange(idEventEdit)
     }, [idEventEdit])
-
+    const handleChange=(e)=>{
+        onChange(e)
+    }
     const handleClick=(index, id)=> {
         setShow(!show)
         setSelectedItemIndex(index)
         localStorage.clear()
         setIdEventEdit(id)
     }
+
+    //чтобы закрывался и не мешал
+    const viewPP = useSelector(state => state.event.viewPP)
+    if(show){
+        if(viewPP) {
+            setShow(()=>false)
+        }
+
+    }
+
+
+
 
     // ///поиск по названию события
     // const [searchInput, setSearchInput] = useState()
@@ -87,4 +103,4 @@ const EventsByModerator = ({filteredEvents}) => {
 
 }
 
-export default EventsByModerator;
+export default ListEventsByModerator;

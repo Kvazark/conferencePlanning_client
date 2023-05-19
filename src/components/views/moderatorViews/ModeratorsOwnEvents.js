@@ -7,19 +7,22 @@ import InputCreateEvent from "../../commonComponents/details/inputs/input_forCre
 import ModalWindow from "../../commonComponents/ModalWindow";
 import MWCreateEvent from "../../moderator/MWCreateEvent";
 import MWCreateEvent2 from "../../moderator/MWCreateEvent2";
-import EventsByModerator from "../../moderator/EventsByModerator";
+import ListEventsByModerator from "../../moderator/ListEventsByModerator";
 import {useSelector} from "react-redux";
+import PotentialParticipants from "./PotentialParticipants";
 
 
-const EventsListByModerator = () => {
+const ModeratorsOwnEvents = () => {
 
     const[modalActive, setModalActive]=useState(false)
+    //для списка потенц.участников
+    const[modalListActive, setModalListActive]=useState(false)
+    //для моального окна "создать событие" уже с полями
     const [showResults, setShowResults] = React.useState(false)
 
     const handleChange = (showResults) => {
         setShowResults(showResults)
     }
-    console.log(showResults)
 
     const moderatorId = useSelector(state => state.user.id)
     const apiURL = "https://localhost:7215/api/conferences/getModeratorConferences?moderatorId="+`${moderatorId}`;
@@ -43,6 +46,22 @@ const EventsListByModerator = () => {
         return events.filter(value => value.name.toLowerCase().includes(searchInput.toLowerCase()))
     }
     const filteredEvents = getFilteredEvents()
+    const viewPP = useSelector(state => state.event.viewPP)
+    useEffect(()=>{
+        if(viewPP){
+            setModalListActive(()=>true)
+        }else{
+            setModalListActive(()=>false)
+        }
+    },[viewPP])
+
+
+
+    const [idEventCard, setIdEventCard] = useState('')
+    const getIdCard = (value) => {
+        setIdEventCard(value)
+    }
+
 
     return (
         <main style={{overflowX: `hidden`}}>
@@ -53,19 +72,30 @@ const EventsListByModerator = () => {
                 </button>
             </div>
             <section className="field-events">
-                <EventsByModerator filteredEvents={filteredEvents}></EventsByModerator>
+                <ListEventsByModerator filteredEvents={filteredEvents} onChange={getIdCard} ></ListEventsByModerator>
             </section>
             <ModalWindow active={modalActive} setActive={setModalActive}>
                 {!showResults ?
                 <MWCreateEvent onChange={handleChange} ></MWCreateEvent>: <MWCreateEvent2></MWCreateEvent2>
                 }
             </ModalWindow>
+            {/*<ModalWindow active={modalActive} setActive={setModalActive}>*/}
+            {/*    {!showResultsPeople ?*/}
+            {/*        <MWCreateEvent onChange={handleChange} ></MWCreateEvent>: <MWCreateEvent2></MWCreateEvent2>*/}
+            {/*    }*/}
+            {/*</ModalWindow>*/}
+            <ModalWindow active={modalListActive} setActive={setModalListActive}>
+                {viewPP &&
+                    <PotentialParticipants idEvent={idEventCard}></PotentialParticipants>
+                }
+            </ModalWindow>
+
         </main>
 
     );
 
 }
-export default EventsListByModerator;
+export default ModeratorsOwnEvents;
 
 
 

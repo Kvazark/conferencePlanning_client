@@ -1,0 +1,90 @@
+.field-ques{
+    width: 100%;
+    height: 100%;
+}
+.questionnaire-form{
+    position: absolute;
+    left: 30%;
+    top: 20dvh;
+    height: auto;
+    width: 40dvw;
+}
+.back-viewEvent{
+    position: absolute;
+    width: auto;
+    height: 37px;
+    left: 15px;
+    top: 15px;
+    padding: 0 15px 0 15px;
+
+    background: rgb(128, 14, 14, 0.8);
+    border-radius: 10px;
+    text-align: center;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+
+    color: #FFFFFF;
+}
+.back-viewEvent:hover{
+    transform: translateY(0) scale(1.05);
+}
+.back-viewEvent:focus { outline: none; }
+.radio-group{
+    width: 97%;
+}
+.radio-group label{
+    width: 100%;
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgb(30,30,30,0.5);
+}
+.radio-group span{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(30, 30, 30,0.8);
+}
+.send-quest-btn{
+    position: relative;
+    width: auto;
+    height: 37px;
+    left: 79%;
+    bottom: 10px;
+    margin-top: 15px;
+    padding: 0 15px 0 15px;
+
+    background: rgb(128, 14, 14);
+    border-radius: 10px;
+    text-align: center;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+
+    color: #FFFFFF;
+}
+.send-quest-btn:hover{
+    transform: translateY(0) scale(1.05);
+}
+.fieldset-quest{
+    position: relative;
+    margin: 20px 25px 10px 25px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    align-items: center;
+}
+.fieldset-quest label{
+    font-size: 18px;
+    color: rgb(30,30,30,0.85);
+}

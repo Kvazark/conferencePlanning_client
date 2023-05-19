@@ -1,0 +1,51 @@
+.field-info-user{
+    position: absolute;
+    background-color: #3dcc4a;
+}
+.stripe-info{
+    box-sizing: border-box;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    height: 50px;
+    border-bottom: 1px solid #206F6D;
+
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+.stripe-info span{
+    font-weight: 300;
+    font-size: 14px;
+    color: rgba(48, 48, 48, 0.8);
+}
+.stripe-info p{
+    font-weight: 300;
+    font-size: 18px;
+    color: #303030;
+    margin-top: 3px;
+}
+.photo-user{
+    position: relative;
+    top: 0;
+    left: 35%;
+    overflow:hidden;
+    width:30%;
+    height:200px;
+    margin-bottom: 25px;
+}
+.photo-user img{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:200px;
+    height:200px;
+    object-fit:cover;
+    border-radius: 100px;
+    border: 1px solid rgba(76, 91, 102, 0.4);
+}

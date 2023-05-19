@@ -131,7 +131,7 @@ export const addNewQuestionnaire = (idUser, idEvent, theme, type, scientificDegr
         const data = {
             dockladTheme: `${theme}`,
             scientificDegree: `${scientificDegree}`,
-            type: true,
+            type: `${type}`,
             userId: `${idUser}`,
             conferenceId: `${idEvent}`
         };
