@@ -12,7 +12,7 @@ const ContentEvent = () => {
     const role = useSelector(state => state.user.role)
 
     useEffect(() => {
-        fetch(`https://localhost:7215/api/conferences/getConferenceById?id=${state.eventId}`)
+        fetch(`https://localhost:7215/api/conferences/getConferenceWithSections?id=${state.eventId}`)
             .then(res => res.json())
             .then(result => {
                 setEvent(result);
@@ -25,10 +25,10 @@ const ContentEvent = () => {
     const [infoOrg, setInfoOrg] = useState({});
     const [idMod, setIdMod] = useState('');
     useEffect(()=>{
-        if(event.conf?.moderatorId !== 'undefined' || event.conf?.moderatorId !== ''){
-            setIdMod(()=>event.conf?.moderatorId)
+        if(event.moderatorId !== 'undefined' || event.moderatorId !== ''){
+            setIdMod(()=>event.moderatorId)
         }
-    },[event.conf?.moderatorId])
+    },[event.moderatorId])
 
 
     console.log('id mod '+idMod)
@@ -64,16 +64,10 @@ const ContentEvent = () => {
         }
     }
 
-
-    console.log(infoOrg?.organizationName)
-
     return (
         <section className="content-event">
             <article>
-                {/*<p className="short-description-event">Здесь будет находится краткое описание конференции, здесь будет находится краткое*/}
-                {/*    описание конференции, десь будет находится краткое описание конференции, десь будет*/}
-                {/*    находится краткое описание конференции</p>*/}
-                <p className="short-description-event">{event.conf?.shortTopic}</p>
+                <p className="short-description-event">{event.shortTopic}</p>
                 <div className="btn-group-event">
                     <button onClick={()=>routeChangeBtn1()}
                             style={role=='User'?{background: `rgba(126, 25, 25, 0.9)`}: {background: `#206F6D`}}>
@@ -95,18 +89,22 @@ const ContentEvent = () => {
                 </div>
                 <div className="long-description-event-block">
                     <h3 style={role=="Moderator"?{color:"#206F6D"}:{color:`rgba(126, 25, 25, 0.9)`}}>что нужно знать ещё</h3>
-                    {/*<p style={{whiteSpace: "pre-wrap"}}>*/}
-                    {/*    Здесь находится дополнительная информация о данном событии, здесь находится дополнительная информация о данном событи,*/}
-                    {/*    находится дополнительная информация о данном событи, здесь находится дополнительная информация о данном событи, здесь находится*/}
-                    {/*    дополнительная информация о данном событи,*/}
-                    {/*    здесь находится дополнительная информация о данном событи, здесь находится дополнительная информация о данном событи...*/}
-                    {/*</p>*/}
                     <p style={{whiteSpace: "pre-wrap"}}>
-                        {event.conf?.fullTopic}
+                        {event.fullTopic}
                     </p>
                 </div>
-                <div className="schedule-event">
-
+                <div className="schedule-event" style={role=="Moderator"?{background:"#206F6D"}:{background:`#7E1919`}}>
+                    <h3>Раписание</h3>
+                    <section>
+                            {event.sections?.map(section => (
+                                <div className="schedule-event-card" key={section.call}>
+                                    <p className='time-schedule'>{section.startTime? section.startTime.substring(0, 5): ''} –&nbsp;
+                                       {section.endTime? section.endTime.substring(0,5):''}</p>
+                                    <div className="line-schedule"></div>
+                                    <p className='name-schedule'>{section.name}</p>
+                                </div>
+                            ))}
+                    </section>
                 </div>
             </article>
 

@@ -1,10 +1,10 @@
 import React, {Component, useEffect, useState} from 'react';
 import {NavLink, useLocation, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {addNewQuestionnaire} from "../../../redux/actions/event";
 import './questionnaireStyle.css'
 import InputProfile from "../../commonComponents/details/inputs/input_forProfile/InputProfile";
 import {Radio, RadioGroup} from "@mui/material";
+import {addNewQuestionnaire} from "../../../redux/actions/questionnaire";
 
 
 const Questionnaire = () => {

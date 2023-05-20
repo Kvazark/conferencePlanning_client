@@ -129,8 +129,63 @@
     color: rgba(126, 25, 25, 0.9);
 }
 .schedule-event{
-    background-color: #7E1919;
-    height: 684px;
+    max-height: 80vh;
+    border-radius: 15px;
+    padding-bottom: 25px;
+}
+.schedule-event h3{
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    padding: 15px 0 5px 0;
+
+    color: #F2F2F2;
+}
+.schedule-event section{
+    position: relative;
+    width: 95%;
+    height: 90%;
+    left: 2.5%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: 35px;
+    row-gap: 50px;
+    /*justify-content: center;*/
+    align-content: flex-start;
+}
+.schedule-event-card{
+    width: 390px;
+    height: 150px;
+
+    background: #F2F2F2;
+    border-radius: 10px;
+}
+.time-schedule{
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+
+    color: #303030;
+    padding-top: 10px;
+}
+.line-schedule{
+    mix-blend-mode: normal;
+    border: 1px solid rgba(48, 48, 48, 0.5);
+    margin-top: -10px;
+}
+.name-schedule{
+    padding-top: 10px;
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+
+    color: rgba(48, 48, 48, 0.7);
+
 }
 .footer-event{
     box-sizing: border-box;

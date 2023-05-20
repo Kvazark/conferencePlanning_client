@@ -16,6 +16,7 @@ const PotentialParticipants = ({idEvent}) => {
 
     if(idEvent) id = idEvent
     else id = state.eventId
+
     // const location = useLocation()
     // const {state} = location;
     // const apiURL='https://localhost:7215/api/conferences/getPotentialParticipants?confId='+`${state.eventId}`
@@ -31,6 +32,7 @@ const PotentialParticipants = ({idEvent}) => {
 
     const dispatch = useDispatch()
    // const viewPP = useSelector(state => state.event.viewPP)
+    console.log()
 
     const handleAddClick = (id) => {
 
@@ -46,6 +48,13 @@ const PotentialParticipants = ({idEvent}) => {
     }
     let path = `/moderator/eventsListModerator/viewPotentialParticipant`
 
+    // var array = Array(potentialParticipants.length).fill(false);
+    // const [listIndex, setIndexList] = useState('')
+    // useEffect(()=>{
+    //     setIndexList(array)
+    // },[potentialParticipants])
+    // console.log(listIndex)
+
     if(potentialParticipants.length===0){
         return(
             <div>
@@ -55,7 +64,14 @@ const PotentialParticipants = ({idEvent}) => {
             </div>
 
         );
+
     }else{
+        // const handleClick = (index) => {
+        //     const list = [...listIndex];
+        //     list[index] = true;
+        //     setIndexList(list)
+        // }
+        // console.log(state.value.indexItem)
         return (
             <div>
                 <X className='icon-x2' size='33px' color='#206F6D'
@@ -64,12 +80,15 @@ const PotentialParticipants = ({idEvent}) => {
                 // onClick={ {x.userId}}
                 >
                     {potentialParticipants?.map((x, index) => <>
-                        <div className="card-potenPartic">
+                        <div className="card-potenPartic"
+                             // style={state.value.indexItem===index?{background: 'rgba(101, 101, 101, 0.2)'}:{}}
+                            // style = {true?{background: 'rgba(101, 101, 101, 0.2)'}:{}}
+                        >
                             <Plus onClick={()=>handleAddClick(x.userId)}
                                 size='33px' color='#206F6D'></Plus>
                             <NavLink className="navlink-p"
-                                to={path} state={{
-                                    data: {idUser: x.userId, eventId: id, scientificDegree: x.scientificDegree, dockladTheme: x.dockladTheme, type: x.type
+                                     to={path} state={{
+                                    data: {idUser: x.userId, eventId: id, scientificDegree: x.scientificDegree, dockladTheme: x.dockladTheme, type: x.type, indexItem: index
                                     }}} style={{textDecoration: 'none'}}>
                                 <p>{x.userName}, {x.userSurname},{x.patronymic}, {x.scientificDegree}</p>
                             </NavLink>

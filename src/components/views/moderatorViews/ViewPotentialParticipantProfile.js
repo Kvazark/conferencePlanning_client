@@ -3,8 +3,12 @@ import {NavLink, useLocation} from "react-router-dom";
 import "./viewPotenParticProfileStyle.css"
 import {Pencil} from "react-bootstrap-icons";
 import avatarLogo from "../../../img/cat.jpg";
+import {updateStatus} from "../../../redux/actions/questionnaire";
+import {useDispatch} from "react-redux";
+import potentialParticipants from "./PotentialParticipants";
 
 const ViewPotentialParticipantProfile = () => {
+    const dispatch = useDispatch()
     const location = useLocation()
     const {state} = location;
     const apiURL='https://localhost:7215/api/user/getUserById?id='+`${state.data.idUser}`
@@ -17,6 +21,27 @@ const ViewPotentialParticipantProfile = () => {
                 setInfo(result);
             });
     }, []);
+    const apiURL2='https://localhost:7215/api/questionnaire/getQuestionnaireByUserId?userId='+`${state.data.idUser}`
+    const [infoQuest, setInfoQuest] = useState([]);
+    //чтобы dispatch 3 раза не выполнялся
+    const [replay, setReplay] = useState(false);
+    useEffect(() => {
+        setReplay(true)
+        fetch(apiURL2)
+            .then(res => res.json())
+            .then(result => {
+                setInfoQuest(result);
+            });
+    }, []);
+
+    if(infoQuest.id && replay){
+        if(infoQuest.status !== 1){
+            dispatch(updateStatus(infoQuest.id, "Viewed"));
+            setReplay(false);
+        }
+    }
+    console.log(state.data.indexItem)
+    //indexItem: state.data.indexItem}
 
     let path = `/moderator/eventsListModerator`;
     const avatar = avatarLogo
