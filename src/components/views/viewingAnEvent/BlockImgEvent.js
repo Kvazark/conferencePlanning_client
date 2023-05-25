@@ -5,7 +5,6 @@ import {ArrowLeftShort} from "react-bootstrap-icons";
 import dayjs from "dayjs";
 import "./blockImgEventStyle.css"
 import {useSelector} from "react-redux";
-import {info} from "sass";
 
 const BlockImgEvent = () => {
     const location = useLocation();
@@ -110,12 +109,13 @@ const BlockImgEvent = () => {
             </div>
         }
     }
+    console.log(event.conf?.imgUrl)
 
     return (
         <section className="block-img-event"
-                 style={{backgroundImage: `url(${avatarEvent})`}}
+                 // style={{backgroundImage: `url(${avatarEvent})`}}
         >
-            {/*<img id='myimage' onError={(e)=>e.target.src =headCardEvent} src={`https://localhost:7215/api/photos/${info.imgUrl}`}/>*/}
+            <img className='img-head-event' onError={(e)=>e.target.src =headCardEvent} src={`https://localhost:7215/api/photos/${event.conf?.imgUrl}`}/>
             {btnBack}
             {block}
         </section>

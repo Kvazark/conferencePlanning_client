@@ -23,6 +23,7 @@ const plugins = [
   ];
 
 module.exports = {
+
     mode, 
     target,
     plugins,
@@ -32,6 +33,15 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), 
         assetModuleFilename: 'assets/[hash][ext][query]',
         clean: true, 
+    },
+
+    // resolve: {
+    //     fallback: {
+    //         util: require.resolve("util/")
+    //     }
+    // },
+    node: {
+        fs: `empty`
     },
     
     devServer: {
