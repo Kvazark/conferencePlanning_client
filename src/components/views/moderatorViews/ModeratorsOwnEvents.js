@@ -46,6 +46,7 @@ const ModeratorsOwnEvents = () => {
         return events.filter(value => value.name.toLowerCase().includes(searchInput.toLowerCase()))
     }
     const filteredEvents = getFilteredEvents()
+
     const viewPP = useSelector(state => state.event.viewPP)
     useEffect(()=>{
         if(viewPP){
@@ -67,7 +68,8 @@ const ModeratorsOwnEvents = () => {
         <main style={{overflowX: `hidden`}}>
             <LeftMenu/>
             <div className="topPanel">
-                <input className="search-input-byName" type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."/>
+                <input className="search-input-byName" style={{position: `relative`, left: `10%`, top: `33px`}}
+                       type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."/>
                 <button className="create-new-event-Btn" onClick={()=>{setModalActive(true);localStorage.clear()}}><Plus size={30}/>создать событие
                 </button>
             </div>

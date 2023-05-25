@@ -33,7 +33,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 55%;
+    height: auto;
 
     position: absolute;
     width: 40rem;
@@ -49,7 +49,7 @@ body{
     gap: 20px;
     height: auto;
 
-    position: absolute;
+    /*position: absolute;*/
     width: 30rem;
     top:65%;
 
@@ -57,8 +57,6 @@ body{
 .group-btn-reg{
     position: relative;
     top:90%;
-    margin-top: 20px;
-    bottom: 0;
 }
 .registration_btn{
     width: 30rem;

@@ -3,8 +3,10 @@ import {useLocation} from "react-router-dom";
 import dayjs from "dayjs";
 
 import {useDispatch, useSelector} from "react-redux";
-import {updateInfoEvent} from "../../../../redux/actions/event";
+import {addAvatarEvent, updateInfoEvent} from "../../../../redux/actions/event";
 import {Button} from "@mantine/core";
+import headCardEvent from "../../../../img/head-card-event.svg";
+import {updateAvatar} from "../../../../redux/actions/user";
 
 const FourthStep = ({step}) => {
 
@@ -48,12 +50,19 @@ const FourthStep = ({step}) => {
 
     //console.log(!JSON.stringify(categoryList)==='[{}]')
     let categories
-    if(JSON.stringify(categoryList)!=='[{}]') categories = categoryList
-    else categories = "categories"
+
+    if(JSON.stringify(categoryList)!==null) categories = []
+    else categories = categoryList
+    console.log(JSON.stringify(categoryList)!==null,categories)
     const moderatorId = useSelector(state => state.user.id)
     console.log(moderatorId)
 
-    let imgUrl = 'https://sun9-22.userapi.com/impf/JE4MhUUAwR_NNugWJJUbiQ-4ZpaB8uR2DCsTUQ/X74abVCzZg8.jpg?size=1590x530&quality=95&crop=80,0,1437,479&sign=74fa159992ac5dc1278e50d09cdacd5b&type=cover_group'
+    const avatar = headCardEvent
+    function changeHandler(e) {
+        const file = e.target.files[0]
+        dispatch(addAvatarEvent(id,file))
+    }
+    let imgUrl = `getConferencePhotoById${id}`
     return (
         <section>
             <div>
@@ -70,12 +79,17 @@ const FourthStep = ({step}) => {
                 <p>categories: {categories}</p>
                 <p>mod id: {moderatorId}</p>
             </div>
+            {/*///addAvatarEvent*/}
+            <div>
+                <input className="" accept="image/*" onChange={e => changeHandler(e)}
+                       type="file"/>
+            </div>
 
             <div className="buttons-stepper4">
                 <Button className="save-change-event-button" style={{}}
                         onClick={() => {
                             dispatch(updateInfoEvent(id,nameEvent, typeEvent, shortDescription, longDescription,
-                                addressEvent, cityEvent, startDate, startTimeEvent,endTimeEvent, moderatorId, imgUrl,categoryList));
+                                addressEvent, cityEvent, startDate, startTimeEvent,endTimeEvent, moderatorId, imgUrl,categories));
                             step();
                         }}>Опубликовать</Button>
             </div>

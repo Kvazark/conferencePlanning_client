@@ -6,11 +6,29 @@
     top: 0;
 }
 .search-input-byName{
-    position: relative;
-    left: 15%;
-    top: 30px;
+    width: 18vw;
     box-sizing: border-box;
     border-bottom: 1px solid #206F6D;
+
+    background: #F2F2F2;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+
+    color: rgba(48, 48, 48, 0.5);
+}
+.search-input-byName-pageUser{
+    position: relative;
+    top: 78px;
+    width: 18vw;
+    left: 12%;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(126, 25, 25, 0.9);
 
     background: #F2F2F2;
 

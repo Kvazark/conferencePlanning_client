@@ -16,14 +16,6 @@ const StepperEvent = () => {
     const nextStep = () => setActive((current) => (current < 4 ? current + 1 : current));
     const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
 
-    // const [nameEvent, setNameEvent] = useState('')
-    // const [address, setAddress] = useState('')
-
-    // const handleChangeAddress = (value) => {
-    //     setAddress(value)
-    // }
-    // console.log(nameEvent)
-
     const typeEvent = localStorage.getItem('typeEvent')
     let h;
     if(typeEvent=='онлайн'){h='48.4%'}
@@ -35,9 +27,6 @@ const StepperEvent = () => {
           <Stepper iconSize={30} color="rgba(32, 111, 109, 0.85);" active={active} onStepClick={setActive} breakpoint="sm">
               <Stepper.Step icon={<Circle size="35px" color="#f2f2f2"></Circle> } label="основное" >
                   <FirstStep step={nextStep}></FirstStep>
-                  {/*<Group className="buttons-stepper1">*/}
-                  {/*    <Button className="btn-forth-step" onClick={nextStep}>Далее</Button>*/}
-                  {/*</Group>*/}
               </Stepper.Step>
               <Stepper.Step icon={<Circle size="35px" color="#f2f2f2"></Circle> } label="дополнительно" style={{textAlign:`center`}} >
                   <SecondStep step={nextStep}></SecondStep>
@@ -57,11 +46,10 @@ const StepperEvent = () => {
                   <FourthStep step={nextStep} ></FourthStep>
                   <Group className="buttons-stepper4">
                       <Button className="btn-back-step" variant="default" onClick={prevStep}>Назад</Button>
-                      {/*<Button className="btn-save-event" onClick={nextStep}>Опубликовать</Button>*/}
                   </Group>
               </Stepper.Step>
               <Stepper.Completed>
-                  Событие сохранено и опубликовано, нажмите кнопку "вернуться", чтобы выйти из панели редактирования.
+                  <p className="p-field-stepper">Событие сохранено и опубликовано, нажмите кнопку "вернуться", чтобы выйти из панели редактирования.</p>
               </Stepper.Completed>
           </Stepper>
       </main>

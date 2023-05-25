@@ -8,7 +8,7 @@
     width: 80%;
     left: 10%;
     height: 50px;
-    border-bottom: 1px solid #206F6D;
+    border-bottom: 1.2px solid rgba(32, 111, 109, 0.5);
 
     font-family: 'Hind Vadodara', sans-serif;
     font-style: normal;
@@ -16,15 +16,16 @@
 
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 .stripe-info span{
-    font-weight: 300;
+    font-weight: 600;
     font-size: 14px;
-    color: rgba(48, 48, 48, 0.8);
+    /*color: rgba(48, 48, 48, 0.8);*/
+    color: rgba(32, 111, 109, 0.7);
 }
 .stripe-info p{
-    font-weight: 300;
+    font-weight: 400;
     font-size: 18px;
     color: #303030;
     margin-top: 3px;

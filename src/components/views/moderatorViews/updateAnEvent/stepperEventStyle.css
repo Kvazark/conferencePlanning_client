@@ -107,3 +107,16 @@
 
     /*margin-left: -10px;*/
 }
+.p-field-stepper{
+    position: relative;
+    left: 4%;
+    margin-top: 5%;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+
+
+    color: rgba(32, 111, 109, 0.95);
+}

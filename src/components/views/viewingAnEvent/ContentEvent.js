@@ -64,6 +64,9 @@ const ContentEvent = () => {
         }
     }
 
+    event.sections?.sort(function (a, b) {
+        return a.startTime.localeCompare(b.startTime);
+    });
     return (
         <section className="content-event">
             <article>

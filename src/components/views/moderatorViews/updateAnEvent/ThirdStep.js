@@ -7,8 +7,6 @@ import {useDispatch, useSelector} from "react-redux";
 import dayjs from "dayjs";
 
 const ThirdStep = ({step}) => {
-    const dispatch = useDispatch()
-
     const idEventEdit = localStorage.getItem('idEventEdit')
     const idEvent = useSelector(state => state.event.id)
     let id
@@ -28,13 +26,11 @@ const ThirdStep = ({step}) => {
 
             })
     }, []);
-
-
+    
     return (
         <main className="creation-field3">
             <h2>Расписание события без учёта участников</h2>
             <AddRemoveInputSchedule dataList={section} idEvent={id} step={step}></AddRemoveInputSchedule>
-
         </main>
     );
 }

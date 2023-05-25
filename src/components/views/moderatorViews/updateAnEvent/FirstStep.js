@@ -5,15 +5,10 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {Calendar2Week, Clock} from "react-bootstrap-icons";
 import InputTime from "../../../commonComponents/details/inputs/input_forCreateEvent/InputTime";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import {Button, Group} from "@mantine/core";
 import RadioButtons from "../../../commonComponents/details/inputs/input_forCreateEvent/RadioButtons";
-import {useLocation} from "react-router-dom";
-import headCardEvent from "../../../../img/head-card-event.svg";
-import dayjs from "dayjs";
 
-
-//({onChangeName, onChangeAddress})
 const FirstStep = ({step}) => {
     const [event, setEvent] = useState({});
 
@@ -46,7 +41,6 @@ const FirstStep = ({step}) => {
     if (event.conf?.endTime !== 'undefined' && event.conf?.endTime !== null) {
         etime = event.conf?.endTime.substring(0, 5)
     }else etime='00:00'
-  //  console.log(stime, etime)
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')

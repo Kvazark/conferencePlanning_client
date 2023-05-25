@@ -51,35 +51,7 @@ export const login = (email, password) => {
         }
     }
 }
-// export const auth = () => {
-//     return async dispatch => {
-//         try {
-//             const response = await axios.get('https://localhost:7215/api/Account/login',
-//                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-//             dispatch(setUser(response.data.user))
-//             console.log(response.data.user)
-//             localStorage.setItem('token', response.data.token)
-//         } catch (error) {
-//             alert(error.response.data.message)
-//             localStorage.removeItem('token')
-//         }
-//     }
-// }
 
-// export const setRoleUser = () => {
-//     return async dispatch => {
-//         try {
-//             const response = await axios.get('https://localhost:7215/api/Account/login',
-//                 {headers: {Authorization: `Bearer ${localStorage.getItem('role')}`}})
-//             dispatch(setUser(response.data.user))
-//             localStorage.setItem('role', response.data.role)
-//         } catch (error) {
-//             alert(error.response.data.message)
-//             localStorage.removeItem('role')
-//         }
-//     }
-//
-// }
 export const updateAvatar = (file) => {
     return async dispatch => {
         try {
@@ -123,6 +95,26 @@ export const updateInfoModerator = (id, organizationName, email, phoneNumber) =>
         };
         try {
             const response = await axios.put(`https://localhost:7215/api/moderator/updateModerator`, data,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert("информация обновленна успешно")
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+    }
+}
+export const updateInfoUser = (id, userName, userSurname, patronymic, position, organizationName, phoneNumber) => {
+    return async dispatch => {
+        const data = {
+            id: `${id}`,
+            userName: `${userName}`,
+            userSurname: `${userSurname}`,
+            patronymic: `${patronymic}`,
+            position: `${position}`,
+            organizationName: `${organizationName}`,
+            phoneNumber: `${phoneNumber}`
+        };
+        try {
+            const response = await axios.put(`https://localhost:7215/api/user/updateUser`, data,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
             alert("информация обновленна успешно")
         } catch (e) {

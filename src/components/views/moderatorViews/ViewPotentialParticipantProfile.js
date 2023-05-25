@@ -52,7 +52,7 @@ const ViewPotentialParticipantProfile = () => {
                     назад
                 </button>
             </NavLink>
-            <section className="profile" style={{marginTop:'-100px'}}>
+            <section className="profile" style={{marginTop:'-120px'}}>
                 <div className="photo-user" >
                     <img className="photo" src={avatar} />
                 </div>

@@ -18,6 +18,7 @@ import MaterialsOfTheSpeakers from "./components/commonComponents/MaterialsOfThe
 import Questionnaire from "./components/views/userViews/Questionnaire";
 import PotentialParticipants from "./components/views/moderatorViews/PotentialParticipants";
 import ViewPotentialParticipantProfile from "./components/views/moderatorViews/ViewPotentialParticipantProfile";
+import ParticipantsListEdit from "./components/views/moderatorViews/ParticipantsListEdit";
 
 
 function App() {
@@ -54,6 +55,8 @@ function App() {
                                element={<RequireAuth><UpdateAnEvent/></RequireAuth>}></Route>
                         <Route path="eventsListModerator/viewPotentialParticipant"
                                element={<RequireAuth><ViewPotentialParticipantProfile/></RequireAuth>}></Route>
+                        <Route path="eventsListModerator/editParticipantsList"
+                               element={<RequireAuth><ParticipantsListEdit/></RequireAuth>}></Route>
                         <Route path="mainPageModerator/viewingAnEvent"
                                element={<RequireAuth><ViewingAnEventModerator/></RequireAuth>}></Route>
                         <Route path="mainPageModerator/viewingAnEvent/viewingListOfSpeakers" element={<RequireAuth><ViewingListOfSpeakers/></RequireAuth>}/>

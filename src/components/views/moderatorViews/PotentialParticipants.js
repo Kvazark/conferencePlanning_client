@@ -90,7 +90,7 @@ const PotentialParticipants = ({idEvent}) => {
                                      to={path} state={{
                                     data: {idUser: x.userId, eventId: id, scientificDegree: x.scientificDegree, dockladTheme: x.dockladTheme, type: x.type, indexItem: index
                                     }}} style={{textDecoration: 'none'}}>
-                                <p>{x.userName}, {x.userSurname},{x.patronymic}, {x.scientificDegree}</p>
+                                <p>{x.userName}, {x.userSurname},{x.patronymic}, {x.position}</p>
                             </NavLink>
                             <X onClick={() =>
                                 handleRemoveClick(index)

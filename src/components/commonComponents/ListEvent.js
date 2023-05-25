@@ -5,42 +5,31 @@ import {ClockHistory, PinMap, Wechat} from "react-bootstrap-icons";
 import dayjs from "dayjs";
 import {useSelector} from "react-redux";
 import "./listEventStyle.css"
+import axios from "axios";
 
-const ListEvent = () => {
+const ListEvent = ({filteredEvents}) => {
 
-    const [photo, setPhoto] = useState([]);
-    const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
+    // const apiURL = "http://localhost:5215/api/conferences/getAllConferences";
     const role = useSelector(state => state.user.role)
 
-    const [events, setEvents] = useState([]);
-    useEffect(() => {
-        fetch(apiURL)
-            .then(response => response.json())
-            .then(result => {
-                //result.sort((a,b) => new Date(a.date).getTime()< new Date(b.date).getTime()? 1: -1);
-                setEvents(result);
-            });
-    }, []);
-    // useEffect(()=>{
-    //     fetch('http://localhost:5215/api/photos/getConferencePhotoByIdf02ac54b-1b95-4e15-9699-eb7cc787ff7f')
-    //         .then(response=>response.json())
-    //         .then(result=>{
-    //             setPhoto(result)
-    //         })
-    // })
+    // useEffect(() => {
+    //     axios.get('http://localhost:5215/api/photos/getConferencePhotoById8984d437-5498-4fbc-9d38-838a6299d7ef')
+    //         .then(response => setPhoto(response.data.total));
+    // }, []);
+
     // console.log(setEvent())
     const avatarCardEvent = headCardEvent
-    const avatar = 'http://localhost:5215/api/photos/getConferencePhotoByIdc778c499-a546-4cb0-b507-9479894ea566'
+
     let path
     if (role == 'Moderator') {
         path = '/moderator/mainPageModerator/viewingAnEvent'
     } else if (role == 'User') {
         path = '/user/viewingAnEvent'
     }
+    let events = filteredEvents.sort((a, b) => new Date(...a.date.split('.').reverse()) - new Date(...b.date.split('.').reverse()));
     //сортировка событий по дате
     let sortedEvents = events.sort((a, b) => new Date(...a.date.split('.').reverse()) - new Date(...b.date.split('.').reverse()));
     sortedEvents.reverse()
-
 
     //разделение событий на архив и актуальные
     const cD = new Date()
@@ -62,7 +51,7 @@ const ListEvent = () => {
         } else setShowListEvents(Array.from(actualEvents));
     }, [showArchive, sortedEvents])
 
-    let switchBtn = <div className="filter-panel" style={role == 'User' ? {left: `-29.5%`} : {left: `-42.5%`}}>
+    let switchBtn = <div className="filter-panel" style={role == 'User' ? {left: `33.5%`} : {left: `47.5%`}}>
         {!showArchive &&
             <button className="filter-archive-btn" style={role=='User'?{
                 background: 'rgba(126, 25, 25, 0.9)',
@@ -97,9 +86,10 @@ const ListEvent = () => {
                 <div className="card"><NavLink
                     to={path} state={{eventId: x.id}} style={{textDecoration: 'none'}}>
                     <div className="avatarEvent">
-                        <img src={avatarCardEvent}/>
-                        {/*<img src={photo}/>*/}
-                        {/*<img src = {avatar} style={{width:'400px', height:'200px'}}/>*/}
+                        {/*<img src={avatarCardEvent}/>*/}
+                        {/*<img src={`https://localhost:7215/api/photos/${x.imgUrl}`!== null?`https://localhost:7215/api/photos/${x.imgUrl}`: avatarCardEvent}/>*/}
+                        {console.log(x.imgUrl)}
+                        <img id='myimage' onError={(e)=>e.target.src =avatarCardEvent} src={`https://localhost:7215/api/photos/${x.imgUrl}`}/>
                     </div>
                     <div className="event-info-card">
                         <h3>{x.name}</h3>
@@ -108,7 +98,7 @@ const ListEvent = () => {
                             проведения: {x.type}</p>
                         <p><ClockHistory size="22px"
                                          style={role == 'Moderator' ? {color: "#206F6D"} : {color: "rgba(126, 25, 25, 0.9)"}}></ClockHistory>
-                            {x.date} {x.startTime ? x.startTime.substring(0, 5) : ''} {x.endTime ? x.endTime.substring(0, 5) : ''}
+                            {x.date} {x.startTime ? x.startTime.substring(0, 5) : ''}-{x.endTime ? x.endTime.substring(0, 5) : ''}
                         </p>
                         <div className="categories-card">
                             {x.categories?.map(category => (

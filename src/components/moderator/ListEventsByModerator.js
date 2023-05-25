@@ -12,7 +12,6 @@ import dayjs from "dayjs";
 
 const ListEventsByModerator = ({filteredEvents, onChange}) => {
 
-    const [photo, setPhoto] = useState([]);
     const moderatorId = useSelector(state => state.user.id)
     const apiURL = "https://localhost:7215/api/conferences/getModeratorConferences?moderatorId="+`${moderatorId}`;
     //const apiURL = "https://localhost:7215/api/conferences/getAllConferences";
@@ -59,33 +58,41 @@ const ListEventsByModerator = ({filteredEvents, onChange}) => {
         }
 
     }
+    let sortedEvents = filteredEvents.sort((a, b) => new Date(...a.date.split('.').reverse()) - new Date(...b.date.split('.').reverse()));
+    sortedEvents.reverse()
+
+    function imageExists(image_url){
 
 
-
-
-    // ///поиск по названию события
-    // const [searchInput, setSearchInput] = useState()
-    // const getFilteredEvents = () => {
-    //     if (!searchInput) return events
-    //     return events.filter(value => value.name.toLowerCase().includes(searchInput.toLowerCase()))
-    // }
-    // const filteredEvents = getFilteredEvents()
+    }
+    const imageUrl = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
 
     return (
-        <section className="list-events-section">
-            {/*<input className="search-input-byName" type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."/>*/}
-            {filteredEvents.map((x, index) => <>
-                <div className="card-eventMod" key={index} >
+        <section className="list-events-section" >
+            {sortedEvents.map((x, index) => <>
+                <div className="card-eventMod" key={index} style={{overflowX: 'hidden'}}>
                     <div className="info-cardMod">
                         <h3>{x.name}</h3>
                         <p className="info-cardMod-type-p"><span style={{color: 'rgb(48, 48, 48, 0.8)', fontWeight: '600',fontSize: '18px'}}>формат:</span> {x.type}</p>
-                        {/*{console.log(x.name,x.date)}*/}
+
                         <p className="info-cardMod-date-p"><span style={{color: 'rgb(48, 48, 48, 0.8)', fontWeight: '600',  fontSize: '18px'}}>дата: </span>
                             {dayjs(x.date).format('DD.MM.YYYY')}</p>
                     </div>
-                    <div className="avatarEventMod" style={{backgroundImage: `url(${avatarCardEvent})`}}>
+                    {/*{bi = `url(https://localhost:7215/api/photos/${x.imgUrl})`}*/}
+                    {/*<img src={`https://localhost:7215/api/photos/${x.imgUrl}`}*/}
+                    {/*     onError={()=>{bi = `url(${avatarCardEvent})`}} style={{display:'none'}}/>*/}
+                    <div className="avatarEventMod"
+                         // style={{backgroundImage: `url(https://localhost:7215/api/photos/${x.imgUrl})`}}>
+                        style={{backgroundImage: `url(${avatarCardEvent})`}}>
+                        {/*// style={{backgroundImage: bi}}>*/}
+
                         <div
                             onClick={()=>handleClick(index, x.id)}>
+                            {/*<svg className="three-dots-icon"  xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"*/}
+                            {/*     viewBox="0 0 16 16" style={{border: `none`}}>*/}
+                            {/*    <path style={{border: `0.3px solid rgba(0, 0, 0, 0.8)`}}*/}
+                            {/*        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>*/}
+                            {/*</svg>*/}
                             <ThreeDots className="three-dots-icon" size="25px"></ThreeDots>
                         </div>
                         {show &&

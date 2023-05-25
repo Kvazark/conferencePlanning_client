@@ -22,6 +22,20 @@ export const addNewEvent = (name, type, date, moderatorId) => {
     }
 
 }
+export const addAvatarEvent = (id,file) => {
+    return async dispatch => {
+        try {
+            const formData = new FormData()
+            formData.append('formFile', file)
+            const response = await axios.post(`https://localhost:7215/api/photos/addNewConferencePhotoById${id}`, formData,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert('фотография события обновлена')
+        } catch (error) {
+            alert(error)
+        }
+    }
+}
+
 export const updateInfoEvent = (id, name, type, shortTopic, fullTopic, address, city, date, startTime, endTime, moderatorId, imgUrl, categories) => {
     return async dispatch => {
         const data = {
