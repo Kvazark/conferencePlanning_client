@@ -1,13 +1,21 @@
+.field-info-quest{
+    position: absolute;
+    left: 30%;
+    top: 20dvh;
+    height: 105vh;
+    width: 40dvw;
+    margin-bottom: 80px;
+}
 .field-info-user{
     position: absolute;
-    background-color: #3dcc4a;
 }
 .stripe-info{
     box-sizing: border-box;
     position: relative;
-    width: 80%;
+    width: 85%;
     left: 10%;
-    height: 50px;
+    min-height: 50px;
+    max-height: 75px;
     border-bottom: 1.2px solid rgba(32, 111, 109, 0.5);
 
     font-family: 'Hind Vadodara', sans-serif;
@@ -33,7 +41,7 @@
 .photo-user{
     position: relative;
     top: 0;
-    left: 35%;
+    left: 37.5%;
     overflow:hidden;
     width:30%;
     height:200px;

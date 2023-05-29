@@ -26,8 +26,6 @@ const FourthStep = ({step}) => {
     if(!addressEvent) addressEvent = ' '
     let categoryList = JSON.parse(localStorage.getItem('categoryList')? localStorage.getItem('categoryList'): null)
 
-    // const currentIdEvent = localStorage.getItem('currentIdEvent')
-    // console.log(currentIdEvent)
     const idEventEdit = localStorage.getItem('idEventEdit')
     const idEvent = useSelector(state => state.event.identity)
     let id
@@ -38,9 +36,9 @@ const FourthStep = ({step}) => {
     }
 
     let startDate = dayjs(date).format("DD.MM.YYYY")
-    // console.log({date})
+
     const dispatch = useDispatch()
-    //let id = 1
+
     let startTimeEvent;
     let endTimeEvent;
     if(!startTime) startTimeEvent = '00:00:00';
@@ -48,7 +46,6 @@ const FourthStep = ({step}) => {
     if(!endTime) endTimeEvent = '00:00:00';
     else endTimeEvent = endTime+':00';
 
-    //console.log(!JSON.stringify(categoryList)==='[{}]')
     let categories
 
     if(JSON.stringify(categoryList)!==null) categories = []
@@ -57,11 +54,6 @@ const FourthStep = ({step}) => {
     const moderatorId = useSelector(state => state.user.id)
     console.log(moderatorId)
 
-    const avatar = headCardEvent
-    function changeHandler(e) {
-        const file = e.target.files[0]
-        dispatch(addAvatarEvent(id,file))
-    }
     let imgUrl = `getConferencePhotoById${id}`
     return (
         <section>
@@ -78,11 +70,6 @@ const FourthStep = ({step}) => {
                 <p>address: {addressEvent}</p>
                 <p>categories: {categories}</p>
                 <p>mod id: {moderatorId}</p>
-            </div>
-            {/*///addAvatarEvent*/}
-            <div>
-                <input className="" accept="image/*" onChange={e => changeHandler(e)}
-                       type="file"/>
             </div>
 
             <div className="buttons-stepper4">

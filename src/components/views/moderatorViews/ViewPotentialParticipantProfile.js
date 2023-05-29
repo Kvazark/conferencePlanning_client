@@ -24,24 +24,13 @@ const ViewPotentialParticipantProfile = () => {
     const apiURL2='https://localhost:7215/api/questionnaire/getQuestionnaireByUserId?userId='+`${state.data.idUser}`
     const [infoQuest, setInfoQuest] = useState([]);
     //чтобы dispatch 3 раза не выполнялся
-    const [replay, setReplay] = useState(false);
     useEffect(() => {
-        setReplay(true)
         fetch(apiURL2)
             .then(res => res.json())
             .then(result => {
                 setInfoQuest(result);
             });
     }, []);
-
-    if(infoQuest.id && replay){
-        if(infoQuest.status !== 1){
-            dispatch(updateStatus(infoQuest.id, "Viewed"));
-            setReplay(false);
-        }
-    }
-    console.log(state.data.indexItem)
-    //indexItem: state.data.indexItem}
 
     let path = `/moderator/eventsListModerator`;
     const avatar = avatarLogo
@@ -52,13 +41,13 @@ const ViewPotentialParticipantProfile = () => {
                     назад
                 </button>
             </NavLink>
-            <section className="profile" style={{marginTop:'-120px'}}>
+            <section className="field-info-quest" style={{marginTop:'-120px'}}>
                 <div className="photo-user" >
-                    <img className="photo" src={avatar} />
+                    <img className="photo" onError={(e)=>e.target.src =avatar} src={`https://localhost:7215/api/photos/getUserPhotoById?userId=${state.data.idUser}`} />
                 </div>
                 <div className="stripe-info">
                     <span>ФИО</span>
-                    <p>{info?.userName} {info?.userSurname}</p>
+                    <p>{info?.userSurname} {info?.userName} {info?.patronymic}</p>
                 </div>
                 <div className="stripe-info">
                     <span>должность</span>

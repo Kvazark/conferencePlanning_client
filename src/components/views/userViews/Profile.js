@@ -28,46 +28,67 @@ const Profile = () => {
 
     const [userName, setUserName] = useState("");
     const [userSurname, setUserSurname] = useState("");
-    const [patronymic, setPatronymic] = useState(" ");
-    const [position, setPosition] = useState(" ");
-    const [organizationName, setOrganizationName] = useState(" ");
-    const [phoneNumber, setPhoneNumber] = useState(" ");
-    //
+    const [patronymic, setPatronymic] = useState("");
+    const [position, setPosition] = useState("");
+    const [organizationName, setOrganizationName] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+
 
     let newUserName;
-    if (userName==""){newUserName = info.userName}
-    else{newUserName = userName}
     let newUserSurname;
-    if (userSurname==""){newUserSurname = info.userSurname}
+    let newPatronymic;
+    let newPosition;
+    let newOrganizationName;
+    let newPhoneNumber;
+
+    if (userName===""){
+        if(info.userName) newUserName = info.userName
+        else newUserName = " "
+    }
+    else{newUserName = userName}
+
+    if (userSurname===""){
+        if(info.userSurname) newUserSurname = info.userSurname
+        else newUserSurname = " "
+    }
     else{newUserSurname = userSurname}
 
-    let newPatronymic;
-    if (patronymic==""){newPatronymic = info.patronymic}
+    if (patronymic===""){
+        if(info.patronymic) newPatronymic = info.patronymic
+        else newPatronymic = " "
+    }
     else{newPatronymic = patronymic}
 
-    let newPosition;
-    if (position==""){newPosition = info.position}
+    if (position===""){
+        if(info.position) newPosition = info.position
+        else newPosition = " "
+    }
     else{newPosition = position}
 
-    let newOrganizationName;
-    if (organizationName==""){newOrganizationName = info.organizationName}
+    if (organizationName===""){
+        if(info.organizationName) newOrganizationName = info.organizationName
+        else newOrganizationName = " "
+    }
     else{newOrganizationName = organizationName}
 
-    let newPhoneNumber;
-    if (phoneNumber==""){newPhoneNumber = info.phoneNumber}
+    if (phoneNumber===""){
+        if(info.phoneNumber) newPhoneNumber = info.phoneNumber
+        else newPhoneNumber = " "
+    }
     else{newPhoneNumber = phoneNumber}
 
+    console.log(id, newUserName, newUserSurname, newPatronymic, newPosition, newOrganizationName, newPhoneNumber)
 
     return (
         <main>
             <TopMenu/>
             <section className="profile">
-                <UserAvatar></UserAvatar>
+                <UserAvatar idUser={id}></UserAvatar>
                 <form className="info">
                     <div className="fieldset">
                         <section className="full-input">
                             <label>Имя</label>
-                            <InputProfile value={userName} setValue={setUserName} type="text" placeholder={info?.userName}></InputProfile>
+                            <InputProfile value={userName} setValue={setUserName} type="text" placeholder={info.userName}></InputProfile>
                         </section>
                         <section className="full-input">
                             <label>Фамилия</label>

@@ -63,8 +63,11 @@ const BlockImgEvent = () => {
             </NavLink>
         // поменять условие на ">"
         //x.date.split('.').reverse().join('') > currentDate.split('.').reverse().join('')
+        console.log('1: '+ dayjs(dateEvent).format("DD.MM.YYYY"))
+        console.log('1: '+dayjs(dateEventR).format("DD.MM.YYYY").split('.').reverse().join(''))
+        console.log('2: '+dayjs(dateEvent).format("DD.MM.YYYY").split('.').reverse().join(''))
 
-        if (dayjs(dateEventR).format("DD.MM.YYYY").split('.').reverse().join('') < dateEvent.split('.').reverse().join('')) {
+        if (dayjs(dateEventR).format("DD.MM.YYYY").split('.').reverse().join('') < dayjs(dateEvent).format("DD.MM.YYYY").split('.').reverse().join('')) {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
                 <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>

@@ -30,5 +30,27 @@ export const updateStatus =(idQuest, value) => {
             alert(error)
         }
     }
+}
+export const deletePP = (idUser) => {
+    return async dispatch => {
+        try {
+            const response = await axios.delete('https://localhost:7215/api/questionnaire/deletePotentialParticipant?userId='+`${idUser}`,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert('запрос на участие удалён')
+        } catch (error) {
+            alert(error)
+        }
+    }
+}
+export const addUser =(idEvent, idUser) => {
+    return async dispatch => {
+        try {
+            const response = await axios.post(`https://localhost:7215/api/conferences/addUser?id=${idEvent}&userId=${idUser}`,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert("Участник добавлен!")
+        } catch (error) {
+            alert(error)
+        }
+    }
 
 }

@@ -52,6 +52,7 @@ const FirstStep = ({step}) => {
     const getDateValue = (date) => {
         setStartDate(date);
     }
+    console.log(shortDescription)
 
     const handleClick = () => {
         setNameEvent()

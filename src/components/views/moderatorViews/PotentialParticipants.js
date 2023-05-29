@@ -5,6 +5,7 @@ import {Plus, X} from "react-bootstrap-icons";
 import {useDispatch, useSelector} from "react-redux";
 import {removeViewPP} from "../../../redux/reducers/eventReducer";
 import {deleteSection} from "../../../redux/actions/event";
+import {addUser} from "../../../redux/actions/questionnaire";
 
 const PotentialParticipants = ({idEvent}) => {
 
@@ -25,35 +26,24 @@ const PotentialParticipants = ({idEvent}) => {
         fetch(apiURL)
             .then(response => response.json())
             .then(result => {
-                //result.sort((a,b) => new Date(a.date).getTime()< new Date(b.date).getTime()? 1: -1);
                 setPotentialParticipants(result);
             });
     }, []);
-
     const dispatch = useDispatch()
-   // const viewPP = useSelector(state => state.event.viewPP)
-    console.log()
-
-    const handleAddClick = (id) => {
-
+    const handleAddClick = (idQuest) => {
+        //dispatch(updateStatus(idQuest,'Accepted'))
     };
     const handleRemoveClick=(index)=>{
 
         const list = [...potentialParticipants];
         if (list[index].id) {
             //dispatch(deletePP(list[index].id));
+
         }
         list.splice(index, 1);
         setPotentialParticipants(list);
     }
     let path = `/moderator/eventsListModerator/viewPotentialParticipant`
-
-    // var array = Array(potentialParticipants.length).fill(false);
-    // const [listIndex, setIndexList] = useState('')
-    // useEffect(()=>{
-    //     setIndexList(array)
-    // },[potentialParticipants])
-    // console.log(listIndex)
 
     if(potentialParticipants.length===0){
         return(
@@ -66,12 +56,6 @@ const PotentialParticipants = ({idEvent}) => {
         );
 
     }else{
-        // const handleClick = (index) => {
-        //     const list = [...listIndex];
-        //     list[index] = true;
-        //     setIndexList(list)
-        // }
-        // console.log(state.value.indexItem)
         return (
             <div>
                 <X className='icon-x2' size='33px' color='#206F6D'
@@ -80,17 +64,14 @@ const PotentialParticipants = ({idEvent}) => {
                 // onClick={ {x.userId}}
                 >
                     {potentialParticipants?.map((x, index) => <>
-                        <div className="card-potenPartic"
-                             // style={state.value.indexItem===index?{background: 'rgba(101, 101, 101, 0.2)'}:{}}
-                            // style = {true?{background: 'rgba(101, 101, 101, 0.2)'}:{}}
-                        >
+                        <div className="card-potenPartic">
                             <Plus onClick={()=>handleAddClick(x.userId)}
                                 size='33px' color='#206F6D'></Plus>
                             <NavLink className="navlink-p"
                                      to={path} state={{
                                     data: {idUser: x.userId, eventId: id, scientificDegree: x.scientificDegree, dockladTheme: x.dockladTheme, type: x.type, indexItem: index
                                     }}} style={{textDecoration: 'none'}}>
-                                <p>{x.userName}, {x.userSurname},{x.patronymic}, {x.position}</p>
+                                <p>{x.userSurname} {x.userName} {x.patronymic}, {x.position}</p>
                             </NavLink>
                             <X onClick={() =>
                                 handleRemoveClick(index)

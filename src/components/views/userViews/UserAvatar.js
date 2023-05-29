@@ -3,15 +3,17 @@ import avatarLogo from "../../../img/cat.jpg";
 import {useDispatch} from "react-redux";
 import {deleteAvatar, updateAvatar} from "../../../redux/actions/user";
 import {Camera, Pencil, XLg} from "react-bootstrap-icons";
+import {addAvatarEvent} from "../../../redux/actions/event";
 
-const UserAvatar = () => {
+const UserAvatar = ({idUser}) => {
     // const avatar = currentUser.avatar ? `${API_URL + currentUser.avatar}` : avatarLogo
     const avatar = avatarLogo
     const dispatch = useDispatch()
 
+    //https://localhost:7215/api/photos/getUserPhotoById?userId
     function changeHandler(e) {
         const file = e.target.files[0]
-        dispatch(updateAvatar(file))
+        dispatch(updateAvatar(idUser,file))
     }
 
     const [isHovering1, setIsHovering1] = useState(false);
@@ -33,10 +35,11 @@ const UserAvatar = () => {
         setIsHovering2(false);
     };
 
+
     return (
         <div>
             <div className="photo-container" >
-                <img className="photo" src={avatar} onMouseOver={handleMouseOver1}
+                <img className="photo"  onError={(e)=>e.target.src =avatar} src={`https://localhost:7215/api/photos/getUserPhotoById?userId=${idUser}`} onMouseOver={handleMouseOver1}
                      onMouseOut= {handleMouseOut1}/>
                 {isHovering1 && ( <div className="drawer-block" onMouseOver={handleMouseOver2}
                                        onMouseOut= {handleMouseOut2}>
@@ -51,7 +54,7 @@ const UserAvatar = () => {
                            type="file"/>
                     <label className="add-file-text"><Camera size="20px"
                                                              color="rgba(126, 25, 25, 0.9)"></Camera> загрузить фото</label>
-                    <label className="remove-file-text" onClick={()=>dispatch(deleteAvatar())}><XLg size="16px" color="rgba(126, 25, 25, 0.9)"
+                    <label className="remove-file-text" onClick={()=>dispatch(deleteAvatar(idUser))}><XLg size="16px" color="rgba(126, 25, 25, 0.9)"
                                                                                                     style={{
                                                                                                         marginRight: `5px`,
                                                                                                         paddingLeft: `2px`

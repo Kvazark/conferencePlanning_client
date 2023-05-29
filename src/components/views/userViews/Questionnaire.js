@@ -23,7 +23,7 @@ const Questionnaire = () => {
 
     const [theme, setTheme] = useState('')
     const [scientificDegree, setScientificDegree] = useState('')
-    const [typeEvent, setTypeEvent] = useState('')
+    const [typeEvent, setTypeEvent] = useState(eventType)
     const handleChange = (e) => {
         setTypeEvent(e.target.value);
     }
@@ -59,7 +59,7 @@ const Questionnaire = () => {
             </RadioGroup>
         </div>
     }else{
-        setTypeEvent(' ');
+        var block = <div></div>
     }
 
 

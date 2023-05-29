@@ -1,0 +1,35 @@
+#signalr-notifications{
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    z-index: 10;
+    width: 15vw;
+    height: auto;
+
+}
+#signalr-notifications div{
+    background: #F1F1F1;
+    border-width: 1px 1px 1px 3px;
+    border-style: solid;
+    border-color: rgba(126, 25, 25, 0.7);
+    border-radius: 15px;
+    backdrop-filter: blur(12.5px);
+    margin-bottom: 15px;
+
+    width: 14vw;
+    padding: 8px 30px 8px 10px;
+
+    font-family: 'Mukta Vaani', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: justify;
+}
+.status-mes{
+    color: #206F6D;
+    font-weight: 600;
+}
+.strong-mes{
+    color: rgba(126, 25, 25, 0.85);
+    font-weight: 550;
+}

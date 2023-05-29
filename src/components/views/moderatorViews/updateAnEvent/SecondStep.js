@@ -3,7 +3,9 @@ import InputCreateEvent from "../../../commonComponents/details/inputs/input_for
 import AddRemoveInputCategory
     from "../../../commonComponents/details/inputs/input_forCreateEvent/AddRemoveInputCategory";
 import {Button, Group} from "@mantine/core";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {addAvatarEvent} from "../../../../redux/actions/event";
+import {FileEarmarkImage} from "react-bootstrap-icons";
 
 const SecondStep = ({step}) => {
     const [event, setEvent] = useState({});
@@ -29,7 +31,6 @@ const SecondStep = ({step}) => {
 
 
     const [longDescription, setLongDescription] = useState(localStorage.getItem('longDescription') || '')
-    const [organizersName, setOrganizersName] = useState(localStorage.getItem('organizersName') || '')
 
     const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent') || '')
     const [cityEvent, setCityEvent] = useState(localStorage.getItem('cityEvent') || ' ')
@@ -56,18 +57,16 @@ const SecondStep = ({step}) => {
 
     const handleClick = () => {
         setLongDescription()
-        setOrganizersName()
         setCityEvent()
         setAddressEvent()
         setCategoryList()
     }
     useEffect(() => {
         localStorage.setItem('longDescription', longDescription.value)
-        localStorage.setItem('organizersName', organizersName)
         localStorage.setItem('cityEvent', cityEvent)
         localStorage.setItem('addressEvent', addressEvent)
         localStorage.setItem('categoryList', categoryList)
-    }, [longDescription, organizersName, cityEvent, addressEvent, categoryList])
+    }, [longDescription, cityEvent, addressEvent, categoryList])
 
     let fieldAddress;
     let fieldCity;
@@ -91,8 +90,11 @@ const SecondStep = ({step}) => {
                               placeholder={event.conf?.addres}></InputCreateEvent>
         </section>
     }
-
-    //console.log("TYYPE "+typeof event.conf?.categories)
+    const dispatch = useDispatch()
+    function changeHandler(e) {
+        const file = e.target.files[0]
+        dispatch(addAvatarEvent(id,file))
+    }
 
 
     return (
@@ -105,13 +107,17 @@ const SecondStep = ({step}) => {
                               value={longDescription.value} onChange={v => setLongDescription({value: v.target.value})}>
                 < /textarea>
                 </section>
-                <section className="full-inputEvent">
-                    <label>Организатор</label>
-                    <InputCreateEvent value={organizersName} setValue={setOrganizersName} type="text"
-                                      placeholder=""></InputCreateEvent>
-                </section>
                 {fieldCity}
                 {fieldAddress}
+                <section className="full-inputEvent">
+                    <label className="upload-a-img">
+                        <input accept="image/*" onChange={e => changeHandler(e)}
+                               type="file"/>
+                        <span>Загрузить обложку</span>
+                        <FileEarmarkImage size='25px' color='rgba(32, 111, 109, 0.85)' style={{paddingBottom:'5px'}}></FileEarmarkImage>
+                    </label>
+                    <div className="input-file-list"></div>
+                </section>
                 <section className="full-inputEvent">
                     <label>Категории</label>
                     <AddRemoveInputCategory dataList={event.conf?.categories}></AddRemoveInputCategory>

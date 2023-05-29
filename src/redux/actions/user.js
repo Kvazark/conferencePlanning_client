@@ -52,29 +52,25 @@ export const login = (email, password) => {
     }
 }
 
-export const updateAvatar = (file) => {
+export const updateAvatar = (id,file) => {
     return async dispatch => {
         try {
             const formData = new FormData()
-            formData.append('file', file)
-            ///поменять адрес
-            const response = await axios.post('https://localhost:7215/api/Account/login', formData,
+            formData.append('formFile', file)
+            const response = await axios.post(`https://localhost:7215/api/photos/addNewUserPhotoById?userId=${id}`, formData,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-            dispatch(setUser(response.data))
-
+            alert('фотография успешно изменена!')
         } catch (error) {
             alert(error)
         }
     }
 }
-export const deleteAvatar = () => {
+export const deleteAvatar = (id) => {
     return async dispatch => {
         try {
             ///поменять адрес
-            const response = await axios.delete('https://localhost:7215/api/Account/login',
+            const response = await axios.delete(`https://localhost:7215/api/photos/deleteUserPhotoById?userId=${id}`,
                 {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
-            dispatch(setUser(response.data))
-
         } catch (error) {
             alert(error)
         }
