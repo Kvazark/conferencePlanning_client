@@ -1,7 +1,7 @@
 .profile{
     position: absolute;
     left: 30%;
-    top: 20dvh;
+    top: 15dvh;
     height: 70dvh;
     width: 40dvw;
 }
@@ -26,7 +26,7 @@
 .info{
     position: absolute;
     width: 69%;
-    height: 70dvh;
+    height: 80dvh;
     right: 0;
     top: 0;
 
@@ -35,7 +35,7 @@
 .fieldset{
     position: relative;
     margin: 20px 25px 10px 25px;
-    height: 50dvh;
+    height: 60dvh;
 
     display: flex;
     flex-direction: column;
@@ -68,7 +68,6 @@
 .save-changeBtn{
     width: 194px;
     height: 37px;
-
 
     border: none;
     background: rgba(126, 25, 25, 0.9);

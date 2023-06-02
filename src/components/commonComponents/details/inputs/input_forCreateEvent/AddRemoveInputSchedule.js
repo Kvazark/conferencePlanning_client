@@ -82,9 +82,9 @@ function AddRemoveInputSchedule({dataList, idEvent, step}) {
             list.push(inputList[key]);
         }
     }
-    inputList.sort(function (a, b) {
-        return a.startTime.localeCompare(b.startTime);
-    });
+    // inputList.sort(function (a, b) {
+    //     return a.startTime.localeCompare(b.startTime);
+    // });
 
 
     return (

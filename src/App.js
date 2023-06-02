@@ -9,16 +9,18 @@ import ModeratorsOwnEvents from "./components/views/moderatorViews/ModeratorsOwn
 import Registration from "./components/authorization/registration/Registration";
 import Login from "./components/authorization/login/Login";
 import ListNotifications from "./components/views/userViews/ListNotifications";
-import UpdateAnEvent from "./components/views/moderatorViews/UpdateAnEvent";
+import UpdateAnEvent from "./components/views/moderatorViews/additionalParametersMenu/UpdateAnEvent";
 import RequireAuth from "./routes/RequireAuth";
 import ViewingAnEvent from "./components/views/userViews/ViewingAnEvent";
 import ViewingAnEventModerator from "./components/views/moderatorViews/ViewingAnEventModerator";
 import ViewingListOfSpeakers from "./components/commonComponents/ViewingListOfSpeakers";
 import MaterialsOfTheSpeakers from "./components/commonComponents/MaterialsOfTheSpeakers";
 import Questionnaire from "./components/views/userViews/Questionnaire";
-import PotentialParticipants from "./components/views/moderatorViews/PotentialParticipants";
-import ViewPotentialParticipantProfile from "./components/views/moderatorViews/ViewPotentialParticipantProfile";
-import ParticipantsListEdit from "./components/views/moderatorViews/ParticipantsListEdit";
+import PotentialParticipants from "./components/views/moderatorViews/additionalParametersMenu/PotentialParticipants";
+import ViewPotentialParticipantProfile from "./components/views/moderatorViews/additionalParametersMenu/ViewPotentialParticipantProfile";
+import ParticipantsListEdit from "./components/views/moderatorViews/participantsList/ParticipantsListEdit";
+import {DndProvider} from "react-dnd";
+import {HTML5Backend} from "react-dnd-html5-backend";
 
 
 function App() {
@@ -55,8 +57,9 @@ function App() {
                                element={<RequireAuth><UpdateAnEvent/></RequireAuth>}></Route>
                         <Route path="eventsListModerator/viewPotentialParticipant"
                                element={<RequireAuth><ViewPotentialParticipantProfile/></RequireAuth>}></Route>
+
                         <Route path="eventsListModerator/editParticipantsList"
-                               element={<RequireAuth><ParticipantsListEdit/></RequireAuth>}></Route>
+                               element={<DndProvider backend={HTML5Backend}><RequireAuth><ParticipantsListEdit/></RequireAuth></DndProvider>}></Route>
                         <Route path="mainPageModerator/viewingAnEvent"
                                element={<RequireAuth><ViewingAnEventModerator/></RequireAuth>}></Route>
                         <Route path="mainPageModerator/viewingAnEvent/viewingListOfSpeakers" element={<RequireAuth><ViewingListOfSpeakers/></RequireAuth>}/>

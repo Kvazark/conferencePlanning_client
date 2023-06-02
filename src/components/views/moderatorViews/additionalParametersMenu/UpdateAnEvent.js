@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import StepperEvent from "./updateAnEvent/StepperEvent";
+import StepperEvent from "../updateAnEvent/StepperEvent";
 import {useNavigate} from "react-router-dom";
 import "./updateAnEventStyle.css"
 

@@ -28,10 +28,10 @@ const Login = () => {
         <fieldset className="form-authorization2">
             <div className="headerLogin">Вход в аккаунт</div>
             <div className="group-input">
-                <Input value={email} setValue={setEmail} type="text" placeholder="Введите ваш Email..."></Input>
-                <Input value={password} setValue={setPassword} type="password" placeholder="Введите пароль..."></Input>
+                <Input id="input-log1" value={email} setValue={setEmail} type="text" placeholder="Введите ваш Email..."></Input>
+                <Input id='input-log2' value={password} setValue={setPassword} type="password" placeholder="Введите пароль..."></Input>
             </div>
-            <button className="login_btn"
+            <button className="login_btn" id = 'login-btn'
                     onClick={() => dispatch(login(email, password))}>Войти
             </button>
             <NavLink className="toRegistration" to="/registration">Нет

@@ -3,9 +3,9 @@ import {NavLink, useLocation} from "react-router-dom";
 import "./potentialParticipantsStyle.css"
 import {Plus, X} from "react-bootstrap-icons";
 import {useDispatch, useSelector} from "react-redux";
-import {removeViewPP} from "../../../redux/reducers/eventReducer";
-import {deleteSection} from "../../../redux/actions/event";
-import {addUser} from "../../../redux/actions/questionnaire";
+import {removeViewPP} from "../../../../redux/reducers/eventReducer";
+import {deleteSection} from "../../../../redux/actions/event";
+import {addUser, updateStatus} from "../../../../redux/actions/questionnaire";
 
 const PotentialParticipants = ({idEvent}) => {
 
@@ -30,15 +30,15 @@ const PotentialParticipants = ({idEvent}) => {
             });
     }, []);
     const dispatch = useDispatch()
+
     const handleAddClick = (idQuest) => {
-        //dispatch(updateStatus(idQuest,'Accepted'))
+        dispatch(updateStatus(idQuest,'Accepted'))
     };
     const handleRemoveClick=(index)=>{
 
         const list = [...potentialParticipants];
         if (list[index].id) {
             //dispatch(deletePP(list[index].id));
-
         }
         list.splice(index, 1);
         setPotentialParticipants(list);
@@ -65,7 +65,7 @@ const PotentialParticipants = ({idEvent}) => {
                 >
                     {potentialParticipants?.map((x, index) => <>
                         <div className="card-potenPartic">
-                            <Plus onClick={()=>handleAddClick(x.userId)}
+                            <Plus onClick={()=>handleAddClick(x.questId)}
                                 size='33px' color='#206F6D'></Plus>
                             <NavLink className="navlink-p"
                                      to={path} state={{

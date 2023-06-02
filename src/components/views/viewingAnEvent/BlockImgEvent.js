@@ -70,7 +70,7 @@ const BlockImgEvent = () => {
         if (dayjs(dateEventR).format("DD.MM.YYYY").split('.').reverse().join('') < dayjs(dateEvent).format("DD.MM.YYYY").split('.').reverse().join('')) {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
-                <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
+                <p className="data-event">{dayjs(dateEvent).format("DD.MM.YYYY")}</p>
                 {addressAndCity}
                 <NavLink to={path} state={{idEvent: idEvent, typeEvent: type}}>
                     <button className="btn-submit-an-application"
@@ -85,7 +85,7 @@ const BlockImgEvent = () => {
         } else {
             block = <div className="block-main-info-event-Noactive">
                 <h3 className="title-event">{event.conf?.name}</h3>
-                <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
+                <p className="data-event">{dayjs(dateEvent).format("DD.MM.YYYY")}</p>
                 {addressAndCity}
                 <p className="termination-date-end">регистрация завершилась</p>
             </div>

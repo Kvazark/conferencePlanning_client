@@ -66,6 +66,7 @@
     align-items: center;
     position: relative;
     right: -430%;
+    margin-top: 2px;
 }
 .save-change-event-button:hover{
     background-color: #206F6D;

@@ -5,8 +5,7 @@ import dayjs from "dayjs";
 import {useDispatch, useSelector} from "react-redux";
 import {addAvatarEvent, updateInfoEvent} from "../../../../redux/actions/event";
 import {Button} from "@mantine/core";
-import headCardEvent from "../../../../img/head-card-event.svg";
-import {updateAvatar} from "../../../../redux/actions/user";
+import "./fourthStepStyle.css"
 
 const FourthStep = ({step}) => {
 
@@ -48,8 +47,11 @@ const FourthStep = ({step}) => {
 
     let categories
 
-    if(JSON.stringify(categoryList)!==null) categories = []
-    else categories = categoryList
+    console.log('-=-'+categoryList)
+    if(JSON.stringify(categoryList)===null) categories = []
+    else {
+        categories=[...categoryList];
+    }
     console.log(JSON.stringify(categoryList)!==null,categories)
     const moderatorId = useSelector(state => state.user.id)
     console.log(moderatorId)
@@ -57,19 +59,17 @@ const FourthStep = ({step}) => {
     let imgUrl = `getConferencePhotoById${id}`
     return (
         <section>
-            <div>
-                <p>id: {id}</p>
-                <p>name: {nameEvent}</p>
-                <p style={{whiteSpace: "pre-wrap"}}>shortTopic: {shortDescription}</p>
-                <p>date: {startDate}</p>
-                <p>startTime: {startTime}</p>
-                <p>endTime: {endTime}</p>
-                <p>type: {typeEvent}</p>
-                <div style={{whiteSpace: "pre-wrap"}}>fullTopic: {longDescription}</div>
-                <p>city: {cityEvent}</p>
-                <p>address: {addressEvent}</p>
-                <p>categories: {categories}</p>
-                <p>mod id: {moderatorId}</p>
+            <div className='full-info'>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Название события: </strong>{nameEvent}</p>
+                <p style={{whiteSpace: "pre-wrap"}}><strong style={{color:'rgba(32, 111, 109, 1)'}}>Краткое описание: </strong>{shortDescription}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Дата: </strong>{startDate}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Начало в </strong>{startTime}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Окончание в </strong>{endTime}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Формат проведения: </strong>{typeEvent}</p>
+                <p style={{whiteSpace: "pre-wrap"}}><strong style={{color:'rgba(32, 111, 109, 1)'}}>Дополнительное описание: </strong>{longDescription}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Город: </strong>{cityEvent}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Адресс: </strong>{addressEvent}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Категории: </strong>{categories.map((x)=>x+' ')}</p>
             </div>
 
             <div className="buttons-stepper4">

@@ -1,0 +1,40 @@
+.list-speakers-block{
+    position: absolute;
+    left: 27vw;
+    top: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.card-speaker{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+
+    border-width: 1px 1px 1px 3px;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: rgba(126, 25, 25, 0.85);
+
+    padding: 10px 15px 0 0;
+}
+.card-speaker h5{
+    padding-left: 15px;
+}
+.card-speaker div{
+    font-family: 'Hind Vadodara', sans-serif;
+    font-style: normal;
+
+}
+.fio-p span{
+    font-weight: 600;
+    color: rgba(48, 48, 48, 0.9);
+}
+.format-theme-p{
+    color: rgba(48, 48, 48, 0.75);
+}
+.format-theme-p span{
+    font-weight: 600;
+    color: rgba(126, 25, 25, 0.85)
+}

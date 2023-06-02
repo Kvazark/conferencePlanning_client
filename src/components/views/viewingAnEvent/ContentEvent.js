@@ -3,6 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom";
 import headCardEvent from "../../../img/head-card-event.svg";
 import "./contentEventStyle.css"
 import {useSelector} from "react-redux";
+import {NavLink} from "react-router-dom";
 import {ArrowRight} from "react-bootstrap-icons";
 
 const ContentEvent = () => {
@@ -48,10 +49,10 @@ const ContentEvent = () => {
     const routeChangeBtn1 = () => {
         if (role == 'Moderator') {
             path = '/moderator/mainPageModerator/viewingAnEvent/viewingListOfSpeakers'
-            navigate(path);
+            navigate(path, {state: {idEvent: state.eventId}});
         } else if (role == 'User') {
             path = '/user/viewingAnEvent/viewingListOfSpeakers'
-            navigate(path);
+            navigate(path, {state: {idEvent: state.eventId}});
         }
     }
     const routeChangeBtn2 = () => {
@@ -63,15 +64,25 @@ const ContentEvent = () => {
             navigate(path);
         }
     }
-
+    // let pathM = '/moderator/mainPageModerator/viewingAnEvent/materialsSpeakers';
+    // let pathU = path = '/user/viewingAnEvent/materialsSpeakers';
     event.sections?.sort(function (a, b) {
         return a.startTime.localeCompare(b.startTime);
     });
+
     return (
         <section className="content-event">
             <article>
                 <p className="short-description-event">{event.shortTopic}</p>
                 <div className="btn-group-event">
+                    {/*<NavLink to={role==='User'? pathU: pathM} state={{idEvent: state.eventId}} style={{textDecoration: 'none'}}>*/}
+                    {/*        style={role==='User'?{background: `rgba(126, 25, 25, 0.9)`}: {background: `#206F6D`}}>*/}
+                    {/*    <div className="to-listOfSpeakers">*/}
+                    {/*        <h3>Ознакомиться со списком выступающих</h3>*/}
+                    {/*        <ArrowRight className='arrow-r-icon' size="40px" color='rgba(242, 242, 242, 0.5)'></ArrowRight>*/}
+                    {/*        <p>итоговый список будет готов через 2 дня после завершения регистрации</p>*/}
+                    {/*    </div>*/}
+                    {/*</NavLink>*/}
                     <button onClick={()=>routeChangeBtn1()}
                             style={role=='User'?{background: `rgba(126, 25, 25, 0.9)`}: {background: `#206F6D`}}>
                         <div className="to-listOfSpeakers">

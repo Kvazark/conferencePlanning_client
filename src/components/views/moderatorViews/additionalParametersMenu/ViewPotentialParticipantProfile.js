@@ -2,8 +2,8 @@ import React, {Component, useEffect, useState} from 'react';
 import {NavLink, useLocation} from "react-router-dom";
 import "./viewPotenParticProfileStyle.css"
 import {Pencil} from "react-bootstrap-icons";
-import avatarLogo from "../../../img/cat.jpg";
-import {updateStatus} from "../../../redux/actions/questionnaire";
+import avatarLogo from "../../../../img/cat.jpg";
+import {updateStatus} from "../../../../redux/actions/questionnaire";
 import {useDispatch} from "react-redux";
 import potentialParticipants from "./PotentialParticipants";
 
@@ -50,8 +50,8 @@ const ViewPotentialParticipantProfile = () => {
                     <p>{info?.userSurname} {info?.userName} {info?.patronymic}</p>
                 </div>
                 <div className="stripe-info">
-                    <span>должность</span>
-                    <p>{info?.position}</p>
+                    <span>должность и организация</span>
+                    <p>{info?.position}, {info?.organizationName}</p>
                 </div>
                 <div className="stripe-info">
                     <span>почта</span>

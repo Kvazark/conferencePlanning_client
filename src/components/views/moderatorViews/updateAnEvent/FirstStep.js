@@ -44,10 +44,12 @@ const FirstStep = ({step}) => {
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')
-    const [startDate, setStartDate] = useState(localStorage.getItem('startDateEvent') ? new Date(localStorage.getItem("startDateEvent")) : '')
+    const [startDate, setStartDate] = useState(localStorage.getItem('startDateEvent') || new Date(localStorage.getItem("startDateEvent")))
     const [startTime, setStartTime] = useState(localStorage.getItem('startTimeEvent')|| '')
     const [endTime, setEndTime] = useState(localStorage.getItem('endTimeEvent')|| '')
     const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent'))
+
+
 
     const getDateValue = (date) => {
         setStartDate(date);
@@ -76,7 +78,10 @@ const FirstStep = ({step}) => {
     //название и дата проведения
     if (localStorage.getItem('nameEvent') === ``) localStorage.setItem('nameEvent', event.conf?.name)
     else localStorage.setItem('nameEvent', nameEvent)
-    if (localStorage.getItem('startDateEvent')==='') localStorage.setItem('startDateEvent', event.conf?.date)
+    if (localStorage.getItem('startDateEvent')==='') {
+        if(event.conf?.date !== 'undefined')localStorage.setItem('startDateEvent', event.conf?.date);
+        else localStorage.setItem('startDateEvent', new Date())
+    }
     else localStorage.setItem('startDateEvent', startDate)
 
     ///краткое описание
@@ -97,6 +102,8 @@ const FirstStep = ({step}) => {
         else  localStorage.setItem('endTimeEvent', ``)
     }else localStorage.setItem('endTimeEvent', endTime);
 
+    console.log(event.conf)
+    console.log(startDate)
     useEffect(() => {
         localStorage.setItem('nameEvent', nameEvent)
         localStorage.setItem('shortDescriptionEvent', shortDescription.value)

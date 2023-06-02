@@ -103,6 +103,10 @@ const Profile = () => {
                             <InputProfile value={position} setValue={setPosition} type="text" placeholder={info.position} ></InputProfile>
                         </section>
                         <section className="full-input">
+                            <label>Название организации</label>
+                            <InputProfile value={organizationName} setValue={setOrganizationName} type="text" placeholder={info.organizationName} ></InputProfile>
+                        </section>
+                        <section className="full-input">
                             <label>Номер телефона</label>
                             <InputProfile value={phoneNumber} setValue={setPhoneNumber} type="text" placeholder={info.phoneNumber} ></InputProfile>
                         </section>

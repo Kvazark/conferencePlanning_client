@@ -138,6 +138,19 @@ export const deleteSection = (id) => {
         }
     }
 }
+export const updateListSequences = (idEvent, list) => {
+    return async dispatch => {
+        try {
+            const data = list;
+            const response = await axios.put(`https://localhost:7215/api/conferences/updateListOfParticipants?confId=${idEvent}`, data,
+                {headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}})
+            alert('Последовательность списка поменялась успешно!')
+        } catch (e) {
+            alert(e.response.data.message)
+        }
+    }
+}
+///https://localhost:7215/api/conferences/updateListOfParticipants?confId=
 
 
 //https://localhost:7215/api/section/deleteSection?secId=47f5bb75-2768-4b2a-a2f9-72573b396060

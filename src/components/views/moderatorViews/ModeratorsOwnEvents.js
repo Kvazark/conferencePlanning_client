@@ -9,7 +9,7 @@ import MWCreateEvent from "../../moderator/MWCreateEvent";
 import MWCreateEvent2 from "../../moderator/MWCreateEvent2";
 import ListEventsByModerator from "../../moderator/ListEventsByModerator";
 import {useSelector} from "react-redux";
-import PotentialParticipants from "./PotentialParticipants";
+import PotentialParticipants from "./additionalParametersMenu/PotentialParticipants";
 
 
 const ModeratorsOwnEvents = () => {
