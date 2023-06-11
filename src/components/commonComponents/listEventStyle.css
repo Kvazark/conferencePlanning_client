@@ -13,6 +13,7 @@
     top: 10%;
 }
 .filter-archive-btn{
+    position: relative;
     width: auto;
     height: 40px;
 

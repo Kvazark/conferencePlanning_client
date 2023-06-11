@@ -1,13 +1,14 @@
 import React, {Component, useContext, useEffect, useState} from 'react';
 import styles from "./firstStepStyle.css"
-import InputCreateEvent from "../../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
+import InputCreateEvent from "./input_forCreateEvent/InputCreateEvent";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {Calendar2Week, Clock} from "react-bootstrap-icons";
-import InputTime from "../../../commonComponents/details/inputs/input_forCreateEvent/InputTime";
+import InputTime from "./input_forCreateEvent/InputTime";
 import {useSelector} from "react-redux";
 import {Button, Group} from "@mantine/core";
-import RadioButtons from "../../../commonComponents/details/inputs/input_forCreateEvent/RadioButtons";
+import RadioButtons from "./input_forCreateEvent/RadioButtons";
+import dayjs from "dayjs";
 
 const FirstStep = ({step}) => {
     const [event, setEvent] = useState({});
@@ -41,20 +42,22 @@ const FirstStep = ({step}) => {
     if (event.conf?.endTime !== 'undefined' && event.conf?.endTime !== null) {
         etime = event.conf?.endTime.substring(0, 5)
     }else etime='00:00'
+    console.log(event.conf?.date)
 
     const [nameEvent, setNameEvent] = useState(localStorage.getItem('nameEvent') || '')
     const [shortDescription, setShortDescription] = useState(localStorage.getItem('shortDescriptionEvent') || '')
-    const [startDate, setStartDate] = useState(localStorage.getItem('startDateEvent') || new Date(localStorage.getItem("startDateEvent")))
+    //const [startDate, setStartDate] = useState(localStorage.getItem('startDateEvent') || new Date(localStorage.getItem("startDateEvent")))
     const [startTime, setStartTime] = useState(localStorage.getItem('startTimeEvent')|| '')
     const [endTime, setEndTime] = useState(localStorage.getItem('endTimeEvent')|| '')
     const [typeEvent, setTypeEvent] = useState(localStorage.getItem('typeEvent'))
 
+    const [startDate, setStartDate] = useState(localStorage.getItem("startDateEvent") ? new Date(localStorage.getItem("startDateEvent")) : "");
 
 
     const getDateValue = (date) => {
         setStartDate(date);
     }
-    console.log(shortDescription)
+    //console.log(shortDescription)
 
     const handleClick = () => {
         setNameEvent()
@@ -75,6 +78,7 @@ const FirstStep = ({step}) => {
     } else shortDescriptionDefault = event.conf?.shortTopic
 
 
+    //console.log(new Date(Date.fromString(event.conf?.date, {order: 'DMY'})))
     //название и дата проведения
     if (localStorage.getItem('nameEvent') === ``) localStorage.setItem('nameEvent', event.conf?.name)
     else localStorage.setItem('nameEvent', nameEvent)

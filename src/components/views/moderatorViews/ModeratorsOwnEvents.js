@@ -1,9 +1,9 @@
 import React, {Component, useEffect, useState} from 'react';
 import LeftMenu from "../../moderator/LeftMenu";
 import style from "./eventListStyle.css"
-import {HouseDoor, Plus} from "react-bootstrap-icons";
+import {HouseDoor, Plus, Search} from "react-bootstrap-icons";
 import {useNavigate} from "react-router-dom";
-import InputCreateEvent from "../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
+import InputCreateEvent from "./updateAnEvent/input_forCreateEvent/InputCreateEvent";
 import ModalWindow from "../../commonComponents/ModalWindow";
 import MWCreateEvent from "../../moderator/MWCreateEvent";
 import MWCreateEvent2 from "../../moderator/MWCreateEvent2";
@@ -68,6 +68,7 @@ const ModeratorsOwnEvents = () => {
         <main style={{overflowX: `hidden`}}>
             <LeftMenu/>
             <div className="topPanel">
+                <Search size='18px' color='#206F6D' style={{position:'absolute',zIndex:'1',top:'5vh', left:'8.8vw'}}></Search>
                 <input className="search-input-byName" style={{position: `relative`, left: `10%`, top: `33px`}}
                        type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."/>
                 <button className="create-new-event-Btn" onClick={()=>{setModalActive(true);localStorage.clear()}}><Plus size={30}/>создать событие

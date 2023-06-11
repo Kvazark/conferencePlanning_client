@@ -1,10 +1,10 @@
 import React, {Component, useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
-import InputCreateEvent from "../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
+import InputCreateEvent from "../views/moderatorViews/updateAnEvent/input_forCreateEvent/InputCreateEvent";
 import "./mwCreateEventStyle.css"
 import {Calendar2Week} from "react-bootstrap-icons";
 import DatePicker from "react-datepicker";
-import RadioButtons from "../commonComponents/details/inputs/input_forCreateEvent/RadioButtons";
+import RadioButtons from "../views/moderatorViews/updateAnEvent/input_forCreateEvent/RadioButtons";
 import dayjs from "dayjs";
 import {addNewEvent} from "../../redux/actions/event";
 import {useDispatch, useSelector} from "react-redux";

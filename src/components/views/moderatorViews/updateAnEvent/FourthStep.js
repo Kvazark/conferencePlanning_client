@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addAvatarEvent, updateInfoEvent} from "../../../../redux/actions/event";
 import {Button} from "@mantine/core";
 import "./fourthStepStyle.css"
+import {isArray} from "util";
 
 const FourthStep = ({step}) => {
 
@@ -47,14 +48,18 @@ const FourthStep = ({step}) => {
 
     let categories
 
-    console.log('-=-'+categoryList)
-    if(JSON.stringify(categoryList)===null) categories = []
-    else {
-        categories=[...categoryList];
+    if(Object.values(categoryList).toString()==='[object Object]'){
+        categories = []
+    }else{
+        if(JSON.stringify(categoryList)===null) {
+            categories = []
+        }
+        else {
+            categories = Object.values(categoryList)
+        }
     }
-    console.log(JSON.stringify(categoryList)!==null,categories)
+
     const moderatorId = useSelector(state => state.user.id)
-    console.log(moderatorId)
 
     let imgUrl = `getConferencePhotoById${id}`
     return (
@@ -69,7 +74,7 @@ const FourthStep = ({step}) => {
                 <p style={{whiteSpace: "pre-wrap"}}><strong style={{color:'rgba(32, 111, 109, 1)'}}>Дополнительное описание: </strong>{longDescription}</p>
                 <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Город: </strong>{cityEvent}</p>
                 <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Адресс: </strong>{addressEvent}</p>
-                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Категории: </strong>{categories.map((x)=>x+' ')}</p>
+                <p><strong style={{color:'rgba(32, 111, 109, 1)'}}>Категории: </strong>{categories.map((x)=>x!='[object Object]'? x: '')}</p>
             </div>
 
             <div className="buttons-stepper4">

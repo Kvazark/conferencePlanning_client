@@ -1,7 +1,7 @@
 import React, {Component, useEffect, useState} from 'react';
 import LeftMenu from "../../moderator/LeftMenu";
 import {NavLink} from "react-router-dom";
-import {ClockHistory, PinMap} from "react-bootstrap-icons";
+import {ClockHistory, PinMap, Search} from "react-bootstrap-icons";
 import dayjs from "dayjs";
 import headCardEvent from "../../../img/head-card-event.svg";
 import ListEvent from "../../commonComponents/ListEvent";
@@ -39,8 +39,10 @@ const HomePageModerator = () => {
         <main>
             <LeftMenu />
             <div className="list-events-div" style={{left:'22%'}}>
+                <Search size='18px' color='#206F6D' style={{position:'absolute',zIndex:'1',top:'10.4vh'}}></Search>
                 <input className="search-input-byName" style={{position: `relative`, left: `0`, top: `77px`}}
-                       type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."/>
+                       type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."
+                 />
                 <ListEvent filteredEvents={filteredEvents}></ListEvent>
             </div>
         </main>

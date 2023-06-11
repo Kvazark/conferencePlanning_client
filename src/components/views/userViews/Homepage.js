@@ -1,7 +1,7 @@
 import TopMenu from "../../user/TopMenu";
 import React, {useContext, useEffect, useState} from "react";
 import ListEvent from "../../commonComponents/ListEvent";
-import {CheckCircle} from "react-bootstrap-icons";
+import {CheckCircle, Search} from "react-bootstrap-icons";
 
 const Homepage = () => {
 
@@ -29,6 +29,7 @@ const Homepage = () => {
                 {/*<CheckCircle size='30px' color='rgba(126, 25, 25, 0.9)'></CheckCircle>*/}
             </div>
             <section style={{marginTop:'-25px'}}>
+                <Search size='18px' color='rgba(126, 25, 25, 0.9)' style={{position:'absolute',zIndex:'1',top:'13.4vh', left:'12vw'}}></Search>
                 <input className="search-input-byName-pageUser" type="text" onChange={(e) => setSearchInput(e.target.value)} value={searchInput} placeholder="Искать по названию..."/>
                 <ListEvent filteredEvents={filteredEvents}></ListEvent>
             </section>

@@ -1,5 +1,5 @@
 import React, {Component, useEffect, useState} from 'react';
-import AddRemoveInputSchedule from "../../../commonComponents/details/inputs/input_forCreateEvent/AddRemoveInputSchedule";
+import AddRemoveInputSchedule from "./input_forCreateEvent/AddRemoveInputSchedule";
 import "./thirdStepStyle.css"
 import {Button} from "@mantine/core";
 import {addNewSchedule, updateInfoEvent} from "../../../../redux/actions/event";

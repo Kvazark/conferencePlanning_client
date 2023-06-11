@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import InputCreateEvent from "./details/inputs/input_forCreateEvent/InputCreateEvent";
+import InputCreateEvent from "../views/moderatorViews/updateAnEvent/input_forCreateEvent/InputCreateEvent";
 import "./modalWindowStyle.css"
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";

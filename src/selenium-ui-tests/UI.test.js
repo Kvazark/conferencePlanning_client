@@ -1,7 +1,4 @@
 import { Builder,Capabilities, until, By } from 'selenium-webdriver';
-import * as assert from "assert";
-import {wait} from "@testing-library/user-event/dist/utils";
-import {useSelector} from "react-redux";
 
 describe('UI Test Login', () => {
     let driver;

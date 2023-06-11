@@ -1,7 +1,7 @@
 import React, {Component, useContext, useEffect, useState} from 'react';
-import InputCreateEvent from "../../../commonComponents/details/inputs/input_forCreateEvent/InputCreateEvent";
+import InputCreateEvent from "./input_forCreateEvent/InputCreateEvent";
 import AddRemoveInputCategory
-    from "../../../commonComponents/details/inputs/input_forCreateEvent/AddRemoveInputCategory";
+    from "./input_forCreateEvent/AddRemoveInputCategory";
 import {Button, Group} from "@mantine/core";
 import {useDispatch, useSelector} from "react-redux";
 import {addAvatarEvent} from "../../../../redux/actions/event";

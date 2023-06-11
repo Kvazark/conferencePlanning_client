@@ -17,8 +17,6 @@
 .avatarEventMod{
     width: 39vw;
     height: 20vh;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 .img-avatar-event{
     z-index: -1;

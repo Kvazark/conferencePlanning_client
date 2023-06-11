@@ -28,9 +28,23 @@ const BlockImgEvent = () => {
 
 
 
-    let dateEvent = dayjs(event.conf?.date).format("DD.MM.YYYY")
+    console.log(event.conf?.date)
+    let dateEvent;
+    if(event.conf?.date != 'undefined'){
+        let date = (event.conf?.date)?.replace(/[./]/g, "-")
+        date = date?.split('-').reverse().join('-');
+        dateEvent = new Date(date)
+        console.log(dateEvent)
+    }
+
+
+    // let dateEvent = dayjs(event.conf?.date).format("DD.MM.YYYY")
+    // console.log(dateEvent)
     const dateEventR = new Date();
-    dateEventR.setDate(dateEventR.getDate() + 5);
+    dateEventR.setDate(dateEventR.getDate() + 5)
+    // console.log(dateEventR, dateEvent.valueOf(), dateEventR.valueOf())
+    // dateEventR.setDate(dateEventR.getDate() + 5);
+    // console.log(dateEventR.getDate() + 5)
 
     let block
     let btnBack
@@ -70,7 +84,7 @@ const BlockImgEvent = () => {
         if (dayjs(dateEventR).format("DD.MM.YYYY").split('.').reverse().join('') < dayjs(dateEvent).format("DD.MM.YYYY").split('.').reverse().join('')) {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
-                <p className="data-event">{dayjs(dateEvent).format("DD.MM.YYYY")}</p>
+                <p className="data-event">{event.conf?.date}</p>
                 {addressAndCity}
                 <NavLink to={path} state={{idEvent: idEvent, typeEvent: type}}>
                     <button className="btn-submit-an-application"
