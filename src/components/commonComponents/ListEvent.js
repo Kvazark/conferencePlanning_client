@@ -47,7 +47,7 @@ const ListEvent = ({filteredEvents}) => {
     const [showArchive, setShowArchive] = useState(false)
     useEffect(() => {
         if (showArchive) {
-            setShowListEvents(Array.from(archiveEvents));
+            setShowListEvents(Array.from(archiveEvents.reverse()));
         } else setShowListEvents(Array.from(actualEvents));
     }, [showArchive, sortedEvents])
 

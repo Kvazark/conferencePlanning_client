@@ -114,13 +114,13 @@ const BlockImgEvent = () => {
         if (dayjs(dateEventR).format("DD.MM.YYYY") < dateEvent) {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
-                <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
+                <p className="data-event">{event.conf?.date}</p>
                 {addressAndCity}
             </div>
         } else {
             block = <div className="block-main-info-event-active">
                 <h3 className="title-event">{event.conf?.name}</h3>
-                <p className="data-event">{dayjs(event.conf?.date).format("DD.MM.YYYY")}</p>
+                <p className="data-event">{event.conf?.date}</p>
                 {addressAndCity}
 
             </div>
